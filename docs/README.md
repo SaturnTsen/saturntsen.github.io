@@ -4,18 +4,21 @@ externalLinkIcon: false
 config:
   -
     type: profile
+    name: Yiming CHEN
+    description: |
+      Fourth-year Bachelor Student at Shanghai Jiao Tong University, second year of dual degree at École Polytechnique.
+      Email - Github
+    avatar: /images/personal.png
   -
     type: custom
 ---
 
 ## About
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt ac eros sed ullamcorper. Pellentesque sodales est et turpis suscipit, sed tristique purus dapibus. Donec ac arcu fermentum, consequat nunc sed, maximus nisi. Nunc lobortis orci ut augue imperdiet accumsan. Nam eu urna ante. Praesent purus arcu, molestie tincidunt sapien non, mollis posuere massa. Proin molestie mattis quam a vulputate. Maecenas vitae ligula vel neque egestas condimentum. Fusce sit amet vestibulum ligula.
+Hello there! I'm Yiming CHEN, currently pursuing a dual degree at École Polytechnique, with a focus on Statistics and Random Phenomena Modeling. My current research revolves around computer vision and Diffusion Models with Point Control. 
 
-Nullam ex tellus, iaculis at tristique eu, lobortis ornare est. Vivamus ac nisi vel leo suscipit aliquam. Sed gravida dui id augue semper, in molestie sapien gravida. Praesent ullamcorper egestas nulla, ac dapibus velit varius eget. Sed condimentum, ligula nec accumsan rhoncus, neque dolor viverra nulla, id ornare ex ex sed felis. Aenean euismod faucibus consequat. Vestibulum a elit lacus.
+Beyond research, I’m drawn to activities that connect me with both creativity and nature, such as horseback riding, gardening, and music. To me, life is a delicate interplay between the logical precision of science and the intuitive beauty of art.
 
-Aliquam mattis nibh a pulvinar efficitur. Nam tempor, erat pulvinar congue lobortis, nulla turpis cursus lectus, ut dapibus enim felis a tellus. Suspendisse molestie sed turpis ornare tempor. Integer gravida libero nibh, et rhoncus metus venenatis at. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin arcu lacus, semper ac arcu id, elementum aliquet metus. Nullam dignissim eleifend enim, non facilisis quam maximus quis. Vestibulum posuere tortor tortor, id tempus urna sodales et. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin dictum ornare venenatis. Aliquam a odio faucibus, egestas risus eu, euismod augue.
+Right now, I’m fully immersed in my project in [SJTU-Mediabrain](https://mediabrain.sjtu.edu.cn/), aiming to contribute a small but meaningful piece to the broader academic puzzle. At the same time, I’m actively looking for summer internship opportunities to bridge the gap between research and real-world applications.
 
-Pellentesque cursus blandit cursus. Curabitur scelerisque condimentum metus eu vulputate. Aliquam consequat risus tortor, ac mollis velit tristique non. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In a porttitor arcu, sed aliquet mauris. Integer id nisi pulvinar, rhoncus velit quis, cursus erat. Nunc rutrum nulla in nisl ultricies consectetur. Vivamus luctus nunc in urna luctus auctor.
-
-Maecenas sit amet vulputate quam. Vestibulum neque justo, blandit a nunc non, ultrices hendrerit magna. Integer consectetur posuere leo vel tincidunt. Curabitur eget sollicitudin nulla. Phasellus non tortor eleifend, rhoncus mauris nec, mattis libero. Nunc et vulputate magna, in interdum risus. Praesent quis turpis vestibulum, tincidunt nunc in, lobortis ipsum. Proin id erat sem. Pellentesque in sem eget justo vulputate dignissim sit amet sit amet lorem. Vivamus commodo quam felis. Mauris nec interdum neque, egestas tristique metus. Praesent volutpat ornare magna at eleifend. Vivamus sed pretium odio, id mattis orci.
+If you’re passionate about computer vision, Diffusion Models, or the future of AI, I’d love to connect and exchange ideas. Let’s explore the endless possibilities this field has to offer!
