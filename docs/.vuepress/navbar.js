@@ -9,7 +9,6 @@ export const navbar = defineNavbarConfig([
     text: 'Notes',
     items: [
       { text: 'Computer Vision', link: '/notes/computer-vision/README.md' },
-      { text: 'Machine Learning', link: '/notes/machine-learning/README.md' },
       { text: 'LeetCode', link: '/notes/leetcode/README.md' }
     ]
   },

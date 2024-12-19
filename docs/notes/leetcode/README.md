@@ -1,6 +1,9 @@
 ---
-title: leetcode
+title: LeetCode
 createTime: 2024/12/19 13:23:10
-permalink: /leetcode/
+permalink: /notes/leetcode/
 ---
+
 # LeetCode
+
+This is a collection of solved LeetCode problems.

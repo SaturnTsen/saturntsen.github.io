@@ -13,7 +13,7 @@ export default defineThemeConfig({
   profile: {
     avatar: 'https://theme-plume.vuejs.press/plume.png',
     name: 'Yiming CHEN',
-    description: 'Yiming CHEN&#x27;s personal page.',
+    description: 'Yiming CHEN\'s personal page.',
     // circle: true,
     // location: '',
     // organization: '',
@@ -22,7 +22,7 @@ export default defineThemeConfig({
   navbar,
   notes,
   social: [
-    { icon: 'github', link: '/' },
+    { icon: 'github', link: 'https://github.com/SaturnTsen/saturntsen.github.io' },
   ],
 
 })
