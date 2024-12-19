@@ -6,7 +6,7 @@ export default defineUserConfig({
   base: '/',
   lang: 'en-US',
   title: 'Yiming CHEN',
-  description: 'Yiming CHEN&#x27;s personal page.',
+  description: 'Yiming CHEN\'s personal page.',
 
   bundler: viteBundler(),
 
