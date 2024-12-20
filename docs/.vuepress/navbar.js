@@ -4,6 +4,7 @@ export const navbar = defineNavbarConfig([
   { text: 'Home', link: '/' },
   { text: 'Blog', link: '/blog/' },
   { text: 'Tags', link: '/blog/tags/' },
+  { text: 'Categories', link: '/blog/categories/' },
   { text: 'Archives', link: '/blog/archives/' },
   {
     text: 'Notes',
