@@ -7,16 +7,22 @@ export default defineUserConfig({
   lang: 'en-US',
   title: 'Yiming CHEN',
   description: 'Yiming CHEN\'s personal page.',
+  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
 
+  // Dev config
+  host:'localhost',
+  port: '8086',
+
+  // Bundler
   bundler: viteBundler(),
 
+  // Theme
   theme: plumeTheme({
-    // 添加您的部署域名
+    // Host to deploy
     hostname: 'https://saturntsen.github.io',
     // your git repo url
-    docsRepo: '',
+    docsRepo: 'https://github.com/SaturnTsen/saturntsen.github.io',
     docsDir: 'docs',
-
     plugins: {
       /**
        * Shiki 代码高亮
@@ -24,7 +30,7 @@ export default defineUserConfig({
        */
       shiki: {
         //  预设代码块高亮语言，减少不必要的时间开销
-        languages: ['shell', 'bash', 'typescript', 'javascript'],
+        languages: ['shell', 'bash', 'typescript', 'javascript', 'css', 'html', 'markdown'],
       },
 
       /**

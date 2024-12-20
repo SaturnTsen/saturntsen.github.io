@@ -4,7 +4,7 @@ externalLinkIcon: false
 config:
   -
     type: custom-home
-    name: Yiming CHEN
+    name: Yiming CHEN - 陈亿铭
     description: |
       Fourth-year bachelor Student at Shanghai Jiao Tong University, second year of dual degree at École Polytechnique.
     avatar: /avatars/personal.png
@@ -15,12 +15,12 @@ config:
     type: custom-home-about
 ---
 
----
+
 <h2 style="margin-top:0;"> About </h2>
 
 Hi there! I’m Yiming Chen, currently pursuing a dual degree at École Polytechnique, specializing in statistics and random phenomena modeling. My research focuses on computer vision and Diffusion Models with Point Control.
 
-I’m also involved in studying the consistency of video diffusion models at [SJTU-Mediabrain](https://mediabrain.sjtu.edu.cn/). If you're passionate about computer vision, Diffusion Models, or the future of AI, I’d love to connect and exchange ideas.
+I’m currently involved in studying the consistency of video diffusion models at Mediabrain Laboratory affiliated with Shanghai Jiao Tong University Cooperative Media Innovation Center (https://cmic.sjtu.edu.cn/CN/Default.aspx). If you're passionate about computer vision, Diffusion Models, or the future of AI, I’d love to connect and exchange ideas.
 
 <h2> Publications </h2>
 

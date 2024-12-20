@@ -6,7 +6,7 @@ import { notes } from './notes'
  * @see https://theme-plume.vuejs.press/config/basic/
  */
 export default defineThemeConfig({
-  logo: 'https://theme-plume.vuejs.press/plume.png',
+  logo: '/avatars/avatar.png',
 
   appearance: true,
   profile: {
