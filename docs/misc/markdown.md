@@ -4,7 +4,7 @@ tags:
   - misc
   - markdown
 createTime: 2024/12/19 13:12:16
-permalink: /misc/markdown-demo
+permalink: /misc/markdown-demo/
 ---
 
 ## Heading 2
