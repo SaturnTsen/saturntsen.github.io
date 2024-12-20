@@ -5,7 +5,7 @@ import { plumeTheme } from 'vuepress-theme-plume'
 export default defineUserConfig({
   base: '/',
   lang: 'en-US',
-  title: 'Yiming CHEN',
+  title: 'Yiming CHEN - 陈亿铭',
   description: 'Yiming CHEN\'s personal page.',
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
 

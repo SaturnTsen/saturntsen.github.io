@@ -16,7 +16,7 @@ config:
 ---
 
 
-<h2 style="margin-top:0;"> About </h2>
+<h2 style="margin-top:0; border-top: 1px solid var(--vp-c-border);"> About </h2>
 
 Hi there! I’m Yiming Chen, currently pursuing a dual degree at École Polytechnique, specializing in statistics and random phenomena modeling. My research focuses on computer vision and Diffusion Models with Point Control.
 
