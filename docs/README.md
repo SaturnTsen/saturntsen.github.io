@@ -7,7 +7,7 @@ config:
     name: Yiming CHEN
     description: |
       Fourth-year bachelor Student at Shanghai Jiao Tong University, second year of dual degree at École Polytechnique.
-    avatar: /images/personal.png
+    avatar: /avatars/personal.png
     email: yiming.chen@polytechnique.edu
     github: https://github.com/saturntsen
     googlescholar: https://scholar.google.com/

@@ -14,7 +14,7 @@ const props = defineProps<PlumeHomeConfigBase & {
   github?: string
 }>()
 
-const profile = computed(() => {
+const myprofile = computed(() => {
   return {
     name: props.name,
     description: props.description,
@@ -37,26 +37,26 @@ const profile = computed(() => {
     :full="full"
   >
     <div class="profile-container">
-      <VPImage v-if="profile.avatar" :image="profile.avatar" :class="{ circle: profile.circle }" style="width: 128px;" />
+      <VPImage v-if="myprofile.avatar" :image="myprofile.avatar" :class="{ circle: myprofile.circle }" style="width: 128px;" />
       <div style="margin-left: 12px;">
-      <h3 v-if="profile.name" v-html="profile.name" />
-      <p v-if="profile.description" v-html="profile.description" />
-      <p v-if="profile.email || profile.github || profile.googlescholar || profile.phone" class="email-link">
-        <span v-if="profile.email" class="contact-item">
+      <h3 v-if="myprofile.name" v-html="myprofile.name" />
+      <p v-if="myprofile.description" v-html="myprofile.description" />
+      <p v-if="myprofile.email || myprofile.github || myprofile.googlescholar || myprofile.phone" class="email-link">
+        <span v-if="myprofile.email" class="contact-item">
           <Icon name="ic:baseline-email" size="2em" />
-          <a :href="'mailto:' + profile.email" v-text="'Email'" />
+          <a :href="'mailto:' + myprofile.email" v-text="'Email'" />
         </span>
-        <span v-if="profile.github" class="contact-item">
+        <span v-if="myprofile.github" class="contact-item">
           <Icon name="mdi:github" size="2em" />
-          <a :href="profile.github" v-text="'Github'" />
+          <a :href="myprofile.github" v-text="'Github'" />
         </span>
-        <span v-if="profile.googlescholar" class="contact-item">
+        <span v-if="myprofile.googlescholar" class="contact-item">
           <Icon name="ic:baseline-school" size="2em" />
-          <a :href="profile.googlescholar" v-text="'Scholar'" />
+          <a :href="myprofile.googlescholar" v-text="'Scholar'" />
         </span>
-        <span v-if="profile.phone" class="contact-item">
+        <span v-if="myprofile.phone" class="contact-item">
           <Icon name="ic:baseline-phone" size="2em" />
-          <a :href="'tel:' + profile.phone" v-text="'Phone'" />
+          <a :href="'tel:' + myprofile.phone" v-text="'Phone'" />
         </span>
       </p>
       </div>
