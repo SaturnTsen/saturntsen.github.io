@@ -179,3 +179,183 @@ As the number of (input) dimensions increases, the volume of the space increases
 - KNN very is slow at runtime.
 - Distance metrics on pixels are not informative, e.g. predicting a human's face based on the surrounding pixels.
 - Surprisingly, KNN works well with extracted convolutional features!
+
+## Assignment 1
+
+Some notes:
+
+### Access a single row or colums of a tensor
+
+There are two common ways to access a single row or column of a tensor: using an integer will reduce the rank by one, and using a length-one slice will keep the same rank. Note that this is different behavior from MATLAB.
+
+### Slicing a tensor
+
+Slicing a tensor returns a **view** into the same data, so modifying it will also modify the original tensor. To avoid this, you can use the `clone()` method to make a copy of a tensor.
+
+When you index into torch tensor using slicing, the resulting tensor view will always be a subarray of the original tensor. This is powerful, but can be restrictive.
+
+### Indexing with an integer array or a tensor
+
+We can also use **index arrays** to index tensors; this lets us construct new tensors with a lot more flexibility than using slices.
+
+As an example, we can use index arrays to reorder the rows or columns of a tensor:
+
+::: code-tabs
+@tab Code
+```python
+# Credit: UMich EECS 498.007
+
+# Create the following rank 2 tensor with shape (3, 4)
+# [[ 1  2  3  4]
+#  [ 5  6  7  8]
+#  [ 9 10 11 12]]
+a = torch.tensor([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+print('Original tensor:')
+print(a)
+
+# Create a new tensor of shape (5, 4) by reordering rows from a:
+# - First two rows same as the first row of a
+# - Third row is the same as the last row of a
+# - Fourth and fifth rows are the same as the second row from a
+idx = [0, 0, 2, 1, 1]  # index arrays can be Python lists of integers
+print('\nReordered rows:')
+print(a[idx])
+
+# Create a new tensor of shape (3, 4) by reversing the columns from a
+idx = torch.tensor([3, 2, 1, 0])  # Index arrays can be int64 torch tensors
+print('\nReordered columns:')
+print(a[:, idx])
+```
+
+@tab Output
+```text
+Original tensor:
+tensor([[ 1,  2,  3,  4],
+        [ 5,  6,  7,  8],
+        [ 9, 10, 11, 12]])
+
+Reordered rows:
+tensor([[ 1,  2,  3,  4],
+        [ 1,  2,  3,  4],
+        [ 9, 10, 11, 12],
+        [ 5,  6,  7,  8],
+        [ 5,  6,  7,  8]])
+tensor([[ 1,  2,  3,  4],
+        [ 1,  2,  3,  4],
+        [ 9, 10, 11, 12],
+        [ 5,  6,  7,  8],
+        [ 5,  6,  7,  8]])
+
+Reordered columns:
+tensor([[ 4,  3,  2,  1],
+        [ 8,  7,  6,  5],
+        [12, 11, 10,  9]])
+```
+:::
+
+More generally, given index arrays `idx0` and `idx1` with `N` elements each, `a[idx0, idx1]` is equivalent to:
+
+```python
+# Credit: UMich EECS 498.007
+
+torch.tensor([
+  a[idx0[0], idx1[0]],
+  a[idx0[1], idx1[1]],
+  ...,
+  a[idx0[N - 1], idx1[N - 1]]
+])
+```
+
+(A similar pattern extends to tensors with more than two dimensions)
+
+::: code-tabs
+@tab Code
+```python
+# Credit: UMich EECS 498.007
+
+We can for example use this to get or set the diagonal of a tensor:
+
+a = torch.tensor([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print('Original tensor:')
+print(a)
+
+idx = [0, 1, 2]
+print('\nGet the diagonal:')
+print(a[idx, idx])
+
+# Modify the diagonal
+a[idx, idx] = torch.tensor([11, 22, 33])
+print('\nAfter setting the diagonal:')
+print(a)
+```
+@tab Output
+```text
+Original tensor:
+tensor([[1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]])
+
+Get the diagonal:
+tensor([1, 5, 9])
+
+After setting the diagonal:
+tensor([[11,  2,  3],
+        [ 4, 22,  6],
+        [ 7,  8, 33]])
+```
+:::
+
+Select one element from each row or column of a tensor:
+::: code-tabs
+@tab Code
+```python
+# Create a new tensor from which we will select elements
+a = torch.tensor([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]])
+print('Original tensor:')
+print(a)
+
+# Take on element from each row of a:
+# from row 0, take element 1;
+# from row 1, take element 2;
+# from row 2, take element 1;
+# from row 3, take element 0
+idx0 = torch.arange(a.shape[0])  # Quick way to build [0, 1, 2, 3]
+idx1 = torch.tensor([1, 2, 1, 0])
+print('\nSelect one element from each row:')
+print(a[idx0, idx1])
+
+# Now set each of those elements to zero
+a[idx0, idx1] = 0
+print('\nAfter modifying one element from each row:')
+print(a)
+```
+@tab Output
+```text
+Original tensor:
+tensor([[ 1,  2,  3],
+        [ 4,  5,  6],
+        [ 7,  8,  9],
+        [10, 11, 12]])
+
+Select one element from each row:
+tensor([ 2,  6,  8, 10])
+
+After modifying one element from each row:
+tensor([[ 1,  0,  3],
+        [ 4,  5,  0],
+        [ 7,  0,  9],
+        [ 0, 11, 12]])
+```
+:::
+
+### Boolean masking of tensors
+
+The shape of the boolean mask should be the same as the original tensor, or should be broadcastable to the same shape. The result will be a 1D tensor containing all the elements of the original tensor for which the corresponding element of the mask is `True`. This is commnly used so I will not detail it here.
+
+### Contiguous ?
+
+Some combinations of reshaping operations will fail with cryptic errors. The exact reasons for this have to do with the way that tensors and views of tensors are implemented, and are beyond the scope of this assignment. However if you're curious, [this blog post by Edward Yang](http://blog.ezyang.com/2019/05/pytorch-internals/) gives a clear explanation of the problem.
+
+[pytorch-internals](http://blog.ezyang.com/2019/05/pytorch-internals/) is a good blog to understand the operation `contiguous()`, `view()` and `reshape()`.
+
+### 
