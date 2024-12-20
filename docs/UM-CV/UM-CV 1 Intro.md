@@ -1,5 +1,5 @@
 ---
-title: UM-CV Course 1 Intro
+title: UM-CV 1 Intro
 createTime: 2024/12/19 14:30:31
 permalink: /computer-vision/UMichigan-CV/um-cv-course-1-intro/
 ---
