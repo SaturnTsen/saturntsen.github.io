@@ -1,6 +1,6 @@
 ---
 title: Linux 系统级常用指令
-createTime: 2024/12/21 18:08:35
+createTime: 2023/10/03 12:09:35
 permalink: /utils/Linux-Commands-System-Level/
 ---
 

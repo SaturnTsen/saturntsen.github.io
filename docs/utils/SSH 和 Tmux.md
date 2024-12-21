@@ -1,5 +1,7 @@
 ---
 title: SSH 和 Tmux
+tags:
+  - utils
 createTime: 2024/01/11 16:19:20
 permalink: /utils/ssh-and-tmux/
 ---

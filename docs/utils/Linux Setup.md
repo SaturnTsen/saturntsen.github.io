@@ -1,5 +1,7 @@
 ---
 title: Linux Setup
+tags:
+   - utils
 createTime: 2024/02/04 13:47:40
 permalink: /utils/Linux-Setup/
 ---

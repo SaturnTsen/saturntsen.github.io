@@ -1,6 +1,8 @@
 ---
-title: Vim和Git
-createTime: 2024/12/21 18:38:03
+title: Vim 和 Git
+tags:
+  - utils
+createTime: 2023/10/03 12:13:03
 permalink: /utils/Vim-and-Git/
 ---
 

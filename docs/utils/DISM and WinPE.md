@@ -1,5 +1,7 @@
 ---
 title: DISM 和 WinPE
+tags:
+  - utils
 createTime: 2024/01/11 16:36:01
 permalink: /utils/DISM-and-WinPE/
 ---

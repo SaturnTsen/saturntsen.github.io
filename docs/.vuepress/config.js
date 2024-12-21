@@ -30,7 +30,7 @@ export default defineUserConfig({
        */
       shiki: {
         //  预设代码块高亮语言，减少不必要的时间开销
-        languages: ['shell', 'bash', 'typescript', 'javascript', 'css', 'html', 'python', 'markdown'],
+        languages: ['shell', 'bash', 'typescript', 'javascript', 'css', 'html', 'python', 'markdown', 'powershell', 'cmd'],
       },
 
       /**

@@ -1,5 +1,8 @@
 ---
 title: UM-CV 1 Intro
+tags:
+  - computer vision
+  - notes
 createTime: 2024/12/19 14:30:31
 permalink: /computer-vision/UMichigan-CV/um-cv-course-1-intro/
 ---

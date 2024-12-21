@@ -1,5 +1,7 @@
 ---
 title: Linux 指令大全
+tags:
+   - utils
 createTime: 2023/10/03 12:09:10
 permalink: /utils/Linux-commands/
 ---

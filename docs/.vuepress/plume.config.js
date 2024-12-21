@@ -46,6 +46,6 @@ export default defineThemeConfig({
   notes,
   footer: {
     message: 'Friends & Partners: <a href="https://xiaoweiyexavier.github.io/">Xiaowei Ye 叶晓炜</a>',
-    copyright: '© 2024 Yiming CHEN | Powered by <a href="https://vuepress.vuejs.org/">VuePress</a> & <a href="https://theme-plume.vuejs.press/">Plume</a>',
+    copyright: '© 2024 Yiming CHEN | Powered by <a href="https://vuepress.vuejs.org/" target="_blank">VuePress</a> & <a href="https://theme-plume.vuejs.press/" target="_blank">Plume</a>',
   }
 })

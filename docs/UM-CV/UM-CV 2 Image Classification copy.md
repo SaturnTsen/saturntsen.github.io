@@ -1,6 +1,6 @@
 ---
 title: UM-CV 2 Image Classification
-tag: 
+tags: 
   - notes
   - computer-vision
 createTime: 2024/12/20 14:30:31
@@ -200,8 +200,6 @@ We can also use **index arrays** to index tensors; this lets us construct new te
 
 As an example, we can use index arrays to reorder the rows or columns of a tensor:
 
-::: code-tabs
-@tab Code
 ```python
 # Credit: UMich EECS 498.007
 
@@ -227,8 +225,7 @@ print('\nReordered columns:')
 print(a[:, idx])
 ```
 
-@tab Output
-```text
+```text :collapsed-lines=3
 Original tensor:
 tensor([[ 1,  2,  3,  4],
         [ 5,  6,  7,  8],
@@ -251,7 +248,6 @@ tensor([[ 4,  3,  2,  1],
         [ 8,  7,  6,  5],
         [12, 11, 10,  9]])
 ```
-:::
 
 More generally, given index arrays `idx0` and `idx1` with `N` elements each, `a[idx0, idx1]` is equivalent to:
 
@@ -268,8 +264,6 @@ torch.tensor([
 
 (A similar pattern extends to tensors with more than two dimensions)
 
-::: code-tabs
-@tab Code
 ```python
 # Credit: UMich EECS 498.007
 
@@ -288,8 +282,8 @@ a[idx, idx] = torch.tensor([11, 22, 33])
 print('\nAfter setting the diagonal:')
 print(a)
 ```
-@tab Output
-```text
+
+```text :collapsed-lines=3
 Original tensor:
 tensor([[1, 2, 3],
         [4, 5, 6],
@@ -303,12 +297,10 @@ tensor([[11,  2,  3],
         [ 4, 22,  6],
         [ 7,  8, 33]])
 ```
-:::
 
 Select one element from each row or column of a tensor:
-::: code-tabs
-@tab Code
-```python
+
+```python :collapsed-lines=10
 # Create a new tensor from which we will select elements
 a = torch.tensor([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]])
 print('Original tensor:')
@@ -329,8 +321,8 @@ a[idx0, idx1] = 0
 print('\nAfter modifying one element from each row:')
 print(a)
 ```
-@tab Output
-```text
+
+```text :collapsed-lines=3
 Original tensor:
 tensor([[ 1,  2,  3],
         [ 4,  5,  6],
@@ -346,7 +338,6 @@ tensor([[ 1,  0,  3],
         [ 7,  0,  9],
         [ 0, 11, 12]])
 ```
-:::
 
 ### Boolean masking of tensors
 
@@ -385,8 +376,9 @@ torch.cat
 torch.chunk
 ```
 
+KNN Implementation
 
-```python
+```python :collapsed-lines=50
 """
 Implements a K-Nearest Neighbor classifier in PyTorch.
 """

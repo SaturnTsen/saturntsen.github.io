@@ -1,5 +1,7 @@
 ---
 title: Powershell 和 oh-my-posh
+tags:
+  - utils
 createTime: 2024/02/11 15:00
 permalink: /utils/powershell-and-oh-my-posh/
 ---

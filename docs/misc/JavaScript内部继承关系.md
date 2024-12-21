@@ -1,6 +1,6 @@
 ---
 title: JavaScript built-in hierarchy
-tag:
+tags:
     - JavaScript
     - misc
 createTime: 2024/01/22 18:38:50

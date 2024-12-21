@@ -1,5 +1,7 @@
 ---
 title: WSL常用指令
+tags:
+  - utils
 createTime: 2024/02/04 18:31:53
 permalink: /utils/WSL-commands/
 ---

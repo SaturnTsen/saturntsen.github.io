@@ -1,6 +1,6 @@
 ---
 title: UM-CV 3 & 4 Linear Classifiers and Optimization
-tag: 
+tags: 
   - notes
   - computer-vision
 createTime: 2024/12/21 14:30:31
@@ -288,10 +288,17 @@ where $t$ is the iteration number.
 Adam with $\beta_1=0.9$, $\beta_2=0.999$, and $lr=1e-3,5e-4,1e-4$ is a good default.
 
 
-<div style="text-align:center;">
-  <img src="/images/um-cv/um-cv-3-7.png" width="80%" alt="Summary"  /><br>
-Fig: Summary of optimization algorithms
-</div>
+### Summary
+
+| **Algorithm** | **Tracks first Algorithm moments (Momentum)** | **Tracks second moments (Adaptive learning rates)** | **Leaky second moments** | **Bias correction for moment estimates** |
+|---------------------|--------------------|--------------------|----------------|--------------------|
+| **SGD**             | ×                  | ×                  | ×              | ×                  |
+| **SGD+Momentum**    | √                  | ×                  | ×              | ×                  |
+| **Nesterov**        | √                  | ×                  | ×              | ×                  |
+| **AdaGrad**         | √                  | √                  | ×              | ×                  |
+| **RMSProp**         | √                  | √                  | √              | ×                  |
+| **Adam**            | √                  | √                  | √              | √                  |
+
 
 Adam is a good default optimizer for most problems.
 SGD+Momentum can outperform Adam but may require more tuning.

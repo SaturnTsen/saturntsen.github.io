@@ -1,5 +1,8 @@
 ---
 title: Linux Net Tools
+tags:
+  - utils
+  - network
 createTime: 2023/11/04 20:56:04
 permalink: /utils/Linux-Net-Tools/
 ---
