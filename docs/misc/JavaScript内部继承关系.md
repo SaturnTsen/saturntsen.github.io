@@ -1,0 +1,20 @@
+---
+title: JavaScript built-in hierarchy
+tag:
+    - JavaScript
+    - misc
+createTime: 2024/01/22 18:38:50
+permalink: /misc/JavaScript-inheritance/
+---
+
+Disclaimer: 出处不明，如侵权请联系删除。
+Unknown source, please contact for deletion.
+
+<div style="text-align:center;">
+  <img src="/images/utils/js-hierarchy.png" width="100%"  /><br>
+Fig: Inheritance </div>
+
+<div style="text-align:center;">
+  <img src="/images/utils/js内建.png" width="100%"   /><br>
+Fig: Buit-in hierarchy</div>
+

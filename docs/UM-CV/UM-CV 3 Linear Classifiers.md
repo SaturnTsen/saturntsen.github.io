@@ -4,7 +4,7 @@ tag:
   - notes
   - computer-vision
 createTime: 2024/12/21 14:30:31
-permalink: /computer-vision/UMichigan-CV/um-cv-course-3-linear-classifiers/
+permalink: /computer-vision/UMichigan-CV/um-cv-course-3-4-linear-classifiers/
 ---
 
 @Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/)
@@ -160,3 +160,152 @@ Numeric gradient:
 `torch.autograd.gradcheck` calculates the numerical gradient and compares it to the analytical gradient. 
 
 `torch.autogrd.gradgradcheck` calculates the numerical gradient of the gradient (Hessian) and compares it to the analytical gradient of the gradient.
+
+Hyperparameters:
+
+- weight initializations
+- number of iterations
+- learning rate
+
+### Batch Gradient Descent
+
+Full gradient descent: compute the gradient of the loss with respect to the weights for the entire dataset.
+
+$$
+L(W) = \frac{1}{N} \sum_{i=1}^N L_i(f(x_i,W),y_i)
+$$
+
+$$
+W \leftarrow W - \alpha \nabla_W L(W) = W - \alpha \frac{1}{N} \sum_{i=1}^N \nabla_W L_i(W)
+$$
+
+Schocastic gradient descent: compute the gradient of the loss with respect to the weights by drawing small subsamples.
+
+<div style="text-align:center;">
+  <img src="/images/um-cv/um-cv-3-6.png" width="60%" alt="Stochastic gradient descent"  /><br>
+Fig: Stochastic gradient descent
+</div>
+
+Problems with SGD:
+- Loss changes quickly in one direction
+- Saddle points
+
+### Variants of SGD
+
+#### Momentum
+
+$$
+v \leftarrow \beta v - \alpha \nabla_W L(W)
+$$
+
+$$
+W \leftarrow W + v
+$$
+
+where $\beta$ is the momentum term.
+
+#### Nesterov momentum
+
+$$
+v \leftarrow \beta v - \alpha \nabla_W L(W + \beta v)
+$$
+
+$$
+W \leftarrow W + v
+$$
+
+"Look ahead" before computing the gradient; computing the gradient there and mix it with velocity to get actual update direction.
+
+#### AdaGrad
+
+$$
+G \leftarrow G + \nabla_W L(W) \odot \nabla_W L(W)
+$$
+where $\odot$ is element-wise multiplication.
+$$
+W \leftarrow W - \alpha \nabla_W L(W) \oslash \sqrt{G + \epsilon}
+$$
+where $\oslash$ is element-wise division, and $\epsilon$ is a small constant to prevent division by zero, e.g. $10^{-8}$.
+
+Idea: adapt the learning rate for each parameter based on the history of the gradients: if the gradient is large, then the learning rate is small.
+
+Problem: $G$ will keep increasing, and the learning rate will keep decaying.
+
+#### RMSProp: Leaky AdaGrad
+
+$$
+G \leftarrow \beta G + (1-\beta) \nabla_W L(W) \odot \nabla_W L(W)
+$$
+
+$$
+W \leftarrow W - \alpha \nabla_W L(W) \oslash \sqrt{G + \epsilon}
+$$
+
+where $\beta$ is a decay rate.
+
+#### Adam: RMSProp with momentum
+
+$$
+m \leftarrow \beta_1 m + (1-\beta_1) \nabla_W L(W)
+$$
+
+$$
+v \leftarrow \beta_2 v + (1-\beta_2) \nabla_W L(W) \odot \nabla_W L(W)
+$$
+
+$$
+W \leftarrow W - \alpha \frac{m}{\sqrt{v} + \epsilon}
+$$
+
+where $\beta_1$ and $\beta_2$ are decay rates.
+
+Problem: At the beginning, the momentum term is small, and the learning rate is small, so the learning rate is too large.
+
+Improvement: Bias correction
+
+$$
+m \leftarrow \beta_1 m + (1-\beta_1) \nabla_W L(W)
+$$
+
+$$
+v \leftarrow \beta_2 v + (1-\beta_2) \nabla_W L(W) \odot \nabla_W L(W)
+$$
+
+$$
+\hat m = \frac{m}{1-\beta_1^t}
+$$
+
+$$
+\hat v = \frac{v}{1-\beta_2^t}
+$$
+
+$$
+W \leftarrow W - \alpha \frac{\hat m}{\sqrt{\hat v} + \epsilon}
+$$
+
+where $t$ is the iteration number.
+
+Adam with $\beta_1=0.9$, $\beta_2=0.999$, and $lr=1e-3,5e-4,1e-4$ is a good default.
+
+
+<div style="text-align:center;">
+  <img src="/images/um-cv/um-cv-3-7.png" width="80%" alt="Summary"  /><br>
+Fig: Summary of optimization algorithms
+</div>
+
+Adam is a good default optimizer for most problems.
+SGD+Momentum can outperform Adam but may require more tuning.
+
+If you can afford to do full batch updates then try out L-BFGS.(and don't forget to disable all sources of noise)
+
+### Second-order optimization:
+
+Newton's method, BFGS, L-BFGS
+
+Second-Order Taylor Expansion:
+
+$$
+f(x) \approx f(x_0) + \nabla f(x_0)^T(x-x_0) + \frac{1}{2}(x-x_0)^T H(x-x_0)
+$$
+
+The shape of the Hessian matrix is $D \times D$, where $D$ is the number of parameters, which is very expensive to compute. So second-order optimization is not widely used in deep learning.
