@@ -29,13 +29,7 @@ const myprofile = computed(() => {
 </script>
 
 <template>
-  <VPHomeBox
-    class="vp-home-profile"
-    :type="type"
-    :background-image="backgroundImage"
-    :background-attachment="backgroundAttachment"
-    :full="full"
-  >
+  <VPHomeBox class="vp-home-profile" type="profile">
     <div class="profile-container">
       <VPImage v-if="myprofile.avatar" :image="myprofile.avatar" :class="{ circle: myprofile.circle }" style="width: 128px;" />
       <div style="margin-left: 12px;">
