@@ -1,8 +1,7 @@
 ---
-title: Cyberarcheology：Extracting and Composing Robust Features with Denoising  Autoencoders
+title: Cyberarcheology：Extracting and Composing Robust Features with Denoising Autoencoders
 tags:
-  - machine-learning
-  - denoise-autoencoder
+  - theoretical machine learning
   - cyber-archeology-findings
 createTime: 2024/12/20 10:56:56
 permalink: /machine-learning/extracting-and-composing-robust-features-with-denoising-autoencoders/

@@ -1,8 +1,8 @@
 ---
 title: UM-CV 1 Intro
 tags:
-  - computer vision
   - notes
+  - computer-vision
 createTime: 2024/12/19 14:30:31
 permalink: /computer-vision/UMichigan-CV/um-cv-course-1-intro/
 ---
@@ -13,7 +13,7 @@ permalink: /computer-vision/UMichigan-CV/um-cv-course-1-intro/
 
 ### Computer Vision
 
-- Hubel and Weisel, 1959, neural response of cats to the image patterns
+- Hubel and Weisel, 1959, neural response of cats to the image patterns 
 - Larry Robrets, 1963, get photographic information and features to understand pictures
 - Seymour Papert, 1966, summer computer vision project. construction of a visual system. 
 - David Marr, 1970s, stages of visual reprensation

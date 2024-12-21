@@ -1,5 +1,7 @@
 ---
 title: Linux 系统级常用指令
+tags:
+   - utils
 createTime: 2023/10/03 12:09:35
 permalink: /utils/Linux-Commands-System-Level/
 ---

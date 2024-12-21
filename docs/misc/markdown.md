@@ -2,7 +2,6 @@
 title: Markdown Demo
 tags:
   - misc
-  - markdown
 createTime: 2024/12/19 13:12:16
 permalink: /misc/markdown-demo/
 ---

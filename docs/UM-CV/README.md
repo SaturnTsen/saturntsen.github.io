@@ -1,5 +1,8 @@
 ---
 title: README
+tags:
+    - notes
+    - computer-vision
 createTime: 2024/12/19 14:22:05
 permalink: /computer-vision/UMichigan-CV/
 ---
