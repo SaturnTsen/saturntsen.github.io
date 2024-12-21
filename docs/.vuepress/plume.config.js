@@ -1,5 +1,4 @@
 import { defineThemeConfig } from 'vuepress-theme-plume'
-import { navbar } from './navbar'
 import { notes } from './notes'
 
 /**
@@ -30,6 +29,23 @@ export default defineThemeConfig({
     },
   ],
   
-  navbar,
-  notes
+  navbar: [
+    { text: 'Home', link: '/' },
+    { text: 'Blog', link: '/blog/' },
+    { text: 'Tags', link: '/blog/tags/' },
+    { text: 'Categories', link: '/blog/categories/' },
+    { text: 'Archives', link: '/blog/archives/' },
+    {
+      text: 'Notes',
+      items: [
+        { text: 'Computer Vision', link: '/notes/computer-vision/README.md' },
+        { text: 'LeetCode', link: '/notes/leetcode/README.md' }
+      ]
+    },
+  ],
+  notes,
+  footer: {
+    message: 'Friends & Partners: <a href="https://xiaoweiyexavier.github.io/">Xiaowei Ye 叶晓炜</a>',
+    copyright: '© 2024 Yiming CHEN | Powered by <a href="https://vuepress.vuejs.org/">VuePress</a> & <a href="https://theme-plume.vuejs.press/">Plume</a>',
+  }
 })
