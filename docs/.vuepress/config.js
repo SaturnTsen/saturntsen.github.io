@@ -34,6 +34,21 @@ export default defineUserConfig({
       },
 
       /**
+       * 评论 comments
+       * @see https://theme-plume.vuejs.press/guide/features/comments/
+       */
+      comment: {
+        provider: 'Giscus', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
+        comment: true,
+        repo: 'SaturnTsen/saturntsen.github.io',
+        repoId: 'R_kgDONfxZDA',
+        categoryId: 'DIC_kwDONfxZDM4ClbWk',
+        mapping: 'pathname',
+        reactionsEnabled: true,
+        inputPosition: 'top',
+      },
+
+      /**
        * markdown enhance
        * @see https://theme-plume.vuejs.press/config/plugins/markdown-enhance/
        */
@@ -66,21 +81,6 @@ export default defineUserConfig({
       //     rust: true,
       //     kotlin: true,
       //   },
-      // },
-
-      /**
-       * 评论 comments
-       * @see https://theme-plume.vuejs.press/guide/features/comments/
-       */
-      // comment: {
-      //   provider: '', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
-      //   comment: true,
-      //   repo: '',
-      //   repoId: '',
-      //   categoryId: '',
-      //   mapping: 'pathname',
-      //   reactionsEnabled: true,
-      //   inputPosition: 'top',
       // },
     },
   }),
