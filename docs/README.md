@@ -20,7 +20,7 @@ config:
 
 Hi there! I’m Yiming Chen, currently pursuing a dual degree at École Polytechnique, specializing in statistics and random phenomena modeling. My research focuses on computer vision and Diffusion Models with Point Control.
 
-I’m currently involved in studying the consistency of video diffusion models at Mediabrain Laboratory affiliated with Shanghai Jiao Tong University Cooperative Media Innovation Center (https://cmic.sjtu.edu.cn/CN/Default.aspx). If you're passionate about computer vision, Diffusion Models, or the future of AI, I’d love to connect and exchange ideas.
+I’m currently involved in studying the consistency of video diffusion models at Mediabrain Laboratory affiliated with [Shanghai Jiao Tong University Cooperative Media Innovation Center](https://cmic.sjtu.edu.cn/CN/Default.aspx). If you're passionate about computer vision, Diffusion Models, or the future of AI, I’d love to connect and exchange ideas.
 
 <h2> Publications </h2>
 
