@@ -42,6 +42,7 @@ export default defineUserConfig({
         comment: true,
         repo: 'SaturnTsen/saturntsen.github.io',
         repoId: 'R_kgDONfxZDA',
+        category: 'Announcements',
         categoryId: 'DIC_kwDONfxZDM4ClbWk',
         mapping: 'pathname',
         reactionsEnabled: true,
