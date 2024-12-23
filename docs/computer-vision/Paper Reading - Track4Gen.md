@@ -1,10 +1,7 @@
 ---
 title: Paper Reading - Track4Gen
 tags:
-  - research
   - computer-vision
-  - point-tracking
-  - consistency
 createTime: 2024/12/20 12:02:00
 permalink: /computer-vision/paper-reading/track4gen/
 ---

@@ -316,3 +316,10 @@ f(x) \approx f(x_0) + \nabla f(x_0)^T(x-x_0) + \frac{1}{2}(x-x_0)^T H(x-x_0)
 $$
 
 The shape of the Hessian matrix is $D \times D$, where $D$ is the number of parameters, which is very expensive to compute. So second-order optimization is not widely used in deep learning.
+
+
+## Assignments
+
+The most challenging part of the assignment is to calculate the gradient of the loss function.
+
+For mathematical formulation of the grandient, see 

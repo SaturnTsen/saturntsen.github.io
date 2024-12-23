@@ -1,7 +1,7 @@
 ---
-title: Cyberarcheology：Training with Noise  is Equivalent to Tikhonov Regularization
+title: Training with Noise  is Equivalent to Tikhonov Regularization
 tags:
-  - theoretical machine learning
+  - machine-learning
   - cyber-archeology-findings
 createTime: 2024/12/20 10:56:56
 permalink: /machine-learning/training-with-noise-is-equivalent-to-tikhonov-regularization/
