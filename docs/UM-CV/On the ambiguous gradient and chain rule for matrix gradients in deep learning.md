@@ -1,5 +1,5 @@
 ---
-title: On the ambiguous "gradient" and chain rule for matrix gradients in deep learning
+title: On the ambiguous "matrix gradient" and chain rule in deep learning, and how to calculate it correctly
 tags:
   - mathematics
   - machine-learning
@@ -108,7 +108,7 @@ $$
 > We can write $dL$ as a [Frobenius product](https://en.wikipedia.org/wiki/Frobenius_inner_product) of the gradient of $L$ and the differential of $X$.
 >
 > $$
-> dL = \mathrm{tr}\left(\frac{\partial L}{\partial X} \, dX\right)
+> dL = \mathrm{tr}\left(\left(\frac{\partial L}{\partial X}\right)^\top \, dX\right)
 > $$
 >
 > This is obtained by the fact that $\mathrm{tr}(A^TB)=A_{i,j}B_{i,j}$.
