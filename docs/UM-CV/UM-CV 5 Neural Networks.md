@@ -1,5 +1,5 @@
 ---
-title: UM-CV 5 Neural Networks
+title: UM-CV 5 & 6 Neural Networks and Back Propagation
 tags: 
   - notes
   - computer-vision
@@ -197,7 +197,7 @@ $$
 f(t x + (1 - t)y) \leq t f(x) + (1 - t)f(y)
 $$ 
 
-**Theorem**: Linear networks are convex in the weights.
+**Theorem**: A single layer neural network with ReLU activation is a convex function of its weights.
 
 No such guarantee for non-linear networks.
 
@@ -209,7 +209,7 @@ Fig: loss surfaces</div>
 
 Open question: theorectical properties of the optimization landscape of neural networks.
 
-## Summary
+## Summary of lecture 5
 
 - Feature transform
 - Neural networks
@@ -218,3 +218,216 @@ Open question: theorectical properties of the optimization landscape of neural n
 - Space warping
 - Universal approximation
 - Convergence of neural networks
+
+## Backpropagation
+
+**Problem**: How to compute the gradient of the loss function with respect to the weights?
+
+#### (Bad) Idea: Derive $\frac{\partial L}{\partial W}$ by hand
+
+See what I have done [Derive gradient by hand](/mathematics/gradient-chain-rule-matrix-gradients-deep-learning/)
+
+### Computational graphs
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/6-1.png" width="50%" alt="computation graphs"  /><br>
+Fig: computational graph of a SVM
+</div>
+
+This is critical for large neural networks, e.g. AlexNet or Recurrent Neural Turing Machine...
+
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/6-2.png" width="50%" alt="AlexNet"  /><br>
+Fig: AlexNet
+</div>
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/6-3.png" width="50%" alt="Recurrent Neural Turing Machine"  /><br>
+Fig: Recurrent Neural Turing Machine
+</div>
+
+
+### Examples
+
+#### Example 1
+$$
+f(x, y, z) = (x + y)z \quad x=-2, y=5, z=-4
+$$
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/6-4.png" width="50%" /><br>
+Fig: Backpropagation example 1
+</div>
+
+1. Forward pass: Compute outputs $q = x + y$ and $f = qz$
+2. Backward pass: Compute gradients $\frac{\partial f}{\partial q}$ and $\frac{\partial f}{\partial z}$ 
+
+$$
+\frac{\partial f}{\partial f} = 1 \quad \frac{\partial f}{\partial q} = z \quad \frac{\partial f}{\partial z} = q
+$$
+
+$$
+\frac{\partial f}{\partial x} = \frac{\partial f}{\partial q} \frac{\partial q}{\partial x} = z \cdot 1 = -4
+$$
+
+$$
+\frac{\partial f}{\partial y} = \frac{\partial f}{\partial q} \frac{\partial q}{\partial y} = z \cdot 1 = -4
+$$
+
+We can compute local gradient of one node and the chain rules can be implemented as modules.
+
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/6-5.png" width="40%" /><br>
+Fig: local gradient computation
+</div>
+
+#### Example 2
+
+$$
+f(x,w) = \frac{1}{1 + e^{-(w_0x_0+w_1x_1)}}
+$$
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/6-6.png" width="60%" /><br>
+Fig: Backpropagation example 2
+</div>
+
+We can also choose more primitive functions for which the gradients are easy to compute.
+
+e.g. Sigmoid functions
+
+$$
+\sigma(x) = \frac{1}{1 + e^{-x}} \quad
+\frac{d\sigma}{dx} = \sigma(x)(1 - \sigma(x))
+$$
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/6-7.png" width="60%" /><br>
+Fig: Sigmoid function
+</div>
+
+### Pattern in gradient Flow
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/6-8.png" width="60%" /><br>
+Fig: Patterns in Gradient flow
+</div>
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/6-9.png" width="60%" /><br>
+Fig: Backprop Implementation
+</div>
+
+### Modular Implementation
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/6-10.png" width="60%" /><br>
+Fig: Modular Implementation
+</div>
+
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/6-11.png" width="60%" /><br>
+Fig: Backpropagation of Sigmoid function
+</div>
+
+### Backpropagation for vector-based functions
+
+In this course, the jacobian matrix is the transpose of that in mathematics...
+
+$$
+\frac{\partial f}{\partial x} = \begin{bmatrix}
+\frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_m}{\partial x_1} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial f_1}{\partial x_n} & \cdots & \frac{\partial f_m}{\partial x_n}
+\end{bmatrix}\in\mathbb{R}^{n\times m}
+$$
+
+Local gradient calculation:
+
+Let $f$ be a vector-valued function $f: \mathbb{R}^n \to \mathbb{R}^m$, and $y = f(x)$. Suppose we have calculated $\frac{\partial l}{\partial y}\in\mathbb{R}^{m}$, then
+
+$$
+\underbrace{\frac{\partial l}{\partial x}}_{\text{grad\_x}} = \underbrace{\frac{\partial f}{\partial g}(x)}_{\text{local grad module}}\cdot \underbrace{\frac{\partial l}{\partial y}}_{\text{grad\_y}}(y)
+$$
+
+Again we have omitted trasnposing $\frac{\partial l}{\partial y}$.
+
+In practice, we never actually compute the jacobian matrix, but instead compute the product of the jacobian and a vector.
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/6-12.png" width="70%" /><br>
+Fig: Backpropagation for vectors
+</div>
+
+### Backpropopagation for Matrices (or Tensors)
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/6-13.png" width="70%" /><br>
+Fig: Backpropagation with Matrices
+</div>
+
+How to generalize the matrix product?
+
+We can use the [Einstein summation convention](https://en.wikipedia.org/wiki/Einstein_notation) to generalize the matrix product.
+
+Let $X\in\mathbb{R}^{m\times n}$ and a matrix functon $Y=f: \mathbb{R}^{m\times n} \to \mathbb{R}^{p\times q}$. Suppose we have calculated $\frac{\partial l}{\partial Y}\in\mathbb{R}^{p\times q}$, then
+
+$$
+\frac{\partial l}{\partial X} = \frac{\partial f}{\partial X}(X) \cdot \frac{\partial l}{\partial Y}
+$$
+
+where $\frac{\partial f}{\partial X}(X)$ is a tensor of shape $(m, n, p, q)$.
+
+With the [Einstein summation convention](https://en.wikipedia.org/wiki/Einstein_notation), we can write this as
+
+$$
+\frac{\partial l}{\partial X}_{ij} = \frac{\partial f_{kl}}{\partial X_{ij}} \frac{\partial l}{\partial Y_{kl}}
+$$
+
+The trick here is to find a quick way to carry out the computation implicitly without actually constructing the jacobian tensor.
+
+### Reverse-Mode Automatic Differentiation
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/6-14.png" width="70%" /><br>
+Fig: Reverse-Mode Automatic Differentiation
+</div>
+
+### Forward-Mode Automatic Differentiation
+
+This is used when the input is a scalar.
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/6-15.png" width="70%" /><br>
+Fig: Backpropagation with Matrices
+</div>
+
+### Backprop: Higher-Order Derivatives
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/6-16.png" width="70%" /><br>
+Fig: Higher-Order Derivatives
+</div>
+
+If we want to calculate the Hessian/vector product, we can construct this by hand.
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/6-17.png" width="70%" /><br>
+Fig: Application of Higher-Order Derivatives as a penalization
+</div>
+
+## Summary of lecture 6
+
+- Backpropagation
+- Computational graphs
+- Examples of backpropagation
+- Gradient flow patterns
+- Modular implementation
+- Backpropagation for vector-based functions
+- Backpropagation for matrices (or tensors)
+- Reverse-mode automatic differentiation
+- Forward-mode automatic differentiation
+- Higher-order derivatives

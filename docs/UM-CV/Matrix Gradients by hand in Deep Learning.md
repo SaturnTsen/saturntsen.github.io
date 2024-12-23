@@ -1,5 +1,5 @@
 ---
-title: On the ambiguous "matrix gradient" and chain rule in deep learning, and how to calculate it correctly
+title: Matrix Gradients by hand in Deep Learning
 tags:
   - mathematics
   - machine-learning
@@ -7,7 +7,7 @@ createTime: 2024/12/22 19:26:16
 permalink: /mathematics/gradient-chain-rule-matrix-gradients-deep-learning/
 ---
 
-> <Badge type="danger" text="TL;DR" /> This first part is **not a tutorial for beginners**. It is a **theoretical introduction** to differential forms. We will see in the second part how to calculate the gradient of a scalar function defined on a matrix space, by the famous example of a two-layer MLP.
+> <Badge type="danger" text="TL;DR" /> This article is a deep dive into the calculation of the gradient of a function defined on a matrix space. We will see how to define a differential form and how to calculate the gradient of a function defined on a matrix space. We will also see how to apply the chain rule in deep learning. We will see how to calculate the gradient of a neural network with a two-layer architecture.
 
 We suppose that all functions are differentiable.
 
@@ -187,11 +187,19 @@ Given $df$, we want to calculate $\frac{\partial f}{\partial X}$. We can write $
 
 ### Tricks for calculating traces
 
-1. Scalar rule: if $a$ is a scalar, then $\mathrm{tr}(a) = a$.
-2. Transpose rule: $\mathrm{tr}(A) = \mathrm{tr}(A^\top)$.
-3. Linearrity: $\mathrm{tr}(A + B) = \mathrm{tr}(A) + \mathrm{tr}(B)$.
-3. Cyclic rule: $\mathrm{tr}(AB) = \mathrm{tr}(BA)$. 
-4. Product rule: $\mathrm{tr}(A^\top (B \odot C)) = \mathrm{tr}((A \odot B)^\top C)$.
+> <Badge type="info" text="Tricks" />
+> 1. Scalar rule: if $a$ is a scalar, then $\mathrm{tr}(a) = a$.
+> 2. Transpose rule: $\mathrm{tr}(A) = \mathrm{tr}(A^\top)$.
+> 3. Linearrity: $\mathrm{tr}(A + B) = \mathrm{tr}(A) + \mathrm{tr}(B)$.
+> 4. Cyclic rule: $\mathrm{tr}(AB) = \mathrm{tr}(BA)$. 
+> 5. Product rule: $\mathrm{tr}(A^\top (B \odot C)) = \mathrm{tr}((A \odot B)^\top C)$.
+
+> <Badge type="info" text="Frobenius Product" />
+> Let $A$ and $B$ be two matrices of the same shape. The Frobenius product of $A$ and $B$ is defined as
+> $$
+> \mathrm{tr}(A^\top B) = \sum_{i,j} A_{i,j}B_{i,j}
+> $$
+> This is a generalization of the dot product for matrices.
 
 ### Examples
 
@@ -226,7 +234,27 @@ $$
 
 Thus we have $\frac{\partial f}{\partial X} = a\odot\exp\left(X b\right) b^\top$.
 
+3. (Backpropagation) $Y=f(X)$, and $L(Y)$ is a scalar function of $Y$. We have already calculated $\frac{\partial L}{\partial Y}(Y)$.
+
+We want to calculate $\frac{\partial L}{\partial X}(X)$. 
+
+We have
+
+$$
+dL = \mathrm{tr}\left(\left(\frac{\partial L}{\partial Y}(Y)\right)^\top dY\right) = \mathrm{tr}\left(\left(\frac{\partial L}{\partial Y}\right)^\top df(X) \right)
+$$
+
+Meanwhile, we have
+
+$$
+df = \mathrm{tr}\left(\left(\frac{\partial f}{\partial X}\right)^\top dX\right)
+$$
+
+by developing $df(X)$ with differential rules, we can obtain the expression of $\frac{\partial L}{\partial X}(X)$.
+
 ## Application in deep learning
+
+Let $X$ be the input matrix of shape $(N \times D)$, where $N$ is the number of samples and $D$ is the number of features, and $y$ be the vector of shape $(N,)$, where $y_i\in\{0,1,...,C-1\}$ is the class of the $i$-th sample. 
 
 Consider a 2-layer neural network with the following architecture:
 
@@ -249,38 +277,80 @@ where
 - $H_1$ is the activation of the first layer of shape $(N \times H)$,
 - $Z_2$ is the output of the second layer of shape $(N \times C)$,
 - $P$ is the output of the network of shape $(N \times C)$.
+- $Y$ is the one-hot encoded target matrix of shape $(N \times C)$. $Y_{i,c}=\delta_{c,y_i}$.
 
+In other words, we have the following architecture:
 
 $$
 P = \text{Softmax}(W_2(\sigma(XW_1+b_1))+b_2)
 $$
 
+We note $Y$ the target matrix, i.e. the one-hot encoded matrix of shape $(N \times C)$, where $Y_{i,c}=\delta_{c,y_i}$.
+
+We use the cross-entropy loss function:
+
+$$
+\begin{align*}
+L &= -\frac{1}{N} \sum_{i=1}^N \log P_{i,y_i} \\
+&= -\frac{1}{N} \sum_{i=1}^N \sum_{j=1}^C Y_{i,j} \log P_{i,j} \\
+&= -\frac{1}{N} \mathrm{tr}(Y^\top \log P)
+\end{align*}
+$$
+
+We leave the reader to verify that the $L$ is a Frobenius product of the target matrix $Y$ and the log-softmax output $P$.
+
 ### $\partial L / \partial Z_2$
 
-The loss function is the cross-entropy loss:
-
-$$
-L = -\frac{1}{N} \mathrm{tr}\left( Y^\top \log P \right)
-$$
-
-or with respect to each element of the matrix:
-
-$$
-L = -\frac{1}{N} \sum_{i=1}^N \sum_{j=1}^C Y_{i,j} \log P_{i,j}
-$$
-
-where $Y$ is the one-hot encoded target matrix of shape $(N \times C)$.
-
+This is the famous cross-entropy loss on the softmax output. Let's use the differential form of the loss function.
 
 $$
 \begin{align*}
 dL &= -\frac{1}{N} \sum_{i=1}^N \sum_{j=1}^C \left( Y_{i,j} \frac{1}{P_{i,j}} \right) dP_{i,j} \\
-&= -\frac{1}{N} \sum_{i=1}^N \sum_{j=1}^C \left( Y_{i,j} \frac{1}{P_{i,j}} \right) \left( \sum_{k=1}^C \frac{\partial P_{i,j}}{\partial Z_{2,i,k}} dZ_{2,i,k} \right) \\
-&= -\frac{1}{N} \sum_{i=1}^N \sum_{j=1}^C \left( Y_{i,j} \frac{1}{P_{i,j}} \right) \left( \sum_{k=1}^C \frac{\partial P_{i,j}}{\partial Z_{2,i,k}} \right) dZ_{2,i,j} \\
-&= -\frac{1}{N} \sum_{i=1}^N \sum_{j=1}^C \left( Y_{i,j} \frac{1}{P_{i,j}} \right) \left( P_{i,j} - Y_{i,j} \right) dZ_{2,i,j} \\
-&= -\frac{1}{N} \sum_{i=1}^N \sum_{j=1}^C \left( Y_{i,j} - P_{i,j} \right) dZ_{2,i,j} \\
 \end{align*}
 $$
+
+Develop the differential form of $dP_{i,j}$. Since the softmax function is an row-wise operation, we have
+
+$$
+\begin{align*}
+dP_{i,j} &= d\text{Softmax}(Z_{2,i,j}) \\
+&= \sum_{k=1}^C \frac{\partial P_{i,j}}{\partial Z_{2,i,k}} dZ_{2,i,k}
+\end{align*}
+$$
+
+Meanwhile,
+
+$$
+\begin{align*}
+\partial P_{i,j} / \partial Z_{2,i,k} &= \frac{\partial}{\partial Z_{2,i,k}} \left( \frac{\exp(Z_{2,i,j})}{\sum_{l=1}^C \exp(Z_{2,i,l})} \right) \\
+&= \frac{\exp(Z_{2,i,j})}{\sum_{l=1}^C \exp(Z_{2,i,l})} \delta_{j,k} - \frac{\exp(Z_{2,i,j})\exp(Z_{2,i,k})}{\left(\sum_{l=1}^C \exp(Z_{2,i,l})\right)^2} \\
+&= P_{i,j} \delta_{j,k} - P_{i,j} P_{i,k}\\
+&= P_{i,j}(\delta_{j,k} - P_{i,k})
+\end{align*}
+$$
+
+Substituting into the expression for $dL$:
+
+$$
+\begin{align*}
+dL &= -\frac{1}{N} \sum_{i=1}^N \sum_{j=1}^C \left( Y_{i,j} \frac{1}{P_{i,j}} \right) \sum_{k=1}^C P_{i,j} (\delta_{j,k} - P_{i,k}) dZ_{2,i,k}\\
+&= -\frac{1}{N} \sum_{i=1}^N \sum_{j=1}^C \sum_{k=1}^C Y_{i,j} (\delta_{j,k} - P_{i,k}) dZ_{2,i,k}\\
+&= -\frac{1}{N} \sum_{i=1}^N\sum_{k=1}^C \left(  \sum_{j=1}^C Y_{i,j} (\delta_{j,k} - P_{i,k})\right) dZ_{2,i,k}
+\end{align*}
+$$
+
+Focus on the inner sum:
+
+- When $\delta_{j,k} = 1$, the term simplifies to $Y_{i,k}$.
+- The second term sums over $j$ as $-P_{i,k} \sum_{j=1}^C Y_{i,j}$.
+
+Since $\sum_{j=1}^C Y_{i,j} = 1$ (only one class is true for each sample):
+
+$$
+dL= -\frac{1}{N} \sum_{i=1}^N \sum_{k=1}^C (Y_{i,k} - P_{i,k}) dZ_{2,i,k}
+$$
+
+
 
 Then we can vectorize this calculation.
 
@@ -397,12 +467,18 @@ $$
 
 ### Summary
 
+The regularized loss function is
+
+$$
+L = -\frac{1}{N} \mathrm{tr}\left( Y^\top \log P \right) + \lambda \left( W_{1,i,j}^2 + W_{2,i,j}^2 \right)
+$$
+
 $$
 \frac{\partial L}{\partial Z_2} = \frac{1}{N}(P-Y)
 $$
 
 $$
-\frac{\partial L}{\partial W_2} = H_1^\top \frac{\partial L}{\partial Z_2}
+\frac{\partial L}{\partial W_2} = H_1^\top \frac{\partial L}{\partial Z_2} + 2\lambda W_2
 $$
 
 $$
@@ -418,7 +494,7 @@ $$
 $$
 
 $$
-\frac{\partial L}{\partial W_1} = X^\top \frac{\partial L}{\partial Z_1}
+\frac{\partial L}{\partial W_1} = X^\top \frac{\partial L}{\partial Z_1} + 2\lambda W_1
 $$
 
 $$
@@ -504,3 +580,4 @@ def nn_forward_backward(
 
     return loss, grads
 ```
+

@@ -184,17 +184,63 @@ As the number of (input) dimensions increases, the volume of the space increases
 
 Some notes:
 
-### Access a single row or colums of a tensor
+### PyTorch Tensor Operations
+
+Recall: some useful functions in PyTorch
+```python
+## Creating tensors ##
+torch.full # to create a tensor filled with a single value
+torch.rand # to create a tensor of random values
+torch.arange # to create a tensor with values that increase by 1
+torch.linspace # to create a tensor with values that increase by a fixed amount
+torch.eye # to create an identity matrix
+
+## Reshaping tensors ##
+torch.view # to reshape a tensor in-place
+torch.reshape # to reshape a tensor
+torch.flatten # to flatten a tensor
+
+torch.permute # to permute the dimensions of a tensor
+torch.transpose # to transpose a tensor
+
+torch.squeeze # to remove dimensions of size 1
+torch.unsqueeze # to add dimensions of size 1
+
+## Aggregating tensors ##
+
+torch.argmax # to find the index of the maximum value
+torch.topk # to find the k largest values
+torch.sort # to sort a tensor
+torch.argsort # to find the indices that would sort a tensor
+
+torch.sum # to sum a tensor
+torch.mean # to compute the mean of a tensor
+torch.std # to compute the standard deviation of a tensor
+
+## Multiplying tensors ##
+torch.mm # to perform matrix-matrix multiplication
+torch.mv # to perform matrix-vector multiplication
+torch.einsum # to perform Einstein summation
+torch.kron # to compute the Kronecker product
+
+## Concat and split tensors ##
+torch.cat # to concatenate tensors
+torch.chunk # to split a tensor into chunks
+```
+
+### Slicing, Indexing, and Boolean Masking
+
+#### Access a single row or colums of a tensor
 
 There are two common ways to access a single row or column of a tensor: using an integer will reduce the rank by one, and using a length-one slice will keep the same rank. Note that this is different behavior from MATLAB.
 
-### Slicing a tensor
+#### Slicing a tensor
 
 Slicing a tensor returns a **view** into the same data, so modifying it will also modify the original tensor. To avoid this, you can use the `clone()` method to make a copy of a tensor.
 
 When you index into torch tensor using slicing, the resulting tensor view will always be a subarray of the original tensor. This is powerful, but can be restrictive.
 
-### Indexing with an integer array or a tensor
+#### Indexing with an integer array or a tensor
 
 We can also use **index arrays** to index tensors; this lets us construct new tensors with a lot more flexibility than using slices.
 
@@ -339,42 +385,49 @@ tensor([[ 1,  0,  3],
         [ 0, 11, 12]])
 ```
 
-### Boolean masking of tensors
+#### Boolean masking of tensors
 
 The shape of the boolean mask should be the same as the original tensor, or should be broadcastable to the same shape. This is commnly used so I will not detail it here.
 
-### Contiguous ?
+### Reshape, Permute, and Contiguous
+
+#### Reshape
+
+Reshaping is calculated with the notion of **stride**. The stride of a tensor is the number of elements in the memory that need to be skipped over to obtain the next element along each dimension. See [this blog post by Edward Yang](http://blog.ezyang.com/2019/05/pytorch-internals/) for a clear explanation of the problem.
+
+#### Permute
+
+Permute is used to change the order of dimensions in a tensor. This can be understood mathematically.
+
+Consider the symmetric group $S_n$ of all permutations of $n$ elements. In other words, $\sigma \in S_n$ is a bijection from the set $\{1, 2, \ldots, n\}$ to itself. The permutation $\sigma$ can be represented as a list of integers $\sigma = [\sigma(1), \sigma(2), \ldots, \sigma(n)]$. 
+
+Let $A$ be a tensor of shape $(d_1, d_2, \ldots, d_n)$. The tensor $A'$ permuted by $\sigma$ is a tensor of shape $(d_{\sigma(1)}, d_{\sigma(2)}, \ldots, d_{\sigma(n)})$. And for any index $(i_1', i_2', \ldots, i_n')$ in $A'$, we have
+
+$$
+A'_{i_1', i_2', \ldots, i_n'} = A_{i_{\sigma^{-1}(1)}', i_{\sigma^{-1}(2)}', \ldots, i_{\sigma^{-1}(n)}'}
+$$
+
+```python
+import torch
+
+A = torch.tensor([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+# A has shape (2, 2, 2)
+σ = [2, 0, 1]
+A_prime = A.permute(*σ)
+print("\nA' (permute [2, 0, 1]):\n", A_prime)
+i_prime = (0, 1, 1)
+i_original = (i_prime[σ.index(0)], i_prime[σ.index(1)], i_prime[σ.index(2)])
+assert A_prime[i_prime] == A[i_original], "Permute operation is incorrect!"
+print("\nVerified")
+```
+
+#### Contiguous ?
 
 Some combinations of reshaping operations will fail with cryptic errors. The exact reasons for this have to do with the way that tensors and views of tensors are implemented, and are beyond the scope of this assignment. However if you're curious, [this blog post by Edward Yang](http://blog.ezyang.com/2019/05/pytorch-internals/) gives a clear explanation of the problem.
 
 [pytorch-internals](http://blog.ezyang.com/2019/05/pytorch-internals/) is a good blog to understand the operation `contiguous()`, `view()` and `reshape()`.
 
 ## KNN
-
-Recall: some useful functions in PyTorch
-```python
-torch.view
-torch.reshape
-torch.flatten
-
-torch.permute
-torch.transpose
-
-torch.squeeze
-torch.unsqueeze
-
-torch.argmax
-torch.topk
-torch.sort
-torch.argsort
-
-torch.mm
-torch.mv
-torch.einsum
-
-torch.cat
-torch.chunk
-```
 
 KNN Implementation
 
