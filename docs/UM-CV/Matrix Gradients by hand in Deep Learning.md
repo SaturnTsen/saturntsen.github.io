@@ -183,7 +183,7 @@ Other recommended resources:
 - [The Matrix Cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf)
 - [Matrix Calculus, HU, Pili](https://project.hupili.net/tutorial/hu2012-matrix-calculus/hu2012matrix-calculus.pdf)
 
-Given $df$, we want to calculate $\frac{\partial f}{\partial X}$. We can write $df$ in the form of $df = \mathrm{tr}(\frac{\partial f}{\partial X} \, dX)$. To do this, we need some tricks to calculate the trace.
+Given $df$, we want to calculate $\frac{\partial f}{\partial X}$. We can write $df$ in the form of $df = \mathrm{tr}((\frac{\partial f}{\partial X})^\top \, dX)$. To do this, we need some tricks to calculate the trace.
 
 ### Tricks for calculating traces
 
