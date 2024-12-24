@@ -10,8 +10,8 @@ export default defineUserConfig({
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
 
   // Dev config
-  host:'localhost',
-  port: '8086',
+  host:'192.168.137.1',
+  port: 8086,
 
   // Bundler
   bundler: viteBundler(),

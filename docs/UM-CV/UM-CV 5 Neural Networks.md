@@ -11,11 +11,11 @@ permalink: /computer-vision/UMichigan-CV/um-cv-course-5-neural-networks/
 
 Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6)
 
-<!-- more -->
-
 # Neural Networks
 
 Linear classifiers are limited to their linear decision boundaries. Neural networks are more flexible and can learn more complex decision boundaries.
+
+<!-- more -->
 
 ## Feature extraction
 

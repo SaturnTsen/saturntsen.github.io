@@ -11,15 +11,11 @@ permalink: /computer-vision/UMichigan-CV/um-cv-course-2-classification/
 
 Personal work for the assignments of the course: [github repo](https://github.com/SaturnTsen/EECS-498-007/).
 
-<!-- more -->
-
-This course is basically for beginners, so I will skip basic concepts and complete the notes with copilot.
-
 # Image Classification
 
-Problem：The semantic gap between low-level features and high-level concepts, and the computers do not have the intuition to understand the image.
+Problem: The semantic gap between low-level features and high-level concepts, and the computers do not have the intuition to understand the image.
 
-
+<!-- more -->
 
 ## Intro
 

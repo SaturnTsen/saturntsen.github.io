@@ -11,6 +11,10 @@ permalink: /computer-vision/UMichigan-CV/um-cv-course-1-intro/
 
 ## A brief history of computer vision and deep learning
 
+A brief history of computer vision and deep learning
+
+<!-- more -->
+
 ### Computer Vision
 
 - Hubel and Weisel, 1959, neural response of cats to the image patterns 
