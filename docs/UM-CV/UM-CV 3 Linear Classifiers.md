@@ -259,7 +259,7 @@ $$
 
 where $\beta_1$ and $\beta_2$ are decay rates.
 
-Problem: At the beginning, the momentum term is small, and the learning rate is small, so the learning rate is too large.
+Problem: At the beginning, the momentum term is small, so the learning rate is too large.
 
 Improvement: Bias correction
 
@@ -283,10 +283,11 @@ $$
 W \leftarrow W - \alpha \frac{\hat m}{\sqrt{\hat v} + \epsilon}
 $$
 
-where $t$ is the iteration number.
+where $t$ is the iteration number. The corrected terms $\hat m$ and $\hat v$ are getting smaller and closer to the true values.
 
 Adam with $\beta_1=0.9$, $\beta_2=0.999$, and $lr=1e-3,5e-4,1e-4$ is a good default.
 
+$\hat m$ converges slower than $\hat v$.
 
 ### Summary
 

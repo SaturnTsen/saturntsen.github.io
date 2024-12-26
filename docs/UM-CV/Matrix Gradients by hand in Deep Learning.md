@@ -3,6 +3,7 @@ title: Matrix Gradients by hand in Deep Learning
 tags:
   - mathematics
   - machine-learning
+  - deep-learning
 createTime: 2024/12/22 19:26:16
 permalink: /mathematics/gradient-chain-rule-matrix-gradients-deep-learning/
 ---
@@ -252,7 +253,7 @@ $$
 
 by developing $df(X)$ with differential rules, we can obtain the expression of $\frac{\partial L}{\partial X}(X)$.
 
-## Application in deep learning
+## Application in deep learning 1: Neural Network with two layers
 
 Let $X$ be the input matrix of shape $(N \times D)$, where $N$ is the number of samples and $D$ is the number of features, and $y$ be the vector of shape $(N,)$, where $y_i\in\{0,1,...,C-1\}$ is the class of the $i$-th sample. 
 
@@ -503,7 +504,7 @@ $$
 
 We can observe that the gradient of the layer depdens on the gradient of the next layer. This is the principle of backpropagation in deep learning.
 
-## Implementation
+### Implementation
 
 ```python ::collapsed-lines=10
 
