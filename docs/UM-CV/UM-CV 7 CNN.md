@@ -172,7 +172,7 @@ Example: LeNet-5
 
 We tend to decrease the spatial dimensions and increase the number of channels as we go deeper into the network.
 
-### Training Deep Networks
+### Training Deep Networks: Batch Normalization
 
 Problem: Deep networks are hard to train. The gradients tend to vanish or explode as we go deeper into the network.
 

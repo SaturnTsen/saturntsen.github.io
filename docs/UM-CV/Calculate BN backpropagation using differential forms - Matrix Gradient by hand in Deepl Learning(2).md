@@ -460,8 +460,9 @@ $$
 ## Implementation
 
 ```python :collapsed-lines=10
-# Credits: This code is based on the code from UMich EECS 498-007/598-005 assignment 3
+# Credits: This code is based on the assignment from UMich EECS 498-007/598-005 assignment 3
 
+import torch
 class BatchNorm(object):
 
     @ staticmethod
@@ -554,7 +555,7 @@ class BatchNorm(object):
             x_hat = (x - mean) / std
             out = gamma * x_hat + beta
             # Update cache
-            cache = (x, mean, var, std, x_hat, gamma, beta, eps)
+            cache = (x, mean, var, std, x_hat, gamma, beta, eps, mode)
 
             # Update running mean and variance
 
@@ -585,9 +586,11 @@ class BatchNorm(object):
             # in the out variable.                                         #
             ################################################################
             # Replace "pass" statement with your code
-            x_hat = (x - running_mean) / torch.sqrt(running_var + eps)
+            std = torch.sqrt(running_var + eps)
+            x_hat = (x - running_mean)
             out = gamma * x_hat + beta
-            cache = (x, running_mean, running_var, x_hat, gamma, beta, eps)
+            cache = (x, running_mean, running_var, std,
+                     x_hat, gamma, beta, eps, mode)
             ################################################################
             #                      END OF YOUR CODE                        #
             ################################################################
@@ -629,27 +632,77 @@ class BatchNorm(object):
         # Don't forget to implement train and test mode separately.         #
         #####################################################################
         # Replace "pass" statement with your code
-        x, mean, var, std, x_hat, gamma, beta, eps = cache
-        # var = x.var(dim=0, unbiased=False)
-        # mean = x.mean(dim=0)
-        # x_hat = (x - mean) / torch.sqrt(var + eps)
-        # out = gamma * x_hat + beta
-        dx = torch.zeros_like(x)
-        dgamma = torch.zeros_like(gamma)
-        dbeta = torch.zeros_like(beta)
-        N, D = x.shape
-        dbeta = dout.sum(dim=0)
-        dgamma = (dout * x_hat).sum(dim=0)
-        dx_hat = dout * gamma
-        dx = dx_hat / std
-        dmu = -dx_hat.sum(dim=0) / std
-        dsigma2 = torch.sum(-0.5 * dx_hat * x_hat / (std ** 2), dim=0)
-        dmu += dsigma2 * torch.mean(-2 * (x - mean), dim=0)
-        dx += dmu / N
-        dx += dsigma2 * 2 * (x - mean) / N
+        mode = cache[-1]
+        if mode == 'train':
+            x, mean, var, std, x_hat, gamma, beta, eps = cache[:-1]
+            # var = x.var(dim=0, unbiased=False)
+            # mean = x.mean(dim=0)
+            # x_hat = (x - mean) / torch.sqrt(var + eps)
+            # out = gamma * x_hat + beta
+            N, D = x.shape
+            dbeta = dout.sum(dim=0)
+            dgamma = (dout * x_hat).sum(dim=0)
+            dx_hat = dout * gamma
+            dx = dx_hat / std
+            dmu = -dx_hat.sum(dim=0) / std
+            dsigma2 = torch.sum(-0.5 * dx_hat * x_hat / (std ** 2), dim=0)
+            dmu += dsigma2 * torch.mean(-2 * (x - mean), dim=0)
+            dx += dmu / N
+            dx += dsigma2 * 2 * (x - mean) / N
+        elif mode == 'test':
+            x, running_mean, running_var, std, x_hat, gamma, beta, eps = cache
+            dbeta = dout.sum(dim=0)
+            dgamma = (dout * x_hat).sum(dim=0)
+            dx_hat = dout * gamma
+            dx = dx_hat / std
         #################################################################
         #                      END OF YOUR CODE                         #
         #################################################################
 
         return dx, dgamma, dbeta
+
+    @ staticmethod
+    def backward_alt(dout, cache):
+        """
+        Alternative backward pass for batch normalization.
+        For this implementation you should work out the derivatives
+        for the batch normalization backward pass on paper and simplify
+        as much as possible. You should be able to derive a simple expression
+        for the backward pass. See the jupyter notebook for more hints.
+
+        Note: This implementation should expect to receive the same
+        cache variable as batchnorm_backward, but might not use all of
+        the values in the cache.
+
+        Inputs / outputs: Same as batchnorm_backward
+        """
+        dx, dgamma, dbeta = None, None, None
+        ###################################################################
+        # TODO: Implement the backward pass for batch normalization.      #
+        # Store the results in the dx, dgamma, and dbeta variables.       #
+        #                                                                 #
+        # After computing the gradient with respect to the centered       #
+        # inputs, you should be able to compute gradients with respect to #
+        # the inputs in a single statement; our implementation fits on a  #
+        # single 80-character line.                                       #
+        ###################################################################
+        # Replace "pass" statement with your code
+        x, mean, var, std, x_hat, gamma, beta, eps, mode = cache
+        N, D = x.shape
+        if mode == 'train':
+            dbeta = dout.sum(dim=0)
+            dgamma = (dout * x_hat).sum(dim=0)
+            dx_hat = dout * gamma
+            dx = (dx_hat - dx_hat.mean(dim=0) -
+                  x_hat * (dx_hat * x_hat).mean(dim=0)) / std
+        elif mode == 'test':
+            dbeta = dout.sum(dim=0)
+            dgamma = (dout * x_hat).sum(dim=0)
+            dx = dout * gamma / std
+        #################################################################
+        #                        END OF YOUR CODE                       #
+        #################################################################
+
+        return dx, dgamma, dbeta
+
 ```

@@ -1,5 +1,5 @@
 ---
-title: Matrix Gradients by hand in Deep Learning
+title: Two-layer MLP backpropagation using differential forms - Matrix Gradients by hand in Deep Learning (1)
 tags:
   - mathematics
   - machine-learning
@@ -15,6 +15,8 @@ We suppose that all functions are differentiable.
 <!-- more -->
 
 ## Introduction: Jacobian and gradient for vector functions
+
+This section can be skipped if the reader is not familiar with differential geometry or the concept of the differential form.
 
 From a higher point of view, the gradient, in finite dimensions or [Hilbert Spaces](https://en.wikipedia.org/wiki/Hilbert_space), is the vectorial representation of a linear form in the [dual space](https://en.wikipedia.org/wiki/Dual_space) of the [tangent space](https://en.wikipedia.org/wiki/Tangent_space). See [Riesz representation theorem](https://en.wikipedia.org/wiki/Riesz_representation_theorem).
 

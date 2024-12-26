@@ -86,6 +86,20 @@ In order to use TPUs, you have to use TensorFlow (in 2019).
 
 The most time consuming part of training a neural network is actuallly copying and moving data around.
 
+### Distributed Training
+
+Model Parallelism: Different parts of the model are on different devices.
+
+Idea 1: Run different layers of the model on different GPUs. Problem: Waiting for the slowest GPU
+
+Idea 2: Run parallel branches of model on different GPUs. Problem: Synchronizing across GPUs 
+
+Idea 3: Batch Parallelism: Different batches of data are on different devices. GPU only communicate at the end of each batch. 
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/9-6.png" width="70%" alt="Distributed Training"  /><br> Fig: Distributed Training</div>
+
+
 ## Deep Learning Software
 
 PyTorch, Caffe2, TensorFlow, PaddlePaddle, MAXNet, JAX, CNTK, Chainer, etc.
