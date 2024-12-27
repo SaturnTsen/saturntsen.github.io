@@ -132,7 +132,7 @@ $$
 \begin{aligned}
 \mu &= \frac{1}{N} \mathbf{1}_N^\top X \\
 \sigma^2 &= \frac{1}{N} \mathbf{1}_N^\top (X - \mathbf{1}_N\mu)^2 \\
-\hat{X} &= \frac{X - \mu}{\sqrt{\sigma^2 + \epsilon}} \\
+\hat{X} &= \frac{X - \mathbf{1}_N\mu}{\sqrt{\mathbf{1}_N\sigma^2 + \epsilon}} \\
 Y &= (\mathbf{1}_N \gamma) \odot\hat{X} + \mathbf{1}_N\beta
 \end{aligned}
 $$
