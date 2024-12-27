@@ -313,3 +313,37 @@ Solution: Positional encoding. We append a vector indicating the position of the
 
 1. RNN: works on ordered sequences, is good at long sequences: After one RNN layer, h_t sees the whole sequence. But it is not parallelizable.
 2. 1D Convolution: Works on Multidimensional Grids. It is not good at long sequences. It is highly parallelizable
+3. Self-Attention: Works on unordered sequences. It is good at long sequences. After one self-attention layer, each word sees the whole sequence. It is highly parallelizable. But memory complexity is quadratic in the sequence length.
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/13-17.png" width="70%" alt="Three ways of Processing Sequences"  /><br> Three ways of Processing Sequences</div>
+
+### Attention is All You Need
+
+[Attention is All You Need](https://arxiv.org/abs/1706.03762)
+
+A model build only with self-attention layers.
+
+Layer normalization: Self-attention is giving a set of vectors, and layer normalization does not add communication to the vectors.
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/13-18.png" width="70%" alt="Attention is All You Need"  /><br> Attention is All You Need</div>
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/13-19.png" width="70%" alt="Attention is All You Need"  /><br> The transformer</div>
+
+"ImageNet" Moment for Natural Language Processing.
+
+Pretraining: Download a lot of text from the internet. Train a giant Transformer model for language modeling.
+
+Fine-tuning: Fine-tune the transformer on your own NLP task.
+
+### Scaling up Transformers
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/13-20.png" width="70%" alt="Scaling up Transformers"  /><br> Scaling up Transformers</div>
+
+### Summary
+
+<div style="text-align:center;margin-bottom:1em;">
+  <img src="/images/um-cv/13-21.png" width="70%" alt="Summary"  /><br> Summary</div>
