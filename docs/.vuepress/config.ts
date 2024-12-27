@@ -1,6 +1,7 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
+import { host, port } from './dev.config'
 
 export default defineUserConfig({
   base: '/',
@@ -10,8 +11,8 @@ export default defineUserConfig({
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
 
   // Dev config
-  host:'192.168.137.1',
-  port: 8086,
+  host,
+  port,
 
   // Bundler
   bundler: viteBundler(),
