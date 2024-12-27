@@ -8,6 +8,13 @@ permalink: /computer-vision/UMichigan-CV/um-cv-course-9-hardware-and-software/
 
 Summary: Deep learning hardware, software, and PyTorch modules.
 
+@Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/)
+
+Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6)
+
+Personal work for the assignments of the course: [github repo](https://github.com/SaturnTsen/EECS-498-007/).
+
+
 <!-- more -->
 
 ## Heep Learning Hardware
@@ -34,7 +41,7 @@ GPU: More cores, but each core is much slower and "dumber"; great for parallel t
 Fig: Inside a GPU</div>
 
 - 12 x 2GB memory modules
-- 72 Straming multiprocessors(SMs)
+- 72 Streaming multiprocessors(SMs)
 - Inside each SM:
   - 64 FP32 cores per SM
   - 8 Tensor Core per SM
@@ -52,7 +59,7 @@ Fig: Inside a GPU</div>
 
 How to utilize these cores? Store your tensor in FP16 and use the tensor cores for matrix multiplication.
 
-### Parrallelism
+### Parallelism
 
 Example: Matrix Multiplication
 
@@ -66,14 +73,14 @@ Example: Matrix Multiplication
 
 - CUDA: NVIDIA only
   - Write C code that runs directly on the GPU
-  - NVVIDIA provides optimized APIS: cuBLAS, cuFFT, cuDNN, etc.
+  - NVIDIA provides optimized APIS: cuBLAS, cuFFT, cuDNN, etc.
 - OpenCL
-  - Simiilar to CUDA, but runs on anything
+  - Similar to CUDA, but runs on anything
   - Usually slower on NVIDIA hardware
 
 ##### Scaling up: Typically 8 GPUS per server
 
-#### Google Tensor Processinng Units (TPU)
+#### Google Tensor Processing Units (TPU)
 
 | **Cloud TPU Comparison** | **Performance (TFLOP/sec)** | **Memory**   | **Price**     | **Configuration**  |
 |---------------------------|----------------------------|-------------|--------------|--------------------|
@@ -84,7 +91,7 @@ Example: Matrix Multiplication
 
 In order to use TPUs, you have to use TensorFlow (in 2019).
 
-The most time consuming part of training a neural network is actuallly copying and moving data around.
+The most time consuming part of training a neural network is actually copying and moving data around.
 
 ### Distributed Training
 
@@ -112,12 +119,12 @@ Recall: Computational Graphs
 The point of deep learning frameworks:
 
 1. Allow rapid prototyping of new models
-2. Automatically conpute gradients
+2. Automatically compute gradients
 3. Run it all efficiently on GPUs (or TPUs)
 
 ## Pytorch
 
-### Fundamental Contepts
+### Fundamental Concepts
 
 - Tensor `torch.Tensor`: The basic data structure (Assignment 1, 2, 3)
 - Autograd `torch.autograd`: Automatic differentiation 
@@ -181,7 +188,7 @@ for t in range(500):
     loss = (y_pred - y).pow(2).sum()
 
     loss.backward()
-    # Pytorch seaches any leaf nodes in the computational graph
+    # Pytorch searches any leaf nodes in the computational graph
     # and computes the gradient of the loss with respect to them
     # After backward finishes, gradients are stored in the .grad
     # attribute of each tensor and the graph is **destroyed**
@@ -413,14 +420,14 @@ def model(x, y, w1, w2a, w2b, prev_loss):
 
 Static:
 
-- Once graph is built, we can seraliaze it and run it without the code that built the graph.
+- Once graph is built, we can serialize it and run it without the code that built the graph.
 - Lots of indirection between the code you write and the code that runs - can be hard to debug, benchmark, etc.
 
 Dynamic:
 
 - Graph building and execution are intertwined.
 - Easier to debug, benchmark, etc.
-- Easiy to implement Recurrent and Recursive networks and other dynamic models.
+- Easily implement Recurrent and Recursive networks and other dynamic models.
 - Modular Networks: You can train a network to build another network.
 
 TensorFlow is 2.18 (Oct 2024) is moving towards a more dynamic model. Keras is the high level API for TensorFlow.

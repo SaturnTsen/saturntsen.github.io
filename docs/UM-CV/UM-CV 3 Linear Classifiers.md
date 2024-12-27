@@ -9,9 +9,11 @@ permalink: /computer-vision/UMichigan-CV/um-cv-course-3-4-linear-classifiers/
 
 @Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/)
 
-<!-- more -->
+Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6)
 
 Personal work for the assignments of the course: [github repo](https://github.com/SaturnTsen/EECS-498-007/).
+
+<!-- more -->
 
 # Linear Classifiers：Parametric Approach
 
@@ -25,7 +27,7 @@ Example: $f(x,W)=Wx+b$
   <img src="/images/um-cv/um-cv-3-1.png" width="60%" alt="description"  /><br>
 Fig: Linear classifier with 3 classes</div>
 
-- Preditions are linear when ignoring the bias term.
+- Predictions are linear when ignoring the bias term.
 
 ### Visual Viewpoint
 
@@ -85,7 +87,7 @@ Q2: min and max loss?
 A: min = 0, max = $\infty$ (if the score for the correct class is way less than the score for the incorrect class)
 
 Q3: If all the score were random, what loss would we expect?
-A: The expected score of the correct and incorrect class would be approximately the same, sothe the loss would be around $C-1$, where $C$ is the number of classes.
+A: The expected score of the correct and incorrect class would be approximately the same, so the the loss would be around $C-1$, where $C$ is the number of classes.
 (小技巧：This is a good debugging technique to see if the initializations are corrects)
 
 Q4: What would happen if the sum were over all classes?
@@ -109,10 +111,10 @@ $$
 where $\lambda$ is a hyperparameter call the regularization strength.
 
 Other regularizers:
-L2, L1, Droutout, Batch Normalization, etc.
+L2, L1, Dropout, Batch Normalization, etc.
 
 Purpose of regularization:
-- express preferencess in among models beyond "minimize training error"
+- express preferences in among models beyond "minimize training error"
 - prefer simple models, prevent overfitting
 - improve optimization by adding curvature
 
@@ -159,7 +161,7 @@ Numeric gradient:
 
 `torch.autograd.gradcheck` calculates the numerical gradient and compares it to the analytical gradient. 
 
-`torch.autogrd.gradgradcheck` calculates the numerical gradient of the gradient (Hessian) and compares it to the analytical gradient of the gradient.
+`torch.autograd.gradgradcheck` calculates the numerical gradient of the gradient (Hessian) and compares it to the analytical gradient of the gradient.
 
 Hyperparameters:
 
@@ -179,7 +181,7 @@ $$
 W \leftarrow W - \alpha \nabla_W L(W) = W - \alpha \frac{1}{N} \sum_{i=1}^N \nabla_W L_i(W)
 $$
 
-Schocastic gradient descent: compute the gradient of the loss with respect to the weights by drawing small subsamples.
+Stochastic gradient descent: compute the gradient of the loss with respect to the weights by drawing small subsamples.
 
 <div style="text-align:center;">
   <img src="/images/um-cv/um-cv-3-6.png" width="60%" alt="Stochastic gradient descent"  /><br>
@@ -322,5 +324,3 @@ The shape of the Hessian matrix is $D \times D$, where $D$ is the number of para
 ## Assignments
 
 The most challenging part of the assignment is to calculate the gradient of the loss function.
-
-For mathematical formulation of the grandient, see 

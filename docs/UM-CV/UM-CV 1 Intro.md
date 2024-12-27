@@ -7,6 +7,12 @@ createTime: 2024/12/19 14:30:31
 permalink: /computer-vision/UMichigan-CV/um-cv-course-1-intro/
 ---
 
+@Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/)
+
+Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6)
+
+Personal work for the assignments of the course: [github repo](https://github.com/SaturnTsen/EECS-498-007/).
+
 # Deep Learning in Computer Vision 
 
 ## A brief history of computer vision and deep learning
@@ -20,7 +26,7 @@ A brief history of computer vision and deep learning
 - Hubel and Weisel, 1959, neural response of cats to the image patterns 
 - Larry Robrets, 1963, get photographic information and features to understand pictures
 - Seymour Papert, 1966, summer computer vision project. construction of a visual system. 
-- David Marr, 1970s, stages of visual reprensation
+- David Marr, 1970s, stages of visual representation
 - Brooks and Binford, 1979, Recognition via parts and human as rigid parts
 - Canny and Lowe, 1987, Recognition via edge detection
 - 1990s, Shi and Malik, Recognition via grouping
@@ -33,9 +39,9 @@ A brief history of computer vision and deep learning
 - 2012 Breakthrough: Alexnet, NeurIPS
 
 ### Deep Learning
-- 1958 Perceptrons: One of the earliest algrithms that could learn from data, implemented as a piece of harware, whose weights are stored in potentiometers.
+- 1958 Perceptrons: One of the earliest algorithms that could learn from data, implemented as a piece of hardware, whose weights are stored in potentiometers.
 - 1969 Perceptrons cannot learn the XOR function. Minsky and Papert
-(People didn't realize that muti-layer perceptrons can)
+(People didn't realize that multi-layer perceptrons can)
 - 1980 Neocognition, Computation model the visual system, inspired by hierarchy of complex and simple cells.
 No efficient methods to train the model.
 - 1986 Backpropagation for computing gradients in neural networks.

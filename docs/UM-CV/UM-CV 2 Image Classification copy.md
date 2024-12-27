@@ -9,6 +9,8 @@ permalink: /computer-vision/UMichigan-CV/um-cv-course-2-classification/
 
 @Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/)
 
+Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6)
+
 Personal work for the assignments of the course: [github repo](https://github.com/SaturnTsen/EECS-498-007/).
 
 # Image Classification
@@ -21,11 +23,11 @@ Problem: The semantic gap between low-level features and high-level concepts, an
 
 ### Challenges
 
-- intraclass variation
+- intra-class variation
 - fine-grained categories
 - background clutter
 - illumination change: lighting and shadow conditions
-- deformatoion: the object may have various positions
+- deformation: the object may have various positions
 - occlusion: the object may be partially covered
 
 ### Scientific Applications
@@ -130,13 +132,13 @@ Hyperparameters: parameters that are not learned by the model, but are set at th
 
 Setting Hyperparameters:
 
-- Idea 1: Choose hyperparamters that work best on the data.
+- Idea 1: Choose hyperparameters that work best on the data.
   - BAD: This works best on the training data.
 - Idea 2: Split data into train and test and choose hyperparameters that work best on the test data.
   - BAD: The algorithm is polluted by the test data!
 - Idea 3: Split data into train, validation, and test. Choose hyperparameters that work best on the validation data.
-  - Better and correst ! We only touch once the test data.
-  - Bad perfomance on the test set implies bad performance on the real world.
+  - Better and correct ! We only touch once the test data.
+  - Bad performance on the test set implies bad performance on the real world.
 
 <div style="text-align:center;">
 <img src="/images/um-cv/um-cv-2-2.png" width="80%" alt="How to split your data"  /><br>
@@ -151,16 +153,16 @@ Fig: How to split your data
 Fig: cross-validation
 </div>
 
-Emprirical studies:
+Empirical studies:
 
 <div style="text-align:center;">
-<img src="/images/um-cv/um-cv-2-4.png" width="80%" alt="Emprirical studies"  /><br>
-Fig: Emprirical studies
+<img src="/images/um-cv/um-cv-2-4.png" width="80%" alt="Empirical studies"  /><br>
+Fig: Empirical studies
 </div>
 
 ### Correctness: Universal Approximation
 
-KNN has universal approximaton power on compact sets.
+KNN has universal approximation power on compact sets.
 <div style="text-align:center;">
 <img src="/images/um-cv/um-cv-2-5.png" width="80%" alt="Universal Approximation"  /><br>
 Fig: Universal Approximation
@@ -226,7 +228,7 @@ torch.chunk # to split a tensor into chunks
 
 ### Slicing, Indexing, and Boolean Masking
 
-#### Access a single row or colums of a tensor
+#### Access a single row or columns of a tensor
 
 There are two common ways to access a single row or column of a tensor: using an integer will reduce the rank by one, and using a length-one slice will keep the same rank. Note that this is different behavior from MATLAB.
 
@@ -383,7 +385,7 @@ tensor([[ 1,  0,  3],
 
 #### Boolean masking of tensors
 
-The shape of the boolean mask should be the same as the original tensor, or should be broadcastable to the same shape. This is commnly used so I will not detail it here.
+The shape of the boolean mask should be the same as the original tensor, or should be broadcastable to the same shape. This is commonly used so I will not detail it here.
 
 ### Reshape, Permute, and Contiguous
 
@@ -825,7 +827,7 @@ def knn_get_best_k(k_to_accuracies: Dict[int, List]):
     ##########################################################################
     # TODO: Use the results of cross-validation stored in k_to_accuracies to #
     # choose the value of k, and store result in `best_k`. You should choose #
-    # the value of k that has the highest mean accuracy accross all folds.   #
+    # the value of k that has the highest mean accuracy across all folds.   #
     ##########################################################################
     # Replace "pass" statement with your code
     best_accuracy = 0

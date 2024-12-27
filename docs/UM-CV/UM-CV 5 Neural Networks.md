@@ -11,6 +11,8 @@ permalink: /computer-vision/UMichigan-CV/um-cv-course-5-neural-networks/
 
 Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6)
 
+Personal work for the assignments of the course: [github repo](https://github.com/SaturnTsen/EECS-498-007/).
+
 # Neural Networks
 
 Linear classifiers are limited to their linear decision boundaries. Neural networks are more flexible and can learn more complex decision boundaries.
@@ -20,7 +22,7 @@ Linear classifiers are limited to their linear decision boundaries. Neural netwo
 ## Feature extraction
 
 **Color histograms, HOG, SIFT, etc. (2000-2010)**
-- Color histograms - Statiscal Method
+- Color histograms - Statistical Method
 - HOG: Histogram of Oriented Gradients
   - Compute edge direction/strength at each pixel
 - Bag of Words(Data-Driven) - Clustering
@@ -152,7 +154,7 @@ Fig: Biological Neurons</div>
 
 Differences between biological and artificial neurons
 - Biological neurons have complex connectivity patterns
-- Inside a neuron, signals are computated by complex processes
+- Inside a neuron, signals are computed by complex processes
 - Artificial neurons are organized into regular layers for computational efficiency
 
 Fun fact: But neural networks with random connectivity can still learn!
@@ -207,7 +209,7 @@ Neural net losses sometimes look convex-ish.
   <img src="/images/um-cv/5-9.png" width="30%" alt="loss surface 1"  /> <img src="/images/um-cv/5-10.png" width="30%" alt="loss surface 2"  /><br>
 Fig: loss surfaces</div>
 
-Open question: theorectical properties of the optimization landscape of neural networks.
+Open question: theoretical properties of the optimization landscape of neural networks.
 
 ## Summary of lecture 5
 
@@ -353,7 +355,7 @@ $$
 \underbrace{\frac{\partial l}{\partial x}}_{\text{grad\_x}} = \underbrace{\frac{\partial f}{\partial g}(x)}_{\text{local grad module}}\cdot \underbrace{\frac{\partial l}{\partial y}}_{\text{grad\_y}}(y)
 $$
 
-Again we have omitted trasnposing $\frac{\partial l}{\partial y}$.
+Again we have omitted transposing $\frac{\partial l}{\partial y}$.
 
 In practice, we never actually compute the jacobian matrix, but instead compute the product of the jacobian and a vector.
 
@@ -362,7 +364,7 @@ In practice, we never actually compute the jacobian matrix, but instead compute 
 Fig: Backpropagation for vectors
 </div>
 
-### Backpropopagation for Matrices (or Tensors)
+### Backpropagation for Matrices (or Tensors)
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/6-13.png" width="70%" /><br>
@@ -373,7 +375,7 @@ How to generalize the matrix product?
 
 We can use the [Einstein summation convention](https://en.wikipedia.org/wiki/Einstein_notation) to generalize the matrix product.
 
-Let $X\in\mathbb{R}^{m\times n}$ and a matrix functon $Y=f: \mathbb{R}^{m\times n} \to \mathbb{R}^{p\times q}$. Suppose we have calculated $\frac{\partial l}{\partial Y}\in\mathbb{R}^{p\times q}$, then
+Let $X\in\mathbb{R}^{m\times n}$ and a matrix function $Y=f: \mathbb{R}^{m\times n} \to \mathbb{R}^{p\times q}$. Suppose we have calculated $\frac{\partial l}{\partial Y}\in\mathbb{R}^{p\times q}$, then
 
 $$
 \frac{\partial l}{\partial X} = \frac{\partial f}{\partial X}(X) \cdot \frac{\partial l}{\partial Y}

@@ -58,7 +58,7 @@ permalink: /computer-vision/paper-reading/track4gen/
 
 需要查找
 
-1. 【EDM frmaework】
+1. 【EDM framework】
     
 2. “condition c refers to the CLIP image embedding”【CLIP】
     

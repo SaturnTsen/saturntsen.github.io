@@ -9,6 +9,10 @@ permalink: /computer-vision/UMichigan-CV/um-cv-course-7-CNN/
 
 @Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/)
 
+Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6)
+
+Personal work for the assignments of the course: [github repo](https://github.com/SaturnTsen/EECS-498-007/).
+
 # Convolutional Neural Networks
 
 Problem: All of the previous models flattens the input image into a vector. This loses the spatial structure of the image. CNNs are designed to work with image data directly.
@@ -81,7 +85,7 @@ Fig: Strided Convolutions</div>
 
 Example:
 
-Input volume 3x32x32 -> 10 3x5x5 filters with sride 1, padding 2
+Input volume 3x32x32 -> 10 3x5x5 filters with stride 1, padding 2
 Output volume size? Number of parameters? Number of multiply-add operations?
 
 ```text
@@ -102,7 +106,7 @@ Stacking 1x1 convolution layers gives MLP operating on each input position. This
 #### Convolution Summary
 
 - Input: C_in x H x W
-- Hyperparmeters: F filters, K kernel size, S stride, P padding
+- Hyperparameters: F filters, K kernel size, S stride, P padding
 - Weight Matrix: C_out x C_in x K x K giving C_out filters of size KxK
 - Bias vector: C_out
 - Output: C_out x H_out x W_out
@@ -196,7 +200,7 @@ During testing, we use the average and variance of the entire seen data during t
 
 During testing, the batchnorm becomes a linear operator! We can fuse them into the previous layer.
 
-#### Batch Notmalization for Convolutional Networks
+#### Batch Normalization for Convolutional Networks
 
 <div style="text-align:center;margin-bottom:1em;">
 <img src="/images/um-cv/7-15.png" width="70%" alt="description"  /><br> Fig: Batch Normalization for Convolutional Networks</div>
@@ -206,14 +210,14 @@ See [ICML 2015 paper](https://arxiv.org/abs/1502.03167) for more details.
 Advantages and Disadvantages of Batch Normalization:
 
 - Makes deep networks much easier to train.
-- Alllows higher learning rates and faster convergence.
+- Allows higher learning rates and faster convergence.
 - Networks become more robust to initialization.
 - Acts as regularization during training.
 - Zero overhead at test time. Can be fused into the previous layer.
 - Works well with feed-forward networks.
 
 - Not well understood theoretically(yet)
-- 0 Mean is forecd, and may not be ideal for all models.
+- 0 Mean is forced, and may not be ideal for all models.
 - Behaves differently during training and testing: this is a very common source of bugs!
 
 #### Instance Normalization
@@ -233,7 +237,7 @@ Advantages and Disadvantages of Batch Normalization:
 
 ### AlexNet: 2012 winner. 8 layers, 60 million parameters.
 
-227×227 inputs, 5 Convolutionallayers, Max pooling, 3 Fully connected layers, ReLU nonlinearity. Used "local response normalization"(not used anymore). Trained on two GTX 580 GPUs - only 3GB of memory each. Model split over two GPUs.
+227×227 inputs, 5 Convolutional layers, Max pooling, 3 Fully connected layers, ReLU nonlinearity. Used "local response normalization"(not used anymore). Trained on two GTX 580 GPUs - only 3GB of memory each. Model split over two GPUs.
 
 Fun fact: citations to the AlexNet
 <div style="text-align:center;margin-bottom:1em;">
@@ -269,7 +273,7 @@ conv1: Number of floating point operations (multiply+add)
 
 Similar to AlexNet, but with smaller filters and deeper layers. 7x7 filters in the first layer, 3x3 filters in the second layer. Deeper layers.
 
-### VGG: The priciples of designing a good network
+### VGG: The principles of designing a good network
 
 - All conv are 3x3 stride 1 pad 1
 - All max pool are 2x2 stride 2
@@ -288,7 +292,7 @@ conv-conv-conv-(conv)-pool
 FC-FC-FC
 
 VGG is much larger than AlexNet. It has 138 million parameters!
-VGG is 19.4x compuationally more expensive than AlexNet.
+VGG is 19.4x computationally more expensive than AlexNet.
 
 <div style="text-align:center;margin-bottom:1em;">
 <img src="/images/um-cv/8-3.png" width="70%" alt="description"  /><br> Fig: VGG</div>
@@ -314,10 +318,10 @@ Design an efficient convolutional network for mobile devices. 22 layers, 4 milli
  <div style="text-align:center;margin-bottom:1em;">
 <img src="/images/um-cv/8-7.png" width="70%" alt="description"  /><br> Fig: Global Average Pooling</div>
 
-**Auxilariy Clasifiers** at intermediate layers. Making gradient flow easier. (For VGG, the network is trained layerwise.)
+**Auxiliary Classifiers** at intermediate layers. Making gradient flow easier. (For VGG, the network is trained layerwise.)
 
 <div style="text-align:center;margin-bottom:1em;">
-<img src="/images/um-cv/8-8.png" width="70%" alt="description"  /><br> Fig: Auxilary Classifiers</div>
+<img src="/images/um-cv/8-8.png" width="70%" alt="description"  /><br> Fig: Auxiliary Classifiers</div>
 
 ### ResNet (CVPR 2016)
 
@@ -346,9 +350,9 @@ Network is divided into stages like VGG. Each stage has a different number of fi
 <div style="text-align:center;margin-bottom:1em;">
 <img src="/images/um-cv/8-11.png" width="70%" alt="description"  /><br> Fig: Basic Block and Bottleneck Block</div>
 
-In 2015, ResNet ranked 1st in all five competititons!
+In 2015, ResNet ranked 1st in all five competitions!
 
-MSRA @ ILSVRC & COCO 2015 competititons
+MSRA @ ILSVRC & COCO 2015 competitions
 
 - ImageNet Classification
 - ImageNet Detection
@@ -379,7 +383,7 @@ Densely Connected Convolutional Networks (CVPR 2017)
 <div style="text-align:center;margin-bottom:1em;">
 <img src="/images/um-cv/8-14.png" width="70%" alt="description"  /><br> Fig: DenseNet</div>
 
-### MoileNets: Tiny Networks
+### MobileNets: Tiny Networks
 
 MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications (CVPR 2017)
 

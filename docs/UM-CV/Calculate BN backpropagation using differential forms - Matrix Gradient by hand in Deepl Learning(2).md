@@ -1,11 +1,11 @@
 ---
-title: Batch Normalization backpropagation using differential forms - Matrix Gradient by hand in Deepl Learning (2)
+title: Batch Normalization backpropagation using differential forms - Matrix Gradient by hand in Deep Learning (2)
 tags:
  - mathematics
  - machine-learning
  - deep-learning
 createTime: 2024/12/26 11:29:50
-permalink: /mathematics/Calculate-BN-backpropagation-using-differential-forms-Matrix-Gradient-by-hand-in-Deepl-Learning/
+permalink: /mathematics/Calculate-BN-backpropagation-using-differential-forms-Matrix-Gradient-by-hand-in-Deep-Learning/
 ---
 
 For the rules of matrix differentiation, please refer to the previous article: [Calculate the gradient of a matrix by hand in deep learning](/mathematics/gradient-chain-rule-matrix-gradients-deep-learning/)
@@ -246,7 +246,7 @@ d\hat{X} &= d(\frac{X - \mathbf{1}_N\mu}{\sqrt{\mathbf{1}_N\sigma^2 + \epsilon}}
 \end{aligned}
 $$
 
-Abuse of notation: we will use $dL$ to denote a part of the real $dL$, since wo do not care about the differential with repect to $\gamma$ and $\beta$
+Abuse of notation: we will use $dL$ to denote a part of the real $dL$, since wo do not care about the differential with respect to $\gamma$ and $\beta$
 
 Meanwhile, we have
 
@@ -493,7 +493,7 @@ class BatchNorm(object):
         Input:
         - x: Data of shape (N, D)
         - gamma: Scale parameter of shape (D,)
-        - beta: Shift paremeter of shape (D,)
+        - beta: Shift parameter of shape (D,)
         - bn_param: Dictionary with the following keys:
           - mode: 'train' or 'test'; required
           - eps: Constant for numeric stability
@@ -568,7 +568,7 @@ class BatchNorm(object):
             # Correct code
             # Why ? Because the professor has done the storage below !!!
             # And his implementation has rewritten what I have done...
-            # Holy sxxt, I have been stuck here for a long time...
+            # I have been stuck here for a long time...
             # Read through the code before you start coding...
 
             running_mean = (1 - momentum) * mean + momentum * running_mean

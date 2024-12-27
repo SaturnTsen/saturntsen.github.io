@@ -4,6 +4,12 @@ createTime: 2024/12/26 17:45:38
 permalink: /computer-vision/UMichigan-CV/um-cv-course-10-training-neural-networks/
 ---
 
+@Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/)
+
+Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6)
+
+Personal work for the assignments of the course: [github repo](https://github.com/SaturnTsen/EECS-498-007/).
+
 Abstract: Training neural networks, activation functions, data preprocessing, weight initialization, regularization, learning rate schedules, large batch training, hyperparameter tuning, model ensembles, transfer learning.
 
 <!-- more -->
@@ -376,17 +382,17 @@ Loss explodes to Inf or NaN ? LR too low, bad initialization.
 
 Step 3. Find LR that makes loss go down
 
-Use the architecture from the previous step, use all training data, turn on small weight decay, find a learning rate that makes the loss droup quickly within 100 iterations.
+Use the architecture from the previous step, use all training data, turn on small weight decay, find a learning rate that makes the loss drop quickly within 100 iterations.
 
 Good learning rates to try: 1e-1, 1e-2, 1e-3, 1e-4.
 
-Step 4. Coaese grid, train for 1~5 epochs
+Step 4. Coarse grid, train for 1~5 epochs
 
 Choose a few values of learning rate and weight decay around what worked from Step 3, train a few models for 1~5 epochs.
 
 Good weight decays to try: 1e-5, 1e-4, 0.
 
-Steo 5. Refine grid, train longer
+Step 5. Refine grid, train longer
 
 Step 6. Look at learning curves, fine-tune
 
@@ -438,9 +444,9 @@ Tips and tricks:
 
 ### Transfer learning
 
-~~"You need a lot of data if wnat to train/use CNNs"~~
+~~"You need a lot of data if want to train/use CNNs"~~
 
-#### Tranfer Learning with CNNs
+#### Transfer Learning with CNNs
 
 1. Train on ImageNet
 2. Remove the last FC
@@ -452,7 +458,7 @@ Tips and tricks:
 4. Bigger dataset: Fine-Tuning. Continue training the entire model for a new task.
 
 Some tricks:
-- Train with feature extaction first before fine-tuning.
+- Train with feature extraction first before fine-tuning.
 - Lower the learning rate: use ~1/10 of LR used in original training.
 - Sometimes freeze lower layers to save computation.
 

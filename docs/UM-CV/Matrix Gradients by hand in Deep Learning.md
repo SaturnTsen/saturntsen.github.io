@@ -193,7 +193,7 @@ Given $df$, we want to calculate $\frac{\partial f}{\partial X}$. We can write $
 > <Badge type="info" text="Tricks" />
 > 1. Scalar rule: if $a$ is a scalar, then $\mathrm{tr}(a) = a$.
 > 2. Transpose rule: $\mathrm{tr}(A) = \mathrm{tr}(A^\top)$.
-> 3. Linearrity: $\mathrm{tr}(A + B) = \mathrm{tr}(A) + \mathrm{tr}(B)$.
+> 3. Linearity: $\mathrm{tr}(A + B) = \mathrm{tr}(A) + \mathrm{tr}(B)$.
 > 4. Cyclic rule: $\mathrm{tr}(AB) = \mathrm{tr}(BA)$. 
 > 5. Product rule: $\mathrm{tr}(A^\top (B \odot C)) = \mathrm{tr}((A \odot B)^\top C)$.
 
@@ -504,7 +504,7 @@ $$
 \frac{\partial L}{\partial b_1} = \mathbf{1}_{N}^\top \frac{\partial L}{\partial Z_1}
 $$
 
-We can observe that the gradient of the layer depdens on the gradient of the next layer. This is the principle of backpropagation in deep learning.
+We can observe that the gradient of the layer deepens on the gradient of the next layer. This is the principle of backpropagation in deep learning.
 
 ### Implementation
 
