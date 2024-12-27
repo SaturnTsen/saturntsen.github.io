@@ -1,6 +1,3 @@
-.cspell
-.vscode
-
 **/node_modules
 docs/.vuepress/.cache
 docs/.vuepress/.temp
