@@ -7,15 +7,33 @@ createTime: 2024/12/21 17:34:25
 permalink: /computer-vision/UMichigan-CV/um-cv-course-5-neural-networks/
 ---
 
-@Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/)
+Summary: 
 
-Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6)
+Part 1: Neural Networks, Activation Functions, Biological Neurons, Space
+Warping, Universal Approximation, Convergence of Neural Networks
+
+Part 2: Backpropagation, Computational graphs, Modular implementation, automatic
+differentiation, Higher-order derivatives
+
+<!-- more -->
+
+@Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/) | 
+Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6) 
 
 Personal work for the assignments of the course: [github repo](https://github.com/SaturnTsen/EECS-498-007/).
 
+**Notice on Usage and Attribution**
+
+These are personal class notes based on the University of Michigan EECS 498.008
+/ 598.008 course. They are intended solely for personal learning and academic
+discussion, with no commercial use.
+
+For detailed information, please refer to the **[complete notice at the end of this document](#notice-on-usage-and-attribution)**
+
 # Neural Networks
 
-Linear classifiers are limited to their linear decision boundaries. Neural networks are more flexible and can learn more complex decision boundaries.
+Linear classifiers are limited to their linear decision boundaries. Neural
+networks are more flexible and can learn more complex decision boundaries.
 
 <!-- more -->
 
@@ -44,7 +62,8 @@ One-vs-all SVM learning with SGD
 
 Late fusion of SIFT and color systems
 
-Problem: These complicated systems are not designed to directly minimize the classification error!
+Problem: These complicated systems are not designed to directly minimize the
+classification error!
 
 **AlexNet: Deep Learning (2012)**
 
@@ -74,7 +93,9 @@ Fig: Data Flow</div>
 
 ### Deep Neural Networks
 
-Each output is affected by each input: Fully connected network (or MLP - Multi-Layer Perceptron), and templates (each row of the matrix $W$) are combined layerwise.
+Each output is affected by each input: Fully connected network (or MLP -
+Multi-Layer Perceptron), and templates (each row of the matrix $W$) are combined
+layerwise.
 
  <div style="text-align:center;">
   <img src="/images/um-cv/um-cv-5-3.png" width="85%" alt="Deep neural networks"  /><br>
@@ -82,7 +103,8 @@ Fig: DNN</div>
 
 ### Activation Functions
 
-Add non-linearity to the network. Without non-linearity, the network would be equivalent to a single layer.
+Add non-linearity to the network. Without non-linearity, the network would be
+equivalent to a single layer.
 
 **The most widely used: ReLU (Rectified Linear Unit)**
 
@@ -161,7 +183,9 @@ Fun fact: But neural networks with random connectivity can still learn!
 
 ### Space Warping
 
-A linear layer cannot improve the representation power of the classifier, but with a non-linear transform in between, the classifier can learn more complex decision boundaries.
+A linear layer cannot improve the representation power of the classifier, but
+with a non-linear transform in between, the classifier can learn more complex
+decision boundaries.
 
 Explanation: [Space Warping](https://distill.pub/2018/building-blocks/)
 
@@ -189,7 +213,8 @@ See Nielsen's [Neural Networks and Deep Learning](http://neuralnetworksanddeeple
 
 Reality check: Networks don't really learn bumps!
 
-But the theorem does not tell us how to find the right weights, given that $f$ is unknown a priori.
+But the theorem does not tell us how to find the right weights, given that $f$
+is unknown a priori.
 
 ### Convergence of Neural Networks
 
@@ -199,7 +224,8 @@ $$
 f(t x + (1 - t)y) \leq t f(x) + (1 - t)f(y)
 $$ 
 
-**Theorem**: A single layer neural network with ReLU activation is a convex function of its weights.
+**Theorem**: A single layer neural network with ReLU activation is a convex
+function of its weights.
 
 No such guarantee for non-linear networks.
 
@@ -209,7 +235,8 @@ Neural net losses sometimes look convex-ish.
   <img src="/images/um-cv/5-9.png" width="30%" alt="loss surface 1"  /> <img src="/images/um-cv/5-10.png" width="30%" alt="loss surface 2"  /><br>
 Fig: loss surfaces</div>
 
-Open question: theoretical properties of the optimization landscape of neural networks.
+Open question: theoretical properties of the optimization landscape of neural
+networks.
 
 ## Summary of lecture 5
 
@@ -223,7 +250,8 @@ Open question: theoretical properties of the optimization landscape of neural ne
 
 ## Backpropagation
 
-**Problem**: How to compute the gradient of the loss function with respect to the weights?
+**Problem**: How to compute the gradient of the loss function with respect to
+the weights?
 
 #### (Bad) Idea: Derive $\frac{\partial L}{\partial W}$ by hand
 
@@ -236,7 +264,8 @@ See what I have done [Derive gradient by hand](/mathematics/gradient-chain-rule-
 Fig: computational graph of a SVM
 </div>
 
-This is critical for large neural networks, e.g. AlexNet or Recurrent Neural Turing Machine...
+This is critical for large neural networks, e.g. AlexNet or Recurrent Neural
+Turing Machine...
 
 
 <div style="text-align:center;margin-bottom:1em;">
@@ -277,7 +306,8 @@ $$
 \frac{\partial f}{\partial y} = \frac{\partial f}{\partial q} \frac{\partial q}{\partial y} = z \cdot 1 = -4
 $$
 
-We can compute local gradient of one node and the chain rules can be implemented as modules.
+We can compute local gradient of one node and the chain rules can be implemented
+as modules.
 
 
 <div style="text-align:center;margin-bottom:1em;">
@@ -296,7 +326,8 @@ $$
 Fig: Backpropagation example 2
 </div>
 
-We can also choose more primitive functions for which the gradients are easy to compute.
+We can also choose more primitive functions for which the gradients are easy to
+compute.
 
 e.g. Sigmoid functions
 
@@ -349,7 +380,9 @@ $$
 
 Local gradient calculation:
 
-Let $f$ be a vector-valued function $f: \mathbb{R}^n \to \mathbb{R}^m$, and $y = f(x)$. Suppose we have calculated $\frac{\partial l}{\partial y}\in\mathbb{R}^{m}$, then
+Let $f$ be a vector-valued function $f: \mathbb{R}^n \to \mathbb{R}^m$, and 
+$y = f(x)$. Suppose we have calculated $\frac{\partial l}{\partial
+y}\in\mathbb{R}^{m}$, then
 
 $$
 \underbrace{\frac{\partial l}{\partial x}}_{\text{grad\_x}} = \underbrace{\frac{\partial f}{\partial g}(x)}_{\text{local grad module}}\cdot \underbrace{\frac{\partial l}{\partial y}}_{\text{grad\_y}}(y)
@@ -357,7 +390,8 @@ $$
 
 Again we have omitted transposing $\frac{\partial l}{\partial y}$.
 
-In practice, we never actually compute the jacobian matrix, but instead compute the product of the jacobian and a vector.
+In practice, we never actually compute the jacobian matrix, but instead compute
+the product of the jacobian and a vector.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/6-12.png" width="70%" /><br>
@@ -389,7 +423,8 @@ $$
 \frac{\partial l}{\partial X}_{ij} = \frac{\partial f_{kl}}{\partial X_{ij}} \frac{\partial l}{\partial Y_{kl}}
 $$
 
-The trick here is to find a quick way to carry out the computation implicitly without actually constructing the jacobian tensor.
+The trick here is to find a quick way to carry out the computation implicitly
+without actually constructing the jacobian tensor.
 
 ### Reverse-Mode Automatic Differentiation
 
@@ -414,7 +449,8 @@ Fig: Backpropagation with Matrices
 Fig: Higher-Order Derivatives
 </div>
 
-If we want to calculate the Hessian/vector product, we can construct this by hand.
+If we want to calculate the Hessian/vector product, we can construct this by
+hand.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/6-17.png" width="70%" /><br>
@@ -433,3 +469,15 @@ Fig: Application of Higher-Order Derivatives as a penalization
 - Reverse-mode automatic differentiation
 - Forward-mode automatic differentiation
 - Higher-order derivatives
+
+## **Notice on Usage and Attribution**
+
+This note is based on the **University of Michigan's publicly available course EECS 498.008 / 598.008** and is intended **solely for personal learning and academic discussion**, with no commercial use.
+
+- **Original Course Resources:** Please refer to the **official University of Michigan website** for complete and accurate course materials.  
+- **Third-Party Open Access Content:** This note may reference Open Access (OA) papers or resources cited within the course materials. These materials are used under their original **Open Access licenses** (e.g., CC BY, CC BY-SA).  
+- **Proper Attribution:** Every referenced OA resource is appropriately cited, including the **author, publication title, source link, and license type**.  
+- **Copyright Notice:** All rights to third-party content remain with their respective authors or publishers.  
+- **Content Removal:** If you believe any content infringes on your copyright, please contact me, and I will **promptly remove** the content in question.
+
+Thanks to the **University of Michigan** and the contributors to the course for their openness and dedication to accessible education. 

@@ -1,5 +1,8 @@
 ---
-title: UM-CV 9 Hardware, Software, Pytorch Modules
+title: UM-CV 9 Hardware, Software, PyTorch Modules
+tags: 
+  - notes
+  - computer-vision
 createTime: 2024/12/23 21:11:03
 permalink: /computer-vision/UMichigan-CV/um-cv-course-9-hardware-and-software/
 ---
@@ -8,14 +11,21 @@ permalink: /computer-vision/UMichigan-CV/um-cv-course-9-hardware-and-software/
 
 Summary: Deep learning hardware, software, and PyTorch modules.
 
-@Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/)
+<!-- more -->
 
-Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6)
+@Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/) | 
+Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6) 
 
 Personal work for the assignments of the course: [github repo](https://github.com/SaturnTsen/EECS-498-007/).
 
+**Notice on Usage and Attribution**
 
-<!-- more -->
+These are personal class notes based on the University of Michigan EECS 498.008
+/ 598.008 course. They are intended solely for personal learning and academic
+discussion, with no commercial use.
+
+For detailed information, please refer to the **[complete notice at the end of this document](#notice-on-usage-and-attribution)**
+
 
 ## Heep Learning Hardware
 
@@ -122,7 +132,7 @@ The point of deep learning frameworks:
 2. Automatically compute gradients
 3. Run it all efficiently on GPUs (or TPUs)
 
-## Pytorch
+## PyTorch
 
 ### Fundamental Concepts
 
@@ -469,4 +479,25 @@ Tensorboard is a visualization tool that comes with TensorFlow. It can be used w
 import torch
 import torch.utils.tensorboard
 ```
-  
+
+## **Notice on Usage and Attribution**
+
+This note is based on the **University of Michigan's publicly available course EECS 498.008 / 598.008** and is intended **solely for personal learning and academic discussion**, with no commercial use.
+- **Nature of the Notes:** These notes include extensive references and citations
+  from course materials to ensure clarity and completeness. However, they are
+  presented as personal interpretations and summaries, not as substitutes for
+  the original course content.
+- **Original Course Resources:** Please refer to the official [**University of
+  Michigan website**](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/) for complete and accurate course materials.  
+- **Third-Party Open Access Content:** This note may reference Open Access (OA)
+  papers or resources cited within the course materials. These materials are
+  used under their original Open Access licenses (e.g., CC BY, CC BY-SA).  
+- **Proper Attribution:** Every referenced OA resource is appropriately cited,
+  including the author, publication title, source link, and license type.  
+- **Copyright Notice:** All rights to third-party content remain with their
+  respective authors or publishers.  
+- **Content Removal:** If you believe any content infringes on your copyright,
+  please contact me, and I will promptly remove the content in question.
+
+Thanks to the **University of Michigan** and the contributors to the course for
+their openness and dedication to accessible education. 

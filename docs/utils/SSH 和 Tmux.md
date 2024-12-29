@@ -62,7 +62,8 @@ permalink: /utils/ssh-and-tmux/
      `<myhost>_rsa.pub`（公钥）
 
 4. 将公钥 `<myhost>_rsa.pub` 复制到服务器的 `~/.ssh/authorized_keys` 文件中。  
-   - 如果 `authorized_keys` 文件不存在，可以重命名 `<myhost>_rsa.pub` 为 `authorized_keys` 并设置权限：  
+   - 如果 `authorized_keys` 文件不存在，可以重命名 `<myhost>_rsa.pub` 为
+     `authorized_keys` 并设置权限：  
      `chmod 600 authorized_keys`
 
 5. 连接测试：  
@@ -75,7 +76,8 @@ permalink: /utils/ssh-and-tmux/
 ## 3. tmux
 
 ### 3.1 Tmux 简介
-- Tmux 是一个终端复用器（terminal multiplexer），允许在单一窗口中同时运行多个会话，并支持分离会话、共享会话等功能。
+- Tmux 是一个终端复用器（terminal multiplexer），允许在单一窗口中同时运行多个会
+  话，并支持分离会话、共享会话等功能。
 - 它的主要功能：
   1. 允许多个会话共用一个窗口。
   2. 支持在不同终端之间共享会话。

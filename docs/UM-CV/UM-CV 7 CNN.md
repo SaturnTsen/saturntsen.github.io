@@ -7,17 +7,27 @@ createTime: 2024/12/21 17:34:25
 permalink: /computer-vision/UMichigan-CV/um-cv-course-7-CNN/
 ---
 
-@Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/)
+# Convolutional Neural Networks
 
-Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6)
+Problem: All of the previous models flattens the input image into a vector. This
+loses the spatial structure of the image. CNNs are designed to work with image
+data directly.
+
+<!-- more -->
+
+@Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/) | 
+Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6) 
 
 Personal work for the assignments of the course: [github repo](https://github.com/SaturnTsen/EECS-498-007/).
 
-# Convolutional Neural Networks
+**Notice on Usage and Attribution**
 
-Problem: All of the previous models flattens the input image into a vector. This loses the spatial structure of the image. CNNs are designed to work with image data directly.
+These are personal class notes based on the University of Michigan EECS 498.008
+/ 598.008 course. They are intended solely for personal learning and academic
+discussion, with no commercial use.
 
-<!-- more -->
+For detailed information, please refer to the **[complete notice at the end of this document](#notice-on-usage-and-attribution)**
+
 ## Components of CNN
 
 - Convolutional Layers
@@ -28,9 +38,12 @@ Problem: All of the previous models flattens the input image into a vector. This
 
 Image: 3x32x32
 
-Filter: 3x5x5 Convolve the filter with the image to get a dot product. The filter is convolved with the image by sliding it across the image. The output is a 1x28x28 map.
+Filter: 3x5x5 Convolve the filter with the image to get a dot product. The
+filter is convolved with the image by sliding it across the image. The output is
+a 1x28x28 map.
 
-We have multiple (for example 6) filters, each filter produces a different output. The output of the convolutional layer is a stack of 6 (28x28) maps.
+We have multiple (for example 6) filters, each filter produces a different
+output. The output of the convolutional layer is a stack of 6 (28x28) maps.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/7-1.png" width="70%" alt="description"  /><br>
@@ -44,9 +57,12 @@ Typo: the length of $b_1$ is 6.
 
 #### What do convolutional filters learn?
 
-MLP: A set of template matching filters. Each filter is a set of weights that are learned during training. The filter is convolved with the input image to produce an output.
+MLP: A set of template matching filters. Each filter is a set of weights that
+are learned during training. The filter is convolved with the input image to
+produce an output.
 
-Convolutional Network: A set of local image templates, like edge detectors, corner detectors, etc.
+Convolutional Network: A set of local image templates, like edge detectors,
+corner detectors, etc.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/7-3.png" width="70%" alt="description"  /><br>
@@ -73,11 +89,13 @@ Fig: Padding</div>
   <img src="/images/um-cv/7-6.png" width="70%" alt="description"  /><br>
 Fig: Receptive Field</div>
 
-The receptive field has two meanings: The kernel size and the field that the input dimension affects.
+The receptive field has two meanings: The kernel size and the field that the
+input dimension affects.
 
 #### Strided Convolutions
 
-Stride: The number of pixels the filter moves each time. Strided convolutions reduce the spatial dimensions of the output.
+Stride: The number of pixels the filter moves each time. Strided convolutions
+reduce the spatial dimensions of the output.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/7-7.png" width="70%" alt="description"  /><br>
@@ -101,7 +119,8 @@ Example: 1x1 convolution
   <img src="/images/um-cv/7-8.png" width="70%" alt="description"  /><br>
 Fig: 1x1 Convolution</div>
 
-Stacking 1x1 convolution layers gives MLP operating on each input position. This preserves the spatial structure of the input.
+Stacking 1x1 convolution layers gives MLP operating on each input position. This
+preserves the spatial structure of the input.
 
 #### Convolution Summary
 
@@ -129,7 +148,9 @@ Pytorch has 1d to 3d convolutional layers.
 
 ### Pooling Layer
 
-The pooling layer is used to reduce the spatial dimensions of the input. It is used to reduce the number of parameters and computation in the network. It also helps in controlling overfitting.
+The pooling layer is used to reduce the spatial dimensions of the input. It is
+used to reduce the number of parameters and computation in the network. It also
+helps in controlling overfitting.
 
 Pooling is a form of **downsampling**. It reduces the spatial dimensions of the input.
 
@@ -142,7 +163,8 @@ Types of pooling:
 - Max pooling: Takes the maximum value in the pooling window.
 - Average pooling: Takes the average value in the pooling window.
 
-This introduces invariance to small spatial shifts, and there is no learnable parameters in pooling.
+This introduces invariance to small spatial shifts, and there is no learnable
+parameters in pooling.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/7-12.png" width="70%" alt="description"  /><br>
@@ -174,15 +196,18 @@ Example: LeNet-5
 | **ReLU**                        | 500          |                      |
 | **Linear** (500->10)               | 10              |          500 x 10           |
 
-We tend to decrease the spatial dimensions and increase the number of channels as we go deeper into the network.
+We tend to decrease the spatial dimensions and increase the number of channels
+as we go deeper into the network.
 
 ### Training Deep Networks: Batch Normalization
 
-Problem: Deep networks are hard to train. The gradients tend to vanish or explode as we go deeper into the network.
+Problem: Deep networks are hard to train. The gradients tend to vanish or
+explode as we go deeper into the network.
 
 #### Solution: Batch Normalization
 
-This helps reduce the internal covariate shift. It normalizes the activations of the network. It helps in training deeper networks.
+This helps reduce the internal covariate shift. It normalizes the activations of
+the network. It helps in training deeper networks.
 
 (Joffe and Szegedy, ICML 2015, [Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift](https://arxiv.org/abs/1502.03167))
 
@@ -192,13 +217,16 @@ This helps reduce the internal covariate shift. It normalizes the activations of
 <div style="text-align:center;margin-bottom:1em;">
 <img src="/images/um-cv/7-14.png" width="70%" alt="description"  /><br> Fig: Calculating Batch Normalization</div>
 
-Calculating mean and variance over the batch means the inputs are intertangled. The estimation depends on the batch size.
+Calculating mean and variance over the batch means the inputs are intertangled.
+The estimation depends on the batch size.
 
 During training, we use the batch mean and variance.
 
-During testing, we use the average and variance of the entire seen data during training.
+During testing, we use the average and variance of the entire seen data during
+training.
 
-During testing, the batchnorm becomes a linear operator! We can fuse them into the previous layer.
+During testing, the batchnorm becomes a linear operator! We can fuse them into
+the previous layer.
 
 #### Batch Normalization for Convolutional Networks
 
@@ -218,7 +246,8 @@ Advantages and Disadvantages of Batch Normalization:
 
 - Not well understood theoretically(yet)
 - 0 Mean is forced, and may not be ideal for all models.
-- Behaves differently during training and testing: this is a very common source of bugs!
+- Behaves differently during training and testing: this is a very common source
+  of bugs!
 
 #### Instance Normalization
 
@@ -237,7 +266,10 @@ Advantages and Disadvantages of Batch Normalization:
 
 ### AlexNet: 2012 winner. 8 layers, 60 million parameters.
 
-227×227 inputs, 5 Convolutional layers, Max pooling, 3 Fully connected layers, ReLU nonlinearity. Used "local response normalization"(not used anymore). Trained on two GTX 580 GPUs - only 3GB of memory each. Model split over two GPUs.
+227×227 inputs, 5 Convolutional layers, Max pooling, 3 Fully connected layers,
+ReLU nonlinearity. Used "local response normalization"(not used anymore).
+Trained on two GTX 580 GPUs - only 3GB of memory each. Model split over two
+GPUs.
 
 Fun fact: citations to the AlexNet
 <div style="text-align:center;margin-bottom:1em;">
@@ -264,20 +296,24 @@ conv1: Number of floating point operations (multiply+add)
 = (64 * 56 * 56) * (11 * 11 * 3)
 = 72,855,552 = 73M flops
 
-**How is it designed?** Trails and errors. Also a compromise between memory usage and computational efficiency.
+**How is it designed?** Trails and errors. Also a compromise between memory
+usage and computational efficiency.
 
 <div style="text-align:center;margin-bottom:1em;">
 <img src="/images/um-cv/8-2.png" width="70%" alt="description"  /><br> Fig: AlexNet</div>
 
 #### ZFNet: A Bigger AlexNet
 
-Similar to AlexNet, but with smaller filters and deeper layers. 7x7 filters in the first layer, 3x3 filters in the second layer. Deeper layers.
+Similar to AlexNet, but with smaller filters and deeper layers. 7x7 filters in
+the first layer, 3x3 filters in the second layer. Deeper layers.
 
 ### VGG: The principles of designing a good network
 
 - All conv are 3x3 stride 1 pad 1
 - All max pool are 2x2 stride 2
-  - Two convolutional layers together make a receptive field of 5x5, while having fewer parameters and less flops. We can also add ReLU after each layer to add non-linearity to the network.
+  - Two convolutional layers together make a receptive field of 5x5, while
+    having fewer parameters and less flops. We can also add ReLU after each
+    layer to add non-linearity to the network.
 - After pool, double the number of channels
   - We want each convolutional layer to have the same computational cost.
   - Input1: Cx2Hx2W - Conv(3x3, C->C) - 4HWC Memory - 9C^2 Params - 4HWC flops
@@ -301,14 +337,19 @@ Done in academia by one grad and one faculty member.
 
 ### Google LeNet: Focus on Efficiency
 
-Design an efficient convolutional network for mobile devices. 22 layers, 4 million parameters.
+Design an efficient convolutional network for mobile devices. 22 layers, 4
+million parameters.
 
-**Aggressive Stem** downsamples the network at the beginning. 3x3 convolutions, 1x1 convolutions, and factorized convolutions. (CVPR 2015)
+**Aggressive Stem** downsamples the network at the beginning. 3x3 convolutions,
+1x1 convolutions, and factorized convolutions. (CVPR 2015)
 
 <div style="text-align:center;margin-bottom:1em;">
 <img src="/images/um-cv/8-5.png" width="70%" alt="description"  /><br> Fig: Google LeNet</div>
 
-**Inception Module** repeated throughout the network. It uses multiple filter sizes in parallel. It uses 1x1, 3x3, 5x5, and max pooling in parallel. It concatenates the outputs of these filters. Do all the kernel sizes in parallel and concatenate the outputs.
+**Inception Module** repeated throughout the network. It uses multiple filter
+sizes in parallel. It uses 1x1, 3x3, 5x5, and max pooling in parallel. It
+concatenates the outputs of these filters. Do all the kernel sizes in parallel
+and concatenate the outputs.
 
 <div style="text-align:center;margin-bottom:1em;">
 <img src="/images/um-cv/8-6.png" width="70%" alt="description"  /><br> Fig: Inception Module</div>
@@ -327,20 +368,26 @@ Design an efficient convolutional network for mobile devices. 22 layers, 4 milli
 
 Deeper models does worse than shallow model!
 
-Initial Guess: Deep model is overfitting. In fact, the training error of deeper networks is also higher than the shallower networks.
+Initial Guess: Deep model is overfitting. In fact, the training error of deeper
+networks is also higher than the shallower networks.
 
-Hypothesis: This is an optimization problem. The deeper networks are harder to optimize, and in particular don't learn the identity functions to emulate the shallower networks.
+Hypothesis: This is an optimization problem. The deeper networks are harder to
+optimize, and in particular don't learn the identity functions to emulate the
+shallower networks.
 
 Solution: Change the network so learning identity function is easier.
 
-**Residual Block**: Instead of learning $H(x)$, learn $F(x) = H(x) - x$. The network learns the residual function.
+**Residual Block**: Instead of learning $H(x)$, learn $F(x) = H(x) - x$. The
+network learns the residual function.
 
 <div style="text-align:center;margin-bottom:1em;">
 <img src="/images/um-cv/8-9.png" width="70%" alt="description"  /><br> Fig: Residual Block</div>
 
-When backpropagating, the gradient is copied to the input. This makes the optimization easier.
+When backpropagating, the gradient is copied to the input. This makes the
+optimization easier.
 
-Network is divided into stages like VGG. Each stage has a different number of filters.
+Network is divided into stages like VGG. Each stage has a different number of
+filters.
 
 <div style="text-align:center;margin-bottom:1em;">
 <img src="/images/um-cv/8-10.png" width="70%" alt="description"  /><br> Fig: ResNet</div>
@@ -369,12 +416,14 @@ ImageNet 2016 winner: Model Ensembles
 
 ### ResNeXt
 
-ResNeXt: Aggregated Residual Transformations for Deep Neural Networks (CVPR 2017)
+ResNeXt: Aggregated Residual Transformations for Deep Neural Networks (CVPR
+2017)
 
 <div style="text-align:center;margin-bottom:1em;">
 <img src="/images/um-cv/8-13.png" width="70%" alt="description"  /><br> Fig: ResNeXt</div>
 
-Annual ImageNet competition is no longer held after 2017. Now it is moved to Kaggle as a challenge.
+Annual ImageNet competition is no longer held after 2017. Now it is moved to
+Kaggle as a challenge.
 
 ### DenseNet
 
@@ -385,7 +434,8 @@ Densely Connected Convolutional Networks (CVPR 2017)
 
 ### MobileNets: Tiny Networks
 
-MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications (CVPR 2017)
+MobileNets: Efficient Convolutional Neural Networks for Mobile Vision
+Applications (CVPR 2017)
 
 <div style="text-align:center;margin-bottom:1em;">
 <img src="/images/um-cv/8-15.png" width="70%" alt="description"  /><br> Fig: MobileNets</div>
@@ -409,12 +459,14 @@ a hot topic in deep learning research
 
 Early work (AlexNet, VGG) focused on designing deeper networks. 
 
-Later work (ResNet, DenseNet) focused on designing more efficient networks. Recent work (MobileNets, ShuffleNet) focused on designing networks for mobile devices.
+Later work (ResNet, DenseNet) focused on designing more efficient networks.
+Recent work (MobileNets, ShuffleNet) focused on designing networks for mobile
+devices.
 
 Early work (AlexNet -> ZFNet -> VGG) shows that bigger networks work better
 
-GoogLeNet one of the first to focus on efficiency (aggressive stem, 1x1 bottleneck
-convolutions, global avg pool instead of FC layers)
+GoogLeNet one of the first to focus on efficiency (aggressive stem, 1x1
+bottleneck convolutions, global avg pool instead of FC layers)
 
 ResNet showed us how to train extremely deep networks - limited only by GPU
 memory! Started to show diminishing returns as networks got bigger
@@ -428,8 +480,33 @@ Neural Architecture Search promises to automate architecture design
 
 ### What architecture should I use?
 
-For most problems you should use an off-the-shelf architecture (e.g. ResNet, DenseNet, etc)
+For most problems you should use an off-the-shelf architecture (e.g. ResNet,
+DenseNet, etc)
 
 If you just care about accuracy, ResNet-50 or ResNet-101 is a good choice.
 
 If you care about efficiency, MobileNet or ShuffleNet is a good choice.
+
+
+## **Notice on Usage and Attribution**
+
+This note is based on the **University of Michigan's publicly available course EECS 498.008 / 598.008** and is intended **solely for personal learning and academic discussion**, with no commercial use.
+- **Nature of the Notes:** These notes include extensive references and citations
+  from course materials to ensure clarity and completeness. However, they are
+  presented as personal interpretations and summaries, not as substitutes for
+  the original course content.
+- **Original Course Resources:** Please refer to the **official University of
+  Michigan website** for complete and accurate course materials.  
+- **Third-Party Open Access Content:** This note may reference Open Access (OA)
+  papers or resources cited within the course materials. These materials are
+  used under their original **Open Access licenses** (e.g., CC BY, CC BY-SA).  
+- **Proper Attribution:** Every referenced OA resource is appropriately cited,
+  including the **author, publication title, source link, and license type**.  
+- **Copyright Notice:** All rights to third-party content remain with their
+  respective authors or publishers.  
+- **Content Removal:** If you believe any content infringes on your copyright,
+  please contact me, and I will **promptly remove** the content in question.
+
+Thanks to the **University of Michigan** and the contributors to the course for
+their openness and dedication to accessible education. 
+

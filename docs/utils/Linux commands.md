@@ -204,15 +204,18 @@ permalink: /utils/Linux-commands/
 
 1. **将多个文件内容合并并传递给命令**：
    - `cat file1 file2 ... | command <> file1_in.txt_or_file1_out.txt`  
-     这是一种通用的语法，结合管道、标准输入和输出，通常用于文本处理命令如 `sed`, `grep`, `awk` 等。
+     这是一种通用的语法，结合管道、标准输入和输出，通常用于文本处理命令如 `sed`,
+     `grep`, `awk` 等。
 
 2. **将命令的输出写入新文件**：
    - `cat file1 | command > result.txt`  
-     合并 `file1` 内容并通过 `command`（如 `sed`, `grep`, `awk` 等）进行处理，然后将处理后的结果写入 `result.txt` 文件。
+     合并 `file1` 内容并通过 `command`（如 `sed`, `grep`, `awk` 等）进行处理，然
+     后将处理后的结果写入 `result.txt` 文件。
 
 3. **将命令的输出追加到已有文件中**：
    - `cat file1 | command >> result.txt`  
-     合并 `file1` 内容并通过 `command` 进行处理，将处理结果追加到已存在的 `result.txt` 文件中。
+     合并 `file1` 内容并通过 `command` 进行处理，将处理结果追加到已存在的
+     `result.txt` 文件中。
 
 ### 文本处理
 

@@ -179,13 +179,16 @@ permalink: /utils/Linux-Commands-System-Level/
 
 4. **使用 `tar` 进行文件备份**：
    - `tar -Puf backup.tar /home/user`：对 `/home/user` 目录进行交互式备份，并将备份保存为 `backup.tar`。
-   - `( cd /tmp/local/ && tar c . ) | ssh -C user@ip_addr 'cd /home/share/ && tar x -p'`：通过 SSH 在远程主机复制 `/tmp/local/` 目录的内容。
+   - `( cd /tmp/local/ && tar c . ) | ssh -C user@ip_addr 'cd /home/share/ && tar x -p'`：通过 SSH 在远程主机复制 `/tmp/local/` 目录的内容。 
    - `( tar c /home ) | ssh -C user@ip_addr 'cd /home/backup-home && tar x -p'`：通过 SSH 在远程主机复制本地的 `/home` 目录。
    - `tar cf - . | (cd /tmp/backup ; tar xf - )`：将一个目录复制到另一个位置，保持原有权限和链接。
 
 5. **使用 `find` 与 `cp` 进行文件查找与复制**：
-   - `find /home/user1 -name '*.txt' | xargs cp -av --target-directory=/home/backup/ --parents`：查找 `/home/user1` 目录下的所有 `.txt` 文件并复制到 `/home/backup/` 目录。
-   - `find /var/log -name '*.log' | tar cv --files-from=- | bzip2 > log.tar.bz2`：查找所有以 `.log` 结尾的文件并将其打包成 `.tar.bz2` 格式的压缩文件。
+   - `find /home/user1 -name '*.txt' | xargs cp -av
+   --target-directory=/home/backup/ --parents`：查找 `/home/user1` 目录下的所有
+   `.txt` 文件并复制到 `/home/backup/` 目录。 - `find /var/log -name '*.log' |
+   tar cv --files-from=- | bzip2 > log.tar.bz2`：查找所有以 `.log` 结尾的文件并
+   将其打包成 `.tar.bz2` 格式的压缩文件。
 
 6. **备份和恢复 MBR**：
    - `dd if=/dev/hda of=/dev/fd0 bs=512 count=1`：将 MBR（主引导记录）内容复制到软盘。
@@ -206,7 +209,8 @@ permalink: /utils/Linux-Commands-System-Level/
 3. **路由配置**：
    - `route -n`：显示路由表。
    - `route add -net 0/0 gw IP_Gateway`：设置默认网关，`IP_Gateway` 为网关 IP 地址。
-   - `route add -net 192.168.0.0 netmask 255.255.0.0 gw 192.168.1.1`：设置静态路由，通过 `192.168.1.1` 网关访问 `192.168.0.0/16` 网络。
+   - `route add -net 192.168.0.0 netmask 255.255.0.0 gw 192.168.1.1`：设置静态路
+     由，通过 `192.168.1.1` 网关访问 `192.168.0.0/16` 网络。
    - `route del 0/0 gw IP_gateway`：删除默认路由。
 
 4. **启用 IP 转发**：
@@ -215,7 +219,8 @@ permalink: /utils/Linux-Commands-System-Level/
 5. **主机名与域名解析**：
    - `hostname`：显示当前系统的主机名。
    - `host www.example.com`：查询域名 `www.example.com` 并解析其 IP 地址。
-   - `nslookup www.example.com`：查询域名 `www.example.com`，解析主机名到 IP 地址，或将 IP 地址解析为主机名。
+   - `nslookup www.example.com`：查询域名 `www.example.com`，解析主机名到 IP 地
+     址，或将 IP 地址解析为主机名。
 
 6. **网络接口状态与统计信息**：
    - `ip link show`：显示所有网络接口的链接状态。
@@ -236,7 +241,8 @@ permalink: /utils/Linux-Commands-System-Level/
 10. **主机名与域名解析**：
    - `hostname`：显示当前系统的主机名。
    - `host www.example.com`：查询 `www.example.com` 域名并解析其对应的 IP 地址。
-   - `nslookup www.example.com`：查找域名 `www.example.com`，解析为 IP 地址，或者将 IP 地址解析为主机名。
+   - `nslookup www.example.com`：查找域名 `www.example.com`，解析为 IP 地址，或
+     者将 IP 地址解析为主机名。
 
 11. **WHOIS查询**：
     - `whois www.example.com`：查询域名 `www.example.com` 的 WHOIS 信息。
@@ -246,16 +252,19 @@ permalink: /utils/Linux-Commands-System-Level/
 ### 光盘操作命令
 
 1. **清空光盘内容**：
-   - `cdrecord -v gracetime=2 dev=/dev/cdrom -eject blank=fast -force`：清空一个可复写的光盘内容。
+   - `cdrecord -v gracetime=2 dev=/dev/cdrom -eject blank=fast -force`：清空一个
+     可复写的光盘内容。
    
 2. **创建ISO镜像文件**：
    - `mkisofs /dev/cdrom > cd.iso`：在磁盘上创建一个光盘的ISO镜像文件。
    - `mkisofs /dev/cdrom | gzip > cd_iso.gz`：创建一个压缩的光盘ISO镜像文件。
-   - `mkisofs -J -allow-leading-dots -R -V "Label CD" -iso-level 4 -o ./cd.iso data_cd`：创建一个目录 `data_cd` 的ISO镜像文件，并设置ISO的一些参数。
+   - `mkisofs -J -allow-leading-dots -R -V "Label CD" -iso-level 4 -o ./cd.iso data_cd`：
+     创建一个目录 `data_cd` 的ISO镜像文件，并设置ISO的一些参数。
 
 3. **刻录ISO镜像文件**：
    - `cdrecord -v dev=/dev/cdrom cd.iso`：将ISO镜像文件 `cd.iso` 刻录到光盘。
-   - `gzip -dc cd_iso.gz | cdrecord dev=/dev/cdrom -`：将压缩的ISO镜像文件 `cd_iso.gz` 刻录到光盘。
+   - `gzip -dc cd_iso.gz | cdrecord dev=/dev/cdrom -`：将压缩的ISO镜像文件
+     `cd_iso.gz` 刻录到光盘。
 
 4. **挂载ISO镜像文件**：
    - `mount -o loop cd.iso /mnt/iso`：将ISO镜像文件 `cd.iso` 挂载到 `/mnt/iso` 目录。
@@ -307,7 +316,8 @@ permalink: /utils/Linux-Commands-System-Level/
    - `rpm -Vp package.rpm`：验证一个 RPM 包是否已安装。
 
 5. **从 RPM 包提取文件**：
-   - `rpm2cpio package.rpm | cpio --extract --make-directories *bin*`：从一个 RPM 包中提取可执行文件。
+   - `rpm2cpio package.rpm | cpio --extract --make-directories *bin*`：从一个
+     RPM 包中提取可执行文件。
 
 6. **RPM 源码包操作**：
    - `rpm -ivh /usr/src/redhat/RPMS/`arch`/package.rpm`：从源码包安装一个已经构建好的 RPM 包。

@@ -109,10 +109,12 @@ ps -p 1 -o comm=  # 通过查看进程ID为1的命令来判断是否使用system
 ## 抓包工具
 
 1. **tcpview**  
-   - 用于显示当前计算机上的所有活动网络连接和监听端口。可以查看每个连接的状态，使用的协议，连接的远程地址和端口等信息。
+   - 用于显示当前计算机上的所有活动网络连接和监听端口。可以查看每个连接的状态，
+     使用的协议，连接的远程地址和端口等信息。
 
 2. **wireshark**  
-   - 强大的网络抓包工具，用于捕获并分析网络数据包。通过其图形化界面，用户可以深入分析网络流量、协议细节等。
+   - 强大的网络抓包工具，用于捕获并分析网络数据包。通过其图形化界面，用户可以深
+     入分析网络流量、协议细节等。
 
    过滤表达式：
    - `(_ws.col.protocol != "ARP") && !(_ws.col.info contains ".arpa") && !(ip.dst == 129.104.223.255) && !(ipv6.dst == ff02::fb)`  
@@ -136,11 +138,15 @@ ps -p 1 -o comm=  # 通过查看进程ID为1的命令来判断是否使用system
 
 1. **nmcli / nmtui (NetworkManager)**  
    - **nmcli**：一个命令行工具，用于与 NetworkManager 进行交互，控制网络连接。
-   - **nmtui**：NetworkManager 的文本用户界面（TUI），提供更直观的方式来管理网络连接，适用于没有图形界面的环境。
+   - **nmtui**：NetworkManager 的文本用户界面（TUI），提供更直观的方式来管理网络
+     连接，适用于没有图形界面的环境。
 
 2. **netplan**  
-   - Netplan 是一个用于配置网络的前端工具，支持 Ubuntu 桌面版的 NetworkManager 和 Ubuntu 服务器版的 systemd-networkd。
-   - 使用 YAML 配置文件来定义网络设置，是一个新的网络配置工具。它补充了 NetworkManager（Ubuntu Desktop 默认）和 systemd-networkd（Ubuntu Server 使用）。
+   - Netplan 是一个用于配置网络的前端工具，支持 Ubuntu 桌面版的 NetworkManager
+     和 Ubuntu 服务器版的 systemd-networkd。
+   - 使用 YAML 配置文件来定义网络设置，是一个新的网络配置工具。它补充了
+     NetworkManager（Ubuntu Desktop 默认）和 systemd-networkd（Ubuntu Server 使
+     用）。
    
    **常见命令**：
    - `netplan apply`：应用配置更改。
@@ -239,12 +245,16 @@ ps -p 1 -o comm=  # 通过查看进程ID为1的命令来判断是否使用system
    - `nftables` 引入了规则集和表（tables）的概念，允许对数据包的处理进行更加灵活和模块化的配置。
 
 2. **iptables / ip6tables**  
-   - **iptables** 和 **ip6tables** 是分别用于处理 IPv4 和 IPv6 数据包的传统工具。
-   - 它们用于配置数据包过滤、网络地址转换（NAT）、端口转发等。虽然 `iptables` 已经被 `nftables` 替代，但许多系统仍然使用它们，尤其是在旧版系统中。
+   - **iptables** 和 **ip6tables** 是分别用于处理 IPv4 和 IPv6 数据包的传统工
+     具。
+   - 它们用于配置数据包过滤、网络地址转换（NAT）、端口转发等。虽然 `iptables` 已
+     经被 `nftables` 替代，但许多系统仍然使用它们，尤其是在旧版系统中。
    - `iptables` 和 `ip6tables` 通过链（chains）和规则（rules）来处理数据包。
 
    **注意**：  
-   `iptables` 是一个较为陈旧的框架，而 `nftables` 旨在提供一个现代化的替代方案，并且包括一个兼容层，使得旧的 `iptables` 配置可以与 `nftables` 一起使用。`nftables` 在效率、灵活性以及简化规则管理方面都有显著改进。
+   `iptables` 是一个较为陈旧的框架，而 `nftables` 旨在提供一个现代化的替代方案，
+   并且包括一个兼容层，使得旧的 `iptables` 配置可以与 `nftables` 一起使
+   用。`nftables` 在效率、灵活性以及简化规则管理方面都有显著改进。
 
 **来自**：[ArchWiki - Iptables](https://wiki.archlinux.org/title/Iptables)
 
@@ -419,7 +429,8 @@ inet6 fe80::20c:29ff:fe4c:ebe8/64 scope link
 #### 3. **字段解释**
    - **Destination**：目标网络的 IP 地址。
      - 例如，`0.0.0.0` 表示默认路由，代表任何地址。
-   - **Gateway**：下一跳网关的 IP 地址。如果为 `0.0.0.0`，表示目标地址与当前网络直接连接，无需通过网关。
+   - **Gateway**：下一跳网关的 IP 地址。如果为 `0.0.0.0`，表示目标地址与当前网络
+     直接连接，无需通过网关。
    - **Genmask**：子网掩码（Netmask），用来定义目标网络的地址范围。
      - 例如，`255.255.255.0` 表示子网掩码。
    - **Flags**：
@@ -437,16 +448,24 @@ inet6 fe80::20c:29ff:fe4c:ebe8/64 scope link
 
 ### 1. **Ping / Traceroute：ICMP协议**
 
-   - **Ping**：用于检查目标主机的可达性，基于 ICMP 协议，通过向目标发送回显请求（Echo Request）来测试网络连通性。
+   - **Ping**：用于检查目标主机的可达性，基于 ICMP 协议，通过向目标发送回显请求
+     （Echo Request）来测试网络连通性。
 
    - **Traceroute (tracert)**：
-     - **功能**：用于追踪数据包到达目标主机所经过的路径。它通过发送 ICMP 数据包并记录每跳（router）返回的时间和 IP 地址来实现路径跟踪。
+     - **功能**：用于追踪数据包到达目标主机所经过的路径。它通过发送 ICMP 数据包
+       并记录每跳（router）返回的时间和 IP 地址来实现路径跟踪。
      
      **运行过程**：
-     1. **发送 ICMP 数据包**：tracert 使用 ICMP 协议发送一个带有有限生存时间（TTL, Time to Live）的数据包到目标主机。TTL 限制数据包的跳数，避免在网络中无限循环。
-     2. **TTL 逐步增加**：每次发送数据包时，TTL 从 1 开始，逐步增加，经过每个路由器时，TTL 减少。当 TTL 为 0 时，路由器丢弃该数据包并发送 ICMP 超时消息。
-     3. **路由器响应**：路由器收到 TTL 为 0 的数据包时，返回一个 ICMP 超时消息，tracert 捕获这些消息并记录下每个路由器的 IP 地址和响应时间。
-     4. **重复此过程直到目标**：tracert 持续增加 TTL 并发送数据包，直到成功到达目标主机，或者达到最大跳数（通常是 30）。
+     1. **发送 ICMP 数据包**：tracert 使用 ICMP 协议发送一个带有有限生存时间
+        （TTL, Time to Live）的数据包到目标主机。TTL 限制数据包的跳数，避免在网
+        络中无限循环。
+     2. **TTL 逐步增加**：每次发送数据包时，TTL 从 1 开始，逐步增加，经过每个路
+        由器时，TTL 减少。当 TTL 为 0 时，路由器丢弃该数据包并发送 ICMP 超时消
+        息。
+     3. **路由器响应**：路由器收到 TTL 为 0 的数据包时，返回一个 ICMP 超时消
+        息，tracert 捕获这些消息并记录下每个路由器的 IP 地址和响应时间。
+     4. **重复此过程直到目标**：tracert 持续增加 TTL 并发送数据包，直到成功到达
+        目标主机，或者达到最大跳数（通常是 30）。
 
    - **命令示例**：
      ```bash
@@ -454,9 +473,11 @@ inet6 fe80::20c:29ff:fe4c:ebe8/64 scope link
      ```
 
 ### 2. **MTR：ICMP**
-   - **mtr 命令**（My Traceroute）结合了 `ping` 和 `traceroute` 命令的元素，提供实时的网络质量信息。它是一个非常好的工具，用于排查高延迟和丢包问题。
+   - **mtr 命令**（My Traceroute）结合了 `ping` 和 `traceroute` 命令的元素，提供
+     实时的网络质量信息。它是一个非常好的工具，用于排查高延迟和丢包问题。
    
-   - **功能**：mtr 命令将每一跳的延迟和丢包率实时显示，帮助用户更有效地诊断网络问题。
+   - **功能**：mtr 命令将每一跳的延迟和丢包率实时显示，帮助用户更有效地诊断网络
+     问题。
    
    - **命令示例**：
      ```bash
@@ -464,7 +485,8 @@ inet6 fe80::20c:29ff:fe4c:ebe8/64 scope link
      ```
 
 ### 3. **Nmap**
-   - **nmap**（Network Mapper）是一个开源的网络扫描工具，用于网络发现和安全审计。它可以检测主机、服务、操作系统以及开放端口。
+   - **nmap**（Network Mapper）是一个开源的网络扫描工具，用于网络发现和安全审
+     计。它可以检测主机、服务、操作系统以及开放端口。
 
    - **命令示例**：
      - 检查指定主机的端口：
@@ -539,9 +561,11 @@ inet6 fe80::20c:29ff:fe4c:ebe8/64 scope link
 
 ### 5. **后记：调试与问题排查**
    1. **调试过程**：
-      - 使用 `journalctl` 查看日志时，发现问题是由于 Ubuntu 默认安装的 `apparmor` 拒绝了 strongSwan 修改 `/etc/resolv.conf`，导致连接失败。
+      - 使用 `journalctl` 查看日志时，发现问题是由于 Ubuntu 默认安装的
+        `apparmor` 拒绝了 strongSwan 修改 `/etc/resolv.conf`，导致连接失败。
    2. **在 WSL 中重新配置**：
-      - 重新配置时没有出现问题，推测可能是由于交大 VPN 页面要求安装 `resolvctl`（已弃用）造成的问题。
+      - 重新配置时没有出现问题，推测可能是由于交大 VPN 页面要求安装
+        `resolvctl`（已弃用）造成的问题。
    3. **问题定位**：
       - 经验证，问题源于 `resolvctl` 配置错误，导致 VPN 无法正常连接。
 
@@ -571,7 +595,8 @@ inet6 fe80::20c:29ff:fe4c:ebe8/64 scope link
      - `ens33`：以太网接口，编号为 2。
    - **接口标志**：
      - `<LOOPBACK, UP, LOWER_UP>`：`lo` 接口的标志。表示回环接口已启用，且物理链路已连接。
-     - `<BROADCAST, MULTICAST, UP, LOWER_UP>`：`ens33` 接口的标志。表示支持广播、组播，已启用，物理链路已连接。
+     - `<BROADCAST, MULTICAST, UP, LOWER_UP>`：`ens33` 接口的标志。表示支持广
+       播、组播，已启用，物理链路已连接。
    - **MTU（最大传输单元）**：
      - `mtu 65536`：回环接口的 MTU 值是 65536 字节。
      - `mtu 1500`：`ens33` 接口的 MTU 值为 1500 字节（以太网标准）。

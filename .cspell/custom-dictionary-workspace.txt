@@ -34,6 +34,7 @@ autoprefixer
 avahi
 axios
 Backprop
+backpropagate
 Backpropagate
 backpropagating
 backpropagation
@@ -86,6 +87,7 @@ condimentum
 congue
 consectetur
 consequat
+conv
 Conv
 convolutional
 Copype
@@ -95,6 +97,7 @@ cpio
 crowdsourcing
 csstype
 cubilia
+cuda
 CUDA
 cupsd
 Curabitur
@@ -105,6 +108,7 @@ CVPR
 dapibus
 darwin
 dbeta
+Deconvolution
 denoising
 dequal
 devlop
@@ -198,9 +202,11 @@ hhmm
 hookable
 htmlparser
 Hubel
+hyperparameters
 Hyperparameters
 hyperthreading
 iaculis
+ICCV
 ICML
 iconify
 Iface
@@ -218,6 +224,7 @@ iptunnel
 isexe
 iwconfig
 iwlist
+Jaccard
 jaccount
 jacobian
 Jiao
@@ -348,6 +355,7 @@ nuxt
 odio
 Omniglot
 openbsd
+optim
 Optim
 orci
 ornare
@@ -377,7 +385,9 @@ poweroff
 Praesent
 preact
 pretium
+pretrained
 Pretrained
+pretraining
 Pretraining
 primis
 Proin
@@ -392,10 +402,13 @@ purus
 pwck
 pwsh
 Pwsh
+pytorch
+Pytorch
 qdisc
 qlen
 qrcode
 quis
+RCNN
 readdirp
 redhat
 Redhat
@@ -403,6 +416,7 @@ regularizers
 relu
 remoteuser
 replit
+resnet
 resolv
 resolvctl
 resolvectl
@@ -432,6 +446,7 @@ SGID
 shiki
 Shiki
 shikijs
+SIGGRAPH
 sindresorhus
 sjtu
 SJTU
@@ -466,7 +481,9 @@ tcpview
 telinit
 tellus
 tempor
+tensorboard
 Tensorboard
+tensorflow
 textstring
 TFLOP
 tikhonov
@@ -499,14 +516,19 @@ unicode
 unist
 universalify
 unminimize
+unoo
+unpooling
+Unpooling
 unrar
 unsqueeze
 upath
 updatedb
+upsampling
 urna
 usbdisk
 userdel
 usermod
+valn
 varius
 velit
 venenatis

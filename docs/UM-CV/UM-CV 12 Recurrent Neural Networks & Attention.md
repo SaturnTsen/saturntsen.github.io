@@ -1,22 +1,34 @@
 ---
 title: UM-CV 12 & 13 Recurrent Neural Networks & Attention Mechanism
+tags: 
+  - notes
+  - computer-vision
 createTime: 2024/12/27 11:21:07
 permalink: /computer-vision/UMichigan-CV/Course-12-Recurrent-Neural-Networks-Attention/
 ---
 
 # UM-CV 11 Recurrent Neural Networks & Attention
 
-@Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/)
+Part 1: RNNs, Vanilla Rnns, LSTMs, GRU, Gradient explosion, Gradient vanishing,
+Architecture Search, Empirical Understanding of RNNs.
 
-Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6)
+Part 2: Seq2Seq, Attention Mechanism, Self-Attention, Multi-head Attention,
+Transformers, Scaling up Transformers.
+
+<!-- more -->
+
+@Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/) | 
+Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6) 
 
 Personal work for the assignments of the course: [github repo](https://github.com/SaturnTsen/EECS-498-007/).
 
-Part 1: RNNs, Vanilla Rnns, LSTMs, GRU, Gradient explosion, Gradient vanishing, Architecture Search, Empirical Understanding of RNNs.
-Part 2: Attention.
+**Notice on Usage and Attribution**
 
+These are personal class notes based on the University of Michigan EECS 498.008
+/ 598.008 course. They are intended solely for personal learning and academic
+discussion, with no commercial use.
 
-<!-- more -->
+For detailed information, please refer to the **[complete notice at the end of this document](#notice-on-usage-and-attribution)**
 
 ## Intro
 
@@ -45,7 +57,8 @@ $$
 h_t = f_W(h_{t-1}, x_t)
 $$
 
-where $h_t$ is the hidden state at time $t$, $x_t$ is the input at time $t$, and $f_W$ is a function parameterized by $W$.
+where $h_t$ is the hidden state at time $t$, $x_t$ is the input at time $t$, and
+$f_W$ is a function parameterized by $W$.
 
 Vanilla Recurrent Neural Networks:
 
@@ -151,7 +164,8 @@ Gradient Clipping: Scale gradients if they get too large.
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/12-18.png" width="70%" alt="Gradient Clipping"  /><br> Gradient Clipping</div>
 
-Vanishing Gradient: If the gradient is too small, the weights won't change -> Change the architecture.
+Vanishing Gradient: If the gradient is too small, the weights won't change ->
+Change the architecture.
 
 ### Long Short Term Memory (LSTM)
 
@@ -246,9 +260,12 @@ CNN -> Attention to get Alignment Scores -> RNN
 
 #### Biological Inspiration
 
-Our retina has a fovea, which is a high-resolution area in the center of our vision. Our eyes move around constantly to focus on different parts of the image so we don't notice.
+Our retina has a fovea, which is a high-resolution area in the center of our
+vision. Our eyes move around constantly to focus on different parts of the image
+so we don't notice.
 
-Retina的中文是视网膜，Fovea是视网膜的中心区域，视网膜的中心区域是视觉最清晰的地方，也是视觉最敏锐的地方。
+Retina的中文是视网膜，Fovea是视网膜的中心区域，视网膜的中心区域是视觉最清晰的地
+方，也是视觉最敏锐的地方。
 
 #### X, attend, and Y
 
@@ -261,8 +278,8 @@ Retina的中文是视网膜，Fovea是视网膜的中心区域，视网膜的中
 
 ### General-Purpose Attention Layer
 
-Inputs: Query vector, Input vectors, and Similarity function.
-Computation: Similarities, Attention weights, Output vector.
+Inputs: Query vector, Input vectors, and Similarity function. Computation:
+Similarities, Attention weights, Output vector.
 
 #### 1st generalization
 
@@ -286,9 +303,11 @@ Use scaled dot product for similarity
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/13-12.png" width="70%" alt="Self-Attention Layer"  /><br> Self-Attention Layer</div>
 
-Problem: Self-attention is permutation invariant. It does not care about order all.
+Problem: Self-attention is permutation invariant. It does not care about order
+all.
 
-Solution: Positional encoding. We append a vector indicating the position of the word.
+Solution: Positional encoding. We append a vector indicating the position of the
+word.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/13-13.png" width="70%" alt="Self-Attention Layer"  /><br> Self-Attention Layer</div>
@@ -311,9 +330,14 @@ Solution: Positional encoding. We append a vector indicating the position of the
 
 ## Three ways of Processing Sequences
 
-1. RNN: works on ordered sequences, is good at long sequences: After one RNN layer, h_t sees the whole sequence. But it is not parallelizable.
-2. 1D Convolution: Works on Multidimensional Grids. It is not good at long sequences. It is highly parallelizable
-3. Self-Attention: Works on unordered sequences. It is good at long sequences. After one self-attention layer, each word sees the whole sequence. It is highly parallelizable. But memory complexity is quadratic in the sequence length.
+1. RNN: works on ordered sequences, is good at long sequences: After one RNN
+   layer, h_t sees the whole sequence. But it is not parallelizable.
+2. 1D Convolution: Works on Multidimensional Grids. It is not good at long
+   sequences. It is highly parallelizable
+3. Self-Attention: Works on unordered sequences. It is good at long sequences.
+   After one self-attention layer, each word sees the whole sequence. It is
+   highly parallelizable. But memory complexity is quadratic in the sequence
+   length.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/13-17.png" width="70%" alt="Three ways of Processing Sequences"  /><br> Three ways of Processing Sequences</div>
@@ -324,7 +348,8 @@ Solution: Positional encoding. We append a vector indicating the position of the
 
 A model build only with self-attention layers.
 
-Layer normalization: Self-attention is giving a set of vectors, and layer normalization does not add communication to the vectors.
+Layer normalization: Self-attention is giving a set of vectors, and layer
+normalization does not add communication to the vectors.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/13-18.png" width="70%" alt="Attention is All You Need"  /><br> Attention is All You Need</div>
@@ -334,7 +359,8 @@ Layer normalization: Self-attention is giving a set of vectors, and layer normal
 
 "ImageNet" Moment for Natural Language Processing.
 
-Pretraining: Download a lot of text from the internet. Train a giant Transformer model for language modeling.
+Pretraining: Download a lot of text from the internet. Train a giant Transformer
+model for language modeling.
 
 Fine-tuning: Fine-tune the transformer on your own NLP task.
 
@@ -347,3 +373,25 @@ Fine-tuning: Fine-tune the transformer on your own NLP task.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/13-21.png" width="70%" alt="Summary"  /><br> Summary</div>
+
+## **Notice on Usage and Attribution**
+
+This note is based on the **University of Michigan's publicly available course EECS 498.008 / 598.008** and is intended **solely for personal learning and academic discussion**, with no commercial use.
+- **Nature of the Notes:** These notes include extensive references and citations
+  from course materials to ensure clarity and completeness. However, they are
+  presented as personal interpretations and summaries, not as substitutes for
+  the original course content.
+- **Original Course Resources:** Please refer to the official [**University of
+  Michigan website**](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/) for complete and accurate course materials.  
+- **Third-Party Open Access Content:** This note may reference Open Access (OA)
+  papers or resources cited within the course materials. These materials are
+  used under their original Open Access licenses (e.g., CC BY, CC BY-SA).  
+- **Proper Attribution:** Every referenced OA resource is appropriately cited,
+  including the author, publication title, source link, and license type.  
+- **Copyright Notice:** All rights to third-party content remain with their
+  respective authors or publishers.  
+- **Content Removal:** If you believe any content infringes on your copyright,
+  please contact me, and I will promptly remove the content in question.
+
+Thanks to the **University of Michigan** and the contributors to the course for
+their openness and dedication to accessible education. 

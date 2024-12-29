@@ -34,7 +34,9 @@ docker images
 查看是否存在一个名为 `speit_sutuo_server`标签为 `v2022` 的镜像。
 
 ### 创建容器
-根据 `c_course:v2023` 镜像创建一个容器，将本地文件夹挂载到容器里的 `/home/user/TP` 目录，命名为 `c_course`，设置默认用户为 `user`，并打开容器中的 `/bin/zsh`终端：
+根据 `c_course:v2023` 镜像创建一个容器，将本地文件夹挂载到容器里的
+`/home/user/TP` 目录，命名为 `c_course`，设置默认用户为 `user`，并打开容器中的
+`/bin/zsh`终端：
 ```bash
 docker run -v C:\Users\P1206\TP:/home/user/TP -u=user --name c_course -it c_course:v2023 /bin/zsh
 ```
@@ -52,7 +54,8 @@ docker start c_course && docker exec -it c_course zsh
 4. 选择想连接的容器。
 
 ### Windows 目录映射注意事项
-将 Windows 目录映射到 Docker 容器后，所有映射的目录在容器里均会被赋予 `root` 所有者和 `root`权限。
+将 Windows 目录映射到 Docker 容器后，所有映射的目录在容器里均会被赋予 `root` 所
+有者和 `root`权限。
 
 ---
 

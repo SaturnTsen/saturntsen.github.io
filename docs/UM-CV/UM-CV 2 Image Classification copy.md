@@ -7,19 +7,29 @@ createTime: 2024/12/20 14:30:31
 permalink: /computer-vision/UMichigan-CV/um-cv-course-2-classification/
 ---
 
-@Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/)
-
-Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6)
-
-Personal work for the assignments of the course: [github repo](https://github.com/SaturnTsen/EECS-498-007/).
-
-# Image Classification
-
-Problem: The semantic gap between low-level features and high-level concepts, and the computers do not have the intuition to understand the image.
+Summary: Image Classification, KNN, Hyperparameters, Curse of Dimensionality,
+Universal Approximation.
 
 <!-- more -->
 
+@Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/) | 
+Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6) 
+
+Personal work for the assignments of the course: [github repo](https://github.com/SaturnTsen/EECS-498-007/).
+
+**Notice on Usage and Attribution**
+
+These are personal class notes based on the University of Michigan EECS 498.008
+/ 598.008 course. They are intended solely for personal learning and academic
+discussion, with no commercial use.
+
+For detailed information, please refer to the **[complete notice at the end of this document](#notice-on-usage-and-attribution)**
+
 ## Intro
+
+Problem: The semantic gap between low-level features and high-level concepts,
+and the computers do not have the intuition to understand the image.
+
 
 ### Challenges
 
@@ -37,7 +47,8 @@ Problem: The semantic gap between low-level features and high-level concepts, an
 
 ### Other Tasks in CV related to classification
 - object detection: classify localized objects
-- image captioning: generate a sentence to describe the image, which can be seen as a classification problem of the next-word prediction
+- image captioning: generate a sentence to describe the image, which can be seen
+  as a classification problem of the next-word prediction
 - Playing Go: classify the next move
 
 An Image Classifier?
@@ -46,7 +57,8 @@ def classify(image):
     # Some magic here?
     return label
 ```
-Approaches: find edges, corners, and other features based on human knowledge... but it is not scalable.
+Approaches: find edges, corners, and other features based on human knowledge...
+but it is not scalable.
 
 ## Machine Learning: Data-driven Approach
 
@@ -78,9 +90,13 @@ Larger datasets:
 - MIT Places: 205 scene categories, 2.5 million images
 - LAION-5B: 5.85 billion images
 
-Datasets are getting larger and larger, and the models are getting more and more complex.
+Datasets are getting larger and larger, and the models are getting more and more
+complex.
 
-Omniglot dataset: 1623 characters from 50 alphabets, 20 examples per character. It is used for few-shot learning. Few-shot learning is a type of machine learning that focuses on learning from a small number of examples. （小样本学习）
+Omniglot dataset: 1623 characters from 50 alphabets, 20 examples per character.
+It is used for few-shot learning. Few-shot learning is a type of machine
+learning that focuses on learning from a small number of examples. （小样本学
+习）
 
 ## First Model: Nearest Neighbor
 
@@ -128,7 +144,8 @@ Web demo: [Nearest Neighbor Demo](http://vision.stanford.edu/teaching/cs231n-dem
 
 What is the best K to use?
 
-Hyperparameters: parameters that are not learned by the model, but are set at the start of the learning process.
+Hyperparameters: parameters that are not learned by the model, but are set at
+the start of the learning process.
 
 Setting Hyperparameters:
 
@@ -170,12 +187,15 @@ Fig: Universal Approximation
 
 ### Curse of Dimensionality
 
-As the number of (input) dimensions increases, the volume of the space increases exponentially, and the number of data points required to fill the space increases exponentially.
+As the number of (input) dimensions increases, the volume of the space increases
+exponentially, and the number of data points required to fill the space
+increases exponentially.
 
 ### Summary
 
 - KNN very is slow at runtime.
-- Distance metrics on pixels are not informative, e.g. predicting a human's face based on the surrounding pixels.
+- Distance metrics on pixels are not informative, e.g. predicting a human's face
+  based on the surrounding pixels.
 - Surprisingly, KNN works well with extracted convolutional features!
 
 ## Assignment 1
@@ -230,17 +250,24 @@ torch.chunk # to split a tensor into chunks
 
 #### Access a single row or columns of a tensor
 
-There are two common ways to access a single row or column of a tensor: using an integer will reduce the rank by one, and using a length-one slice will keep the same rank. Note that this is different behavior from MATLAB.
+There are two common ways to access a single row or column of a tensor: using an
+integer will reduce the rank by one, and using a length-one slice will keep the
+same rank. Note that this is different behavior from MATLAB.
 
 #### Slicing a tensor
 
-Slicing a tensor returns a **view** into the same data, so modifying it will also modify the original tensor. To avoid this, you can use the `clone()` method to make a copy of a tensor.
+Slicing a tensor returns a **view** into the same data, so modifying it will
+also modify the original tensor. To avoid this, you can use the `clone()` method
+to make a copy of a tensor.
 
-When you index into torch tensor using slicing, the resulting tensor view will always be a subarray of the original tensor. This is powerful, but can be restrictive.
+When you index into torch tensor using slicing, the resulting tensor view will
+always be a subarray of the original tensor. This is powerful, but can be
+restrictive.
 
 #### Indexing with an integer array or a tensor
 
-We can also use **index arrays** to index tensors; this lets us construct new tensors with a lot more flexibility than using slices.
+We can also use **index arrays** to index tensors; this lets us construct new
+tensors with a lot more flexibility than using slices.
 
 As an example, we can use index arrays to reorder the rows or columns of a tensor:
 
@@ -385,19 +412,29 @@ tensor([[ 1,  0,  3],
 
 #### Boolean masking of tensors
 
-The shape of the boolean mask should be the same as the original tensor, or should be broadcastable to the same shape. This is commonly used so I will not detail it here.
+The shape of the boolean mask should be the same as the original tensor, or
+should be broadcastable to the same shape. This is commonly used so I will not
+detail it here.
 
 ### Reshape, Permute, and Contiguous
 
 #### Reshape
 
-Reshaping is calculated with the notion of **stride**. The stride of a tensor is the number of elements in the memory that need to be skipped over to obtain the next element along each dimension. See [this blog post by Edward Yang](http://blog.ezyang.com/2019/05/pytorch-internals/) for a clear explanation of the problem.
+Reshaping is calculated with the notion of **stride**. The stride of a tensor is
+the number of elements in the memory that need to be skipped over to obtain the
+next element along each dimension. See [this blog post by Edward
+Yang](http://blog.ezyang.com/2019/05/pytorch-internals/) for a clear explanation
+of the problem.
 
 #### Permute
 
-Permute is used to change the order of dimensions in a tensor. This can be understood mathematically.
+Permute is used to change the order of dimensions in a tensor. This can be
+understood mathematically.
 
-Consider the symmetric group $S_n$ of all permutations of $n$ elements. In other words, $\sigma \in S_n$ is a bijection from the set $\{1, 2, \ldots, n\}$ to itself. The permutation $\sigma$ can be represented as a list of integers $\sigma = [\sigma(1), \sigma(2), \ldots, \sigma(n)]$. 
+Consider the symmetric group $S_n$ of all permutations of $n$ elements. In other
+words, $\sigma \in S_n$ is a bijection from the set $\{1, 2, \ldots, n\}$ to
+itself. The permutation $\sigma$ can be represented as a list of integers
+$\sigma = [\sigma(1), \sigma(2), \ldots, \sigma(n)]$. 
 
 Let $A$ be a tensor of shape $(d_1, d_2, \ldots, d_n)$. The tensor $A'$ permuted by $\sigma$ is a tensor of shape $(d_{\sigma(1)}, d_{\sigma(2)}, \ldots, d_{\sigma(n)})$. And for any index $(i_1', i_2', \ldots, i_n')$ in $A'$, we have
 
@@ -421,9 +458,14 @@ print("\nVerified")
 
 #### Contiguous ?
 
-Some combinations of reshaping operations will fail with cryptic errors. The exact reasons for this have to do with the way that tensors and views of tensors are implemented, and are beyond the scope of this assignment. However if you're curious, [this blog post by Edward Yang](http://blog.ezyang.com/2019/05/pytorch-internals/) gives a clear explanation of the problem.
+Some combinations of reshaping operations will fail with cryptic errors. The
+exact reasons for this have to do with the way that tensors and views of tensors
+are implemented, and are beyond the scope of this assignment. However if you're
+curious, [this blog post by Edward Yang](http://blog.ezyang.com/2019/05/pytorch-internals/) 
+gives a clear explanation of the problem.
 
-[pytorch-internals](http://blog.ezyang.com/2019/05/pytorch-internals/) is a good blog to understand the operation `contiguous()`, `view()` and `reshape()`.
+[pytorch-internals](http://blog.ezyang.com/2019/05/pytorch-internals/) is a good
+blog to understand the operation `contiguous()`, `view()` and `reshape()`.
 
 ## KNN
 
@@ -843,3 +885,21 @@ def knn_get_best_k(k_to_accuracies: Dict[int, List]):
 
 ```
 
+## **Notice on Usage and Attribution**
+
+This note is based on the **University of Michigan's publicly available course EECS 498.008 / 598.008** and is intended **solely for personal learning and academic discussion**, with no commercial use.
+- **Nature of the Notes:** These notes include extensive references and citations
+  from course materials to ensure clarity and completeness. However, they are
+  presented as personal interpretations and summaries, not as substitutes for
+  the original course content.
+- **Original Course Resources:** Please refer to the official [**University of
+  Michigan website**](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/) for complete and accurate course materials.  
+- **Third-Party Open Access Content:** This note may reference Open Access (OA)
+  papers or resources cited within the course materials. These materials are
+  used under their original Open Access licenses (e.g., CC BY, CC BY-SA).  
+- **Proper Attribution:** Every referenced OA resource is appropriately cited,
+  including the author, publication title, source link, and license type.  
+- **Copyright Notice:** All rights to third-party content remain with their
+  respective authors or publishers.  
+- **Content Removal:** If you believe any content infringes on your copyright,
+  please contact me, and I will promptly remove the content in question.

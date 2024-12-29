@@ -22,7 +22,8 @@ permalink: /utils/powershell-and-oh-my-posh/
 Powershell 是基于 .NET 和 C# 开发的交互式命令行工具。
 
 - **特点**：
-  - Powershell 管道内传送的不是字符串，而是 C# 对象。因此每个命令实际上返回的是一个对象，具有属性和方法。
+  - Powershell 管道内传送的不是字符串，而是 C# 对象。因此每个命令实际上返回的是
+    一个对象，具有属性和方法。
   - 命令行实际输出是当前对象的 `textstring`，类似于 IPython。
 
 - **设计理念**：

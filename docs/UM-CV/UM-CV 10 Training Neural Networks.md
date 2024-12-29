@@ -1,18 +1,30 @@
 ---
 title: UM-CV 10 & 11 Training Neural Networks
+tags: 
+  - notes
+  - computer-vision
 createTime: 2024/12/26 17:45:38
 permalink: /computer-vision/UMichigan-CV/um-cv-course-10-training-neural-networks/
 ---
 
-@Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/)
+Summary: Training neural networks, activation functions, data preprocessing,
+weight initialization, regularization, learning rate schedules, large batch
+training, hyperparameter tuning, model ensembles, transfer learning.
 
-Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6)
+<!-- more -->
+
+@Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/) | 
+Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6) 
 
 Personal work for the assignments of the course: [github repo](https://github.com/SaturnTsen/EECS-498-007/).
 
-Abstract: Training neural networks, activation functions, data preprocessing, weight initialization, regularization, learning rate schedules, large batch training, hyperparameter tuning, model ensembles, transfer learning.
+**Notice on Usage and Attribution**
 
-<!-- more -->
+These are personal class notes based on the University of Michigan EECS 498.008
+/ 598.008 course. They are intended solely for personal learning and academic
+discussion, with no commercial use.
+
+For detailed information, please refer to the **[complete notice at the end of this document](#notice-on-usage-and-attribution)**
 
 ## One-time setup
 
@@ -29,17 +41,23 @@ $$
 $$
 
 - Squashes numbers to range [0,1]
-- Historically popular since they have nice interpretation as a starting "firing rate" of a neuron
+- Historically popular since they have nice interpretation as a starting "firing
+  rate" of a neuron
 
 3 problems:
 
 1. Saturated neurons kill the gradients.  (The most problematic aspect)
-2. Sigmoid outputs are not zero-centered. Suppose a multi-layer network, then the inputs of all the layers are always positive Also the gradient of this function is always positive. All the gradients for the weights will have the same sign, and gradients will always push the weights into the same direction. This becomes less of a problem when using mini-batches.
+2. Sigmoid outputs are not zero-centered. Suppose a multi-layer network, then
+   the inputs of all the layers are always positive Also the gradient of this
+   function is always positive. All the gradients for the weights will have the
+   same sign, and gradients will always push the weights into the same
+   direction. This becomes less of a problem when using mini-batches.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/10-1.png" width="80%" alt="Gradient update directions"  /><br> Fig: Gradient update directions </div>
 
-3. exp() is a bit compute expensive: transcendental function. For GPUs, this is not a big deal, the copying takes more time than the computation.
+3. exp() is a bit compute expensive: transcendental function. For GPUs, this is
+   not a big deal, the copying takes more time than the computation.
 
 #### Tanh
 
@@ -63,7 +81,10 @@ $$
 
 Problems:
 - Not zero-centered output
-- Dying ReLU problem: neurons can sometimes be pushed into states in which they become inactive for essentially all inputs. In this case, the gradient flowing through a ReLU neuron is always 0 because the gradient of max(0, x) is 0 if x < 0.
+- Dying ReLU problem: neurons can sometimes be pushed into states in which they
+  become inactive for essentially all inputs. In this case, the gradient flowing
+  through a ReLU neuron is always 0 because the gradient of max(0, x) is 0 if x
+  < 0.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/10-2.png" width="80%" alt="Dying ReLU problem"  /><br> Fig: Dying ReLU problem </div>
@@ -72,7 +93,8 @@ dead ReLU will never activate -> never update its weights
 
 #### Leaky ReLU
 
-Sometimes initialize ReLU neurons with a slightly positive slope in order to mitigate the dying ReLU problem.
+Sometimes initialize ReLU neurons with a slightly positive slope in order to
+mitigate the dying ReLU problem.
 
 $$
 \text{LeakyReLU}(x) = \max(0.01x, x)
@@ -138,14 +160,16 @@ Summary:
 
 ###  Data preprocessing
 
-We want to normalize the inputs to have zero mean and unit variance. This helps the model learn faster and prevents the gradients from going out of control.
+We want to normalize the inputs to have zero mean and unit variance. This helps
+the model learn faster and prevents the gradients from going out of control.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/10-4.png" width="80%" alt="Data preprocessing"  /><br> Fig: Data preprocessing </div>
 
 In practice, you may also see PCA and Whitening applied to the data.
 
-Rotate the data so that the principal components are aligned with the axes. This is called PCA whitening. For image data this is not so common.
+Rotate the data so that the principal components are aligned with the axes. This
+is called PCA whitening. For image data this is not so common.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/10-5.png" width="80%" alt="PCA whitening"  /><br> Fig: PCA whitening </div>
@@ -164,9 +188,11 @@ Classification loss would be very sensitive to changes in weight matrix; hard to
 
 ### Weight initialization
 
-Zero initialization is bad because all neurons will have the same gradient and will update in the same way.
+Zero initialization is bad because all neurons will have the same gradient and
+will update in the same way.
 
-Weight Initialization: small random numbers. Fairly ok with shallow networks, but problems with deeper networks.
+Weight Initialization: small random numbers. Fairly ok with shallow networks,
+but problems with deeper networks.
 
 This is to ensure that the gradient behaves nicely at the beginning of training.
 
@@ -177,7 +203,8 @@ Activation Statistics: Histogram of each layers
 
 Problem: This initialization may be too small for deep networks.
 
-If we initialize the weights too big, all neurons will be saturated and the gradients will be zero.
+If we initialize the weights too big, all neurons will be saturated and the
+gradients will be zero.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/10-9.png" width="70%" alt="Statistics of a sample x"  /><br> Fig: Statistics of a sample x when weights are too big </div>
@@ -192,7 +219,8 @@ Derivation: Variance of output = Variance of inputs
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/10-11.png" width="70%" alt="Derivation"  /><br> Fig: Derivation </div>
 
-We are only taking about linear layers. For ReLU, this method will collapse to zero again, no learning :(
+We are only taking about linear layers. For ReLU, this method will collapse to
+zero again, no learning :(
 
 #### Kaiming/MSRA initialization
 
@@ -231,16 +259,19 @@ In common we use:
 
 Randomly set some neurons to zero during forward and backward pass.
 
-We want to prevent the network from relying too much on any one neuron. Prevents co-adaptation of neurons.
+We want to prevent the network from relying too much on any one neuron. Prevents
+co-adaptation of neurons.
 
-Another interpretation: Ensemble of networks. Dropout is like training an ensemble of networks and averaging their predictions.
+Another interpretation: Ensemble of networks. Dropout is like training an
+ensemble of networks and averaging their predictions.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/10-14.png" width="70%" alt="Dropout"  /><br> Fig: Dropout </div>
 
 Problem: Test time. We want to use all the neurons.
 
-We average out the randomness at test-time, but this integral seems hard... So we need to approximate the integral.
+We average out the randomness at test-time, but this integral seems hard... So
+we need to approximate the integral.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv/10-15.png" width="70%" alt="Dropout at test time"  /><br> Fig: Dropout at test time </div>
@@ -250,8 +281,9 @@ We average out the randomness at test-time, but this integral seems hard... So w
 
 At test time, we multiply the weights by the dropout probability.
 
-At test time all neurons are active always.
-=> We must scale the activations so that for each neuron, the expected output is the same as the expected output at training time.
+At test time all neurons are active always. => We must scale the activations so
+that for each neuron, the expected output is the same as the expected output at
+training time.
 
 **Drop in forward pass, scale in backward pass.**
 
@@ -438,7 +470,8 @@ Model ensembles, transfer learning
 
 Tips and tricks:
 
-- Saving multiple checkpoints during training may also be a method of ensembling.
+- Saving multiple checkpoints during training may also be a method of
+  ensembling.
 - Keeps tracking the running average of the weights during training.
 - Periodic learning rate decay
 
@@ -498,7 +531,9 @@ Scale the learning rate
 
 Learning Rate Warmup
 
-Very large learning rate at the beginning may cause the model to diverge; linearly increasing learning rate from 0 over the first ~5000 iterations can prevent this.
+Very large learning rate at the beginning may cause the model to diverge;
+linearly increasing learning rate from 0 over the first ~5000 iterations can
+prevent this.
 
 Other Concerns:
 
@@ -512,3 +547,24 @@ batch size = 8192, 256 GPUs
 
 ... and now we achieved several minutes to train ImageNet
 
+## **Notice on Usage and Attribution**
+
+This note is based on the **University of Michigan's publicly available course EECS 498.008 / 598.008** and is intended **solely for personal learning and academic discussion**, with no commercial use.
+- **Nature of the Notes:** These notes include extensive references and citations
+  from course materials to ensure clarity and completeness. However, they are
+  presented as personal interpretations and summaries, not as substitutes for
+  the original course content.
+- **Original Course Resources:** Please refer to the official [**University of
+  Michigan website**](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/) for complete and accurate course materials.  
+- **Third-Party Open Access Content:** This note may reference Open Access (OA)
+  papers or resources cited within the course materials. These materials are
+  used under their original Open Access licenses (e.g., CC BY, CC BY-SA).  
+- **Proper Attribution:** Every referenced OA resource is appropriately cited,
+  including the author, publication title, source link, and license type.  
+- **Copyright Notice:** All rights to third-party content remain with their
+  respective authors or publishers.  
+- **Content Removal:** If you believe any content infringes on your copyright,
+  please contact me, and I will promptly remove the content in question.
+
+Thanks to the **University of Michigan** and the contributors to the course for
+their openness and dedication to accessible education. 
