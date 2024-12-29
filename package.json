@@ -10,18 +10,20 @@
     "node": "^18.20.0 || >=20.0.0"
   },
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:dev-clean": "vuepress dev docs --clean-cache --clean-temp",
-    "docs:build": "vuepress build docs --clean-cache --clean-temp",
-    "docs:preview": "http-server docs/.vuepress/dist",
+    "docs:dev": "NODE_ENV=development vuepress dev docs",
+    "docs:dev-clean": "NODE_ENV=development vuepress dev docs --clean-cache --clean-temp",
+    "docs:build": "NODE_ENV=production vuepress build docs --clean-cache --clean-temp",
     "vp-update": "pnpm dlx vp-update"
   },
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.19",
-    "vuepress": "2.0.0-rc.19",
-    "vuepress-theme-plume": "1.0.0-rc.122",
     "http-server": "^14.1.1",
+    "sass-embedded": "^1.83.0",
     "vue": "^3.5.13",
-    "sass-embedded": "^1.83.0"
+    "vuepress": "2.0.0-rc.19",
+    "vuepress-theme-plume": "1.0.0-rc.122"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
   }
 }

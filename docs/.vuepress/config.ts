@@ -1,7 +1,23 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
-import { host, port } from './dev.config'
+import dotenv from 'dotenv'
+import path from 'path'
+
+let viteHost: string;
+let vitePort: number;
+
+console.log('Hi there');
+console.log('process.env:', process.env.NODE_ENV);
+if (process.env.NODE_ENV === 'development') {
+  const envFile = '.env'
+  dotenv.config({ path: path.resolve(__dirname, `../../${envFile}`) });
+  viteHost = process.env.VITE_HOST || 'localhost';
+  vitePort = parseInt(process.env.VITE_PORT || '8080', 10);
+} else {
+  viteHost = 'localhost';
+  vitePort = 8080;
+}
 
 export default defineUserConfig({
   base: '/',
@@ -11,8 +27,8 @@ export default defineUserConfig({
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
 
   // Dev config
-  host,
-  port,
+  host: viteHost,
+  port: vitePort,
 
   // Bundler
   bundler: viteBundler(),
