@@ -30,10 +30,10 @@ Yet to be updated!
 
 <h2> Awards </h2>
 
-- **2023** - Fulgence Bienvenüe Scholarship at École Polytechnique
-- **2022** - Meritorious Winner of the Mathematical Contest in Modeling
-- **2022** - National Scholarship for outstanding undergraduates
-- **2021** - SJTU-SPEIT Dean's Scholarship for excellent academic performance
+- **2024** - Fulgence Bienvenüe Scholarship at École Polytechnique
+- **2023** - Meritorious Winner of the Mathematical Contest in Modeling
+- **2023** - National Scholarship for outstanding undergraduates
+- **2022** - SJTU-SPEIT Dean's Scholarship for excellent academic performance
 
 <h2> Interests </h2>
 
