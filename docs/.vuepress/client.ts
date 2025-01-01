@@ -1,7 +1,7 @@
 import { defineClientConfig } from 'vuepress/client'
 import CustomHome from './theme/components/CustomHome.vue'
 import CustomHomeAbout from './theme/components/CustomHomeAbout.vue'
-
+import './styles/custom.css'
 // import RepoCard from 'vuepress-theme-plume/features/RepoCard.vue'
 
 // import './theme/styles/custom.css'
