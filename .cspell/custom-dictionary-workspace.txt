@@ -200,6 +200,7 @@ hasown
 hendrerit
 hhmm
 hookable
+Horchata
 htmlparser
 Hubel
 hyperparameters
@@ -227,6 +228,7 @@ iwlist
 Jaccard
 jaccount
 jacobian
+Jamón
 Jiao
 jiti
 Joffe
@@ -434,6 +436,7 @@ runoob
 rutrum
 Ryzen
 Salakhutdinov
+Salud
 sandpack
 sapien
 sasv

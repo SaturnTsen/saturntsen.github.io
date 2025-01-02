@@ -13,5 +13,6 @@
             "comments": false,
             "strings": true
         },
+        "editor.unicodeHighlight.ambiguousCharacters": false
     },
 }
