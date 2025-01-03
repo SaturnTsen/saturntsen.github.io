@@ -9,8 +9,8 @@ export default defineThemeConfig({
 
   appearance: true,
   profile: {
-    name: 'Yiming CHEN',
-    description: 'Yiming CHEN\'s personal blog.',
+    name: 'SaturnTsen',
+    description: 'Work hard, play hard.',
     avatar: '/avatars/avatar2.png',
     // location: '您的位置',
     // organization: '您的组织',
@@ -45,7 +45,6 @@ export default defineThemeConfig({
   ],
   notes,
   footer: {
-    message: 'Friends & Partners: <a href="https://xiaoweiyexavier.github.io/">Xiaowei Ye 叶骁炜</a>',
-    copyright: '© 2024 Yiming CHEN | Powered by <a href="https://vuepress.vuejs.org/" target="_blank">VuePress</a> & <a href="https://theme-plume.vuejs.press/" target="_blank">Plume</a>',
+    copyright: '© 2024 SaturnTsen | Powered by <a href="https://vuepress.vuejs.org/" target="_blank">VuePress</a> & <a href="https://theme-plume.vuejs.press/" target="_blank">Plume</a>',
   }
 })

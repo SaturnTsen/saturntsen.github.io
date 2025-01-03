@@ -23,8 +23,8 @@ if (process.env.NODE_ENV === 'development') {
 export default defineUserConfig({
   base: '/',
   lang: 'en-US',
-  title: 'Yiming CHEN - 陈亿铭',
-  description: 'Yiming CHEN\'s personal page.',
+  title: 'SaturnTsen',
+  description: 'Work hard, play hard',
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
 
   // Dev config
