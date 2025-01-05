@@ -18,7 +18,7 @@ differentiation, Higher-order derivatives
 <!-- more -->
 
 @Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/) | 
-Video Lecture: [UM-CV 5 Neural Networks](https://www.youtube.com/watch?v=g6InpdhUblE&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&index=6) 
+Video Lecture: [UM-CV](https://www.youtube.com/watch?v=dJYGatp4SvA&list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r) 
 
 Personal work for the assignments of the course: [github repo](https://github.com/SaturnTsen/EECS-498-007/).
 
