@@ -1,6 +1,8 @@
 ---
 title: UM-CV 15 Object Detection
 createTime: 2024/12/29 09:10:12
+tags:
+    - computer-vision
 permalink: /computer-vision/UMichigan-CV/Course-15-Object-Detection/
 ---
 

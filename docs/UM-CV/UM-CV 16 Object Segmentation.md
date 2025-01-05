@@ -1,5 +1,7 @@
 ---
 title: UM-CV 16 Object Semantic Segmentation
+tags:
+  - computer-vision
 createTime: 2024/12/29 11:01:56
 permalink: /computer-vision/UMichigan-CV/Course-16-Object-Segmentation/
 ---
