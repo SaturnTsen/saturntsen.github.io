@@ -1,7 +1,7 @@
 ---
 title: 10km PB reached
 createTime: 2025/01/21 22:08:02
-permalink: /life/
+permalink: /life/10km-pb-reached/
 ---
 
 昨日睡眠充足，今日状态极佳，下午心血来潮，健身房恰好开启，于是完成了人生的第一个
