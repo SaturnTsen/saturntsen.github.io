@@ -4,9 +4,11 @@ createTime: 2025/01/21 22:01:23
 permalink: /computer-vision/paper-reading/SAM2/
 ---
 
-Segment Anything 笔记
+Segment Anything - Personal Notes
 
 This article is a draft converted from my Zotero notes, and the content is still not organized.
+
+<!-- more -->
 
 # Intro
 
