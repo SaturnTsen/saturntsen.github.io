@@ -31,6 +31,7 @@ autoencoders
 Autoencoders
 autograd
 autoprefixer
+Autoregressive
 avahi
 axios
 Backprop
@@ -146,6 +147,7 @@ efficitur
 egestas
 eget
 einsum
+ELBO
 eleifend
 elementum
 elif
