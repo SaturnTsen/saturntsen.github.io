@@ -4,7 +4,7 @@ docs/.vuepress/.temp
 docs/.vuepress/dist
 .env.development
 .env
-
+.idea
 .DS_Store
 *.log
 *.mjs
