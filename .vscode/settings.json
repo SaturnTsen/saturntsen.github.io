@@ -15,4 +15,7 @@
         },
         "editor.unicodeHighlight.ambiguousCharacters": false
     },
+    "workbench.editorAssociations": {
+        "*.md":"default"
+    }
 }
