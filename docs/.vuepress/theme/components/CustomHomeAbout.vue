@@ -21,9 +21,10 @@ const props = defineProps<CustomHomeAbout>()
   margin-top: 0;
   padding-top: 0;
   background-color: var(--vp-color-bg);
-  font-family: Georgia, sans-serif;
+  font-family: Georgia, kaiti, sans-serif;
 }
 .vp-doc h2 {
   margin-top: 0.8em !important;
 }
+
 </style>

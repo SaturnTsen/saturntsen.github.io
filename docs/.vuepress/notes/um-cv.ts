@@ -1,7 +1,7 @@
 import { defineNoteConfig } from 'vuepress-theme-plume'
 
 export default defineNoteConfig({
-  link: '/notes/leetcode',
-  dir: 'UM-CV',
+  link: '/notes/computer-vision/UMichigan-CV',
+  dir: 'leetcode',
   sidebar: 'auto'
 })

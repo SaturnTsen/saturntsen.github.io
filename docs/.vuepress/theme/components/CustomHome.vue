@@ -100,7 +100,7 @@ const myprofile = computed(() => {
   margin-bottom: 12px;
   font-size: 20px;
   font-weight: 550;
-  font-family: Georgia, '楷体', sans-serif;
+  font-family: Georgia, kaiti, sans-serif;
 }
 
 .vp-home-profile :deep(p) {
@@ -110,7 +110,7 @@ const myprofile = computed(() => {
   color: var(--vp-c-text-2);
   white-space: pre-wrap;
   transition: color var(--vp-t-color);
-  font-family: Georgia, '楷体', sans-serif;
+  font-family: Georgia, kaiti, sans-serif;
 }
 
 </style>

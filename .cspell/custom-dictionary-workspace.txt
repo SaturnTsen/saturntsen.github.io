@@ -1,4 +1,6 @@
 # Custom Dictionary Words
+aaawordgoodgoodgoodbestwordaaaawordbestgoodgoodwordaaaaaword
+abcabcbb
 abtesting
 accumsan
 aconf
@@ -27,6 +29,7 @@ artalk
 arxiv
 auctor
 augue
+Autoencoder
 autoencoders
 Autoencoders
 autograd
@@ -41,12 +44,16 @@ backpropagating
 backpropagation
 Backpropagation
 badblocks
+barfoofoobarthefoobarmanmanafoobarthemanmanbarthefoo
+barfoofoobarthefoobarmanmanfoobarthemanmanfoo
 batchnorm
 Bengio
+bewtween
 BFGS
 bilibili
 Binford
 birpc
+bitmanipulation
 blandit
 BLAS
 blkid
@@ -93,6 +100,7 @@ conv
 Conv
 convolutional
 Copype
+cout
 covariate
 covector
 cpio
@@ -102,6 +110,7 @@ csstype
 cubilia
 cuda
 CUDA
+cumsum
 cupsd
 Curabitur
 curae
@@ -111,6 +120,7 @@ CVPR
 dapibus
 darwin
 dbeta
+DCCC
 Deconvolution
 denoising
 dequal
@@ -154,6 +164,8 @@ eleifend
 elementum
 elif
 elit
+endi
+endl
 enim
 ensembling
 envinfo
@@ -193,6 +205,7 @@ Gcycle
 GDDR
 GELU
 Genmask
+getrandom
 giscus
 github
 globby
@@ -231,6 +244,8 @@ interdum
 Interpretability
 iojs
 iptunnel
+isalpha
+isdigit
 isexe
 iwconfig
 iwlist
@@ -250,9 +265,11 @@ justo
 jxvf
 Kaggle
 Kaiming
+kaiti
 katex
 keepdim
 Keras
+keypoint
 keyval
 kolorist
 kotlin
@@ -263,6 +280,10 @@ layerwise
 lazyload
 lectus
 leetcode
+lenarr
+lendict
+lenstr
+lenwrd
 libasound
 libatk
 libcharon
@@ -274,6 +295,7 @@ libnss
 libstrongswan
 libxcb
 lightningcss
+linkedlist
 linkify
 linspace
 linux
@@ -286,12 +308,14 @@ localectl
 localinstall
 localuser
 loong
+loperand
 LSTM
 LSTMs
 lstree
 lsusb
 ltrace
 luctus
+LXXX
 maddr
 malesuada
 markmap
@@ -302,6 +326,7 @@ mathjax
 mattis
 mauris
 Mauris
+maxcount
 Maxence
 maximus
 Maxout
@@ -356,6 +381,7 @@ nisl
 nmap
 nmcli
 nmtui
+NNDL
 nodeeps
 nodelib
 NOIP
@@ -365,7 +391,9 @@ nprogress
 nslookup
 nulla
 Nullam
+nullptr
 numpy
+nums
 nuxt
 odio
 Omniglot
@@ -444,6 +472,7 @@ Rnns
 Robrets
 rogpav
 rollup
+roperand
 rpmbuild
 RPMS
 runoob
@@ -470,6 +499,7 @@ sindresorhus
 sjtu
 SJTU
 sjtuvpn
+slidingwindow
 smbfs
 sodales
 softmax
@@ -480,13 +510,19 @@ sparsify
 speakingurl
 speit
 sprintf
+Staights
+starti
 staticmethod
+stdc
+stoi
 Streamlit
 Strided
 strikethrough
 stringa
 strongswan
+strs
 subarray
+subarrays
 subsamples
 subtokenize
 sugarss
@@ -513,6 +549,7 @@ timestep
 tincidunt
 tinyexec
 tlunp
+tolower
 topk
 torchvision
 tortor
@@ -526,6 +563,7 @@ tupl
 turpis
 twikoo
 twoslash
+typedef
 ullamcorper
 ultrices
 ultricies
@@ -584,6 +622,7 @@ whois
 winhttp
 winpe
 wireshark
+wordgoodgoodgoodbestword
 Wtype
 xdev
 xfonts

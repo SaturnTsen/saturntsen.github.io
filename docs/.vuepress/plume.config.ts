@@ -10,7 +10,7 @@ export default defineThemeConfig({
   appearance: true,
   profile: {
     name: 'SaturnTsen',
-    description: 'Work hard, play hard.',
+    description: 'CV | ML | NNDL',
     avatar: '/avatars/avatar2.png',
     // location: '您的位置',
     // organization: '您的组织',
@@ -36,14 +36,13 @@ export default defineThemeConfig({
       text: 'Notes',
       items: [
         { text: 'Computer Vision', link: '/notes/computer-vision/README.md' },
+        { text: 'UM-CV', link: '/notes/UM-CV/README.md' },
         { text: 'LeetCode', link: '/notes/leetcode/README.md' },
-        { text: 'Misc', link: '/notes/misc/README.md' }
+        { text: 'Misc', link: '/notes/misc/README.md' },
+        { text: 'Life', link: '/blog/' }
       ]
     },
-    {
-      text: 'Blog',
-      link: '/blog/'
-    },
+
   ],
   notes,
   footer: {

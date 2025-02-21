@@ -24,7 +24,6 @@ export default defineUserConfig({
   base: '/',
   lang: 'en-US',
   title: 'SaturnTsen',
-  description: 'Work hard, play hard',
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
 
   // Dev config
@@ -48,7 +47,8 @@ export default defineUserConfig({
        */
       shiki: {
         //  预设代码块高亮语言，减少不必要的时间开销
-        languages: ['shell', 'bash', 'typescript', 'javascript', 'css', 'html', 'python', 'markdown', 'powershell', 'cmd'],
+        languages: ['shell', 'bash', 'typescript', 'javascript', 'css', 'html',
+          'python', 'markdown', 'powershell', 'cmd', 'ini', 'cpp', 'dockerfile'],
       },
 
       /**
@@ -73,11 +73,11 @@ export default defineUserConfig({
        */
       markdownEnhance: {
         demo: true,
-      //   include: true,
-      //   chart: true,
-      //   echarts: true,
-      //   mermaid: true,
-      //   flowchart: true,
+        //   include: true,
+        //   chart: true,
+        //   echarts: true,
+        //   mermaid: true,
+        //   flowchart: true,
       },
 
       /**

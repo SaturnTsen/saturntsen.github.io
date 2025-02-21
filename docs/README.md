@@ -33,12 +33,13 @@ I’m currently involved in studying the consistency of video diffusion models a
 
 <h2> Projects </h2>
 
-- **Domain-specific code generation with LLMs**, École Polytechnique, Sep. 2024 - Present
-  - Leading a project focused on LLM-based code generation and optimization for the French supply chain language, [Lokad Envision](https://www.lokad.com/)
-  - Developed a comprehensive code generation and validation pipeline using LangGraph
-  - Built a Retrieval-Augmented Generation (RAG) system based on FAISS vector databases,
+- **Domain-specific Code Generation with LLMs**, Project Lead, École Polytechnique, Sep. 2024 - Present
+  - Architected the [Envision](https://www.lokad.com/fr/) domain-specific code generation system from scratch.
+  - Achieved 15/16 passing rate on initial proof-of-concept (covering supply chain forecasting core logic)
+  - Engineered hybrid RAG pipeline : FAISS semantic search + cross-module dependency tracing
+  - Leading ongoing industrial data tuning (58 real-world optimization tasks)
 
-- **Research on AI Interpretability**, John-Hopcroft Center, SJTU, Jul. – Aug. 2024
+- **Research on AI Interpretability**, Research Assistant, John-Hopcroft Center, SJTU, Jul. – Aug. 2024
   - Extracted Shapley values for knowledge distillation and evaluated its
     generalization ability, assessing knowledge transferability.
   - Trained classic models such as BERT, VGG, and ResNet, and conducted analysis
@@ -58,21 +59,20 @@ Feel free to explore more of my work on [GitHub](https://github.com/saturntsen).
 <h2> Skills </h2>
 
 - **Domain expertise:** Deep Learning and Computer Vision (3D Asset Generation)
-- **Programming Languages:** Python (NumPy, Pytorch, Pandas), C++, Node.js, Linux, Docker
-- **Frameworks:** LangGraph, Streamlit, Vue.js, etc.
+- **Programming Languages:** Python (NumPy, Pytorch, Pandas), C++, Linux, Docker
+- **Other Frameworks:** LangGraph, Streamlit, Node.js, Vue.js, etc.
 
 <h2> Extracurricular Activities </h2>
 
-- **Member, Model United Nations Association, École Polytechnique** 2024.06 – Present
-- **Member, Equestrian Team, École Polytechnique** 2024.10 – 2025.02
-- **President, Student Union of SJTU-Paris Institute of Technology** 2022.09 – 2023.09
-- **Head, Student Innovation Studio, SJTU** 2022.09 – 2023.09
+- Member, Model United Nations Association, École Polytechnique, 2024.06 – Present
+- Member, Equestrian Team, École Polytechnique, 2024.10 – 2025.02
+- President, Student Union of SJTU-Paris Institute of Technology, 2022.09 – 2023.09
+- Head, Student Innovation Studio, SJTU, 2022.09 – 2023.09
 
 <h2> My friends, collaborators, and mentors </h2>
 
-- [Weidi XIE](https://weidixie.github.io/)（谢伟迪）, my mentor at the John-Hopcroft Center, SJTU. He is Associate Professor in Shanghai Jiao Tong University. He remains a visitor researcher with the Visual Geometry Group (VGG) at Oxford.
-- [Xiaowei YE](https://xiaoweiyexavier.github.io/)（叶骁炜）, my classmate at
+- **[Weidi XIE](https://weidixie.github.io/)（谢伟迪）**, my mentor at the John-Hopcroft Center, SJTU. He is Associate Professor in Shanghai Jiao Tong University. He remains a visitor researcher with the Visual Geometry Group (VGG) at Oxford.
+- **[Xiaowei YE](https://xiaoweiyexavier.github.io/)（叶骁炜）**, my classmate at
   École Polytechnique. He is a talented student in mathematics and combinatorics, and a graduate of the Young Talent Class at the University of Science and Technology of China.
-- [Yuran ZOU](https://www.linkedin.com/in/yuran-zou-0b407b314/)（邹宇然）, my
-  collaborator of the project on Domain Specific Code Generation.
+- **[Yuran ZOU](https://www.linkedin.com/in/yuran-zou-0b407b314/)（邹宇然）**, my collaborator of the project on Domain Specific Code Generation.
 
