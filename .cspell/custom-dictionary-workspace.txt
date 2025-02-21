@@ -96,6 +96,7 @@ Copype
 covariate
 covector
 cpio
+crossfit
 crowdsourcing
 csstype
 cubilia
@@ -170,6 +171,7 @@ execa
 extauth
 extglob
 facilisis
+FAISS
 fastq
 faucibus
 fdformat
@@ -184,6 +186,7 @@ freebsd
 Frobenius
 frontmatter
 fsevents
+Fulgence
 Fusce
 Gbps
 Gcycle
@@ -204,6 +207,7 @@ hasown
 hendrerit
 hhmm
 hookable
+Hopcroft
 Horchata
 htmlparser
 Hubel
@@ -224,6 +228,7 @@ imperdiet
 inet
 infty
 interdum
+Interpretability
 iojs
 iptunnel
 isexe
@@ -326,6 +331,7 @@ msdos
 MSRA
 Multiclass
 myhost
+myprofile
 myrobbyrussell
 myscript
 nameif
@@ -352,6 +358,7 @@ nmcli
 nmtui
 nodeeps
 nodelib
+NOIP
 noprefixroute
 noqueue
 nprogress
@@ -454,6 +461,7 @@ scandir
 scelerisque
 senectus
 SGID
+Shapley
 shiki
 Shiki
 shikijs
@@ -473,6 +481,7 @@ speakingurl
 speit
 sprintf
 staticmethod
+Streamlit
 Strided
 strikethrough
 stringa
@@ -563,6 +572,7 @@ vueuse
 vulputate
 Waddress
 waline
+Weidi
 Weisel
 whatismyip
 whatprovides
@@ -577,6 +587,7 @@ wireshark
 Wtype
 xdev
 xfonts
+Xiaowei
 Yann
 yiming
 Yiming
@@ -584,8 +595,10 @@ yoctocolors
 Yoshua
 youtube
 Ypred
+Yuran
 zenhei
 Zhang
 Zhao
+Zisserman
 zwitch
 zxvf
