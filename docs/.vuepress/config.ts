@@ -4,19 +4,19 @@ import { plumeTheme } from 'vuepress-theme-plume'
 import dotenv from 'dotenv'
 import path from 'path'
 
-let viteHost: string;
-let vitePort: number;
+let host: string;
+let port: number;
 
-console.log('Hi there');
-console.log('process.env:', process.env.NODE_ENV);
+console.log('> process.env:', process.env.NODE_ENV, '\n');
+
 if (process.env.NODE_ENV === 'development') {
   const envFile = '.env'
   dotenv.config({ path: path.resolve(__dirname, `../../${envFile}`) });
-  viteHost = process.env.VITE_HOST || 'localhost';
-  vitePort = parseInt(process.env.VITE_PORT || '8080', 10);
+  host = process.env.VITE_HOST || 'localhost';
+  port = parseInt(process.env.VITE_PORT || '8080', 10);
 } else {
-  viteHost = 'localhost';
-  vitePort = 8080;
+  host = 'localhost';
+  port = 8080;
 }
 
 export default defineUserConfig({
@@ -26,8 +26,8 @@ export default defineUserConfig({
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
 
   // Dev config
-  host: viteHost,
-  port: vitePort,
+  host,
+  port,
 
   // Bundler
   bundler: viteBundler(),
@@ -72,10 +72,10 @@ export default defineUserConfig({
        */
       markdownEnhance: {
         demo: true,
+        mermaid: true,
         //   include: true,
         //   chart: true,
         //   echarts: true,
-        //   mermaid: true,
         //   flowchart: true,
       },
 

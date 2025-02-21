@@ -76,4 +76,5 @@ Feel free to explore more of my work on [GitHub](https://github.com/saturntsen).
 - **[Xiaowei YE](https://xiaoweiyexavier.github.io/)（叶骁炜）**, my classmate at
   École Polytechnique. He is a talented student in mathematics and combinatorics, and a graduate of the Young Talent Class at the University of Science and Technology of China.
 - **[Yuran ZOU](https://www.linkedin.com/in/yuran-zou-0b407b314/)（邹宇然）**, my collaborator of the project on Domain Specific Code Generation.
+- **[Linh Vu TU](https://piaf-saclay.org)**, Secretary of the student association For Reliable AI (PIAF), in Institut Polytechnique de Paris.
 
