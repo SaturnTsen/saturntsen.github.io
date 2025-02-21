@@ -28,19 +28,21 @@ export default defineThemeConfig({
       link: 'https://scholar.google.com'
     },
   ],
-  
+
   navbar: [
     { text: 'Home', link: '/' },
-    { text: 'Blog', link: '/blog/' },
-    { text: 'Tags', link: '/blog/tags/' },
-    { text: 'Categories', link: '/blog/categories/' },
-    { text: 'Archives', link: '/blog/archives/' },
+
     {
       text: 'Notes',
       items: [
         { text: 'Computer Vision', link: '/notes/computer-vision/README.md' },
-        { text: 'LeetCode', link: '/notes/leetcode/README.md' }
+        { text: 'LeetCode', link: '/notes/leetcode/README.md' },
+        { text: 'Misc', link: '/notes/misc/README.md' }
       ]
+    },
+    {
+      text: 'Blog',
+      link: '/blog/'
     },
   ],
   notes,

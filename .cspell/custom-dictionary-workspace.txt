@@ -74,6 +74,7 @@ Cheatsheet
 checksig
 chen
 chgrp
+choco
 chokidar
 CIFAR
 clangd
@@ -161,6 +162,7 @@ esbuild
 esempio
 esprima
 estree
+ethernet
 euismod
 eventemitter
 eventlog
@@ -314,6 +316,7 @@ minisearch
 mips
 mkisofs
 mlly
+Mnet
 MNIST
 mobike
 molestie
@@ -326,6 +329,7 @@ myhost
 myrobbyrussell
 myscript
 nameif
+nameserver
 Neocognition
 neque
 Nesterov
@@ -359,6 +363,7 @@ nuxt
 odio
 Omniglot
 openbsd
+openssh
 optim
 Optim
 orci
@@ -443,6 +448,7 @@ sandpack
 sapien
 sasv
 satm
+saturntsen
 scanbus
 scandir
 scelerisque
@@ -548,6 +554,7 @@ virtualbox
 vitejs
 Vivamus
 viverra
+vmnetdhcp
 volutpat
 vpnoff
 vpnon
@@ -565,6 +572,7 @@ whatwg
 whereis
 whois
 winhttp
+winpe
 wireshark
 Wtype
 xdev

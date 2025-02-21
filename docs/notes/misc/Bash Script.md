@@ -3,7 +3,7 @@ title: Bash Script
 tags:
   - utils
 createTime: 2023/10/03 13:30:51
-permalink: /utils/bash-script/
+permalink: /notes/misc/bash-script/
 ---
 
 Here's your formatted note about Shell scripting:

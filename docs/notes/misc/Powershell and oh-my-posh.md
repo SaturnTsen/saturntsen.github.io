@@ -1,9 +1,9 @@
 ---
-title: Powershell 和 oh-my-posh
+title: Powershell
 tags:
   - utils
 createTime: 2024/02/11 15:00
-permalink: /utils/powershell-and-oh-my-posh/
+permalink: /notes/misc/powershell-and-oh-my-posh/
 ---
 
 ## 目录

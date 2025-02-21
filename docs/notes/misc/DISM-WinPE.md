@@ -1,9 +1,7 @@
 ---
-title: DISM 和 WinPE
-tags:
-  - utils
+title: DISM and WinPE
 createTime: 2024/01/11 16:36:01
-permalink: /utils/DISM-and-WinPE/
+permalink: /notes/misc/dism-winpe/
 ---
 
 ### DISM 用法整理

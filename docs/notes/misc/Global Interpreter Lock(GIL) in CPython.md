@@ -1,10 +1,9 @@
 ---
-title: Global Interpreter Lock (GIL) in CPython, and PyTorch Dataloader
+title: GIL in CPython
 tags:
-    - Python
     - misc
 createTime: 2024/01/22 18:38:50
-permalink: /misc/global-interpreter-lock-in-cpython
+permalink: /notes/misc/global-interpreter-lock-in-cpython/
 ---
 
 在完成FCOS目标检测项目中，我发现在训练过程中GPU利用率非常低，反倒是CPU利用率高。

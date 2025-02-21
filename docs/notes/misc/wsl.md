@@ -1,17 +1,10 @@
 ---
-title: WSL常用指令
-tags:
-  - utils
-createTime: 2024/02/04 18:31:53
-permalink: /utils/WSL-commands/
+title: WSL
+createTime: 2025/02/21 11:17:37
+permalink: /notes/misc/wsl/
 ---
 
-
-### WSL 命令整理与格式化笔记
-
----
-
-### 基本使用
+## 基本使用
 - **`--help`**  
   显示使用情况信息。
 
@@ -32,7 +25,7 @@ permalink: /utils/WSL-commands/
 
 ---
 
-### 系统管理
+## 系统管理
 - **`--shutdown`**  
   立即终止所有正在运行的分发版和 WSL 2。
 
@@ -82,7 +75,7 @@ permalink: /utils/WSL-commands/
 
 ---
 
-### 分发版管理
+## 分发版管理
 - **`--list`, `-l [Options]`**  
   列出分发版。
   - **选项**：
@@ -105,7 +98,7 @@ permalink: /utils/WSL-commands/
 
 ---
 
-### 安装与删除
+## 安装与删除
 - **`--install [Distro] [Options...]`**  
   安装分发版。
   - **选项**：
@@ -123,7 +116,7 @@ permalink: /utils/WSL-commands/
 
 ---
 
-### 导入与导出
+## 导入与导出
 - **`--export <Distro> <FileName> [Options]`**  
   将分发版导出到 `.tar` 文件。
   - **选项**：

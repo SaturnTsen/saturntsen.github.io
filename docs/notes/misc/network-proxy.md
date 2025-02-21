@@ -1,10 +1,7 @@
 ---
-title: Network Proxy 网络代理设置
-tags:
-   - network
-   - utils
+title: Proxy
 createTime: 2024/09/12 10:03:30
-permalink: /utils/network-proxy-settings/
+permalink: /notes/misc/network-proxy/
 ---
 
 ### 网络代理配置笔记

@@ -6,6 +6,12 @@ createTime: 2025/1/25 19:42:30
 permalink: /life/surrealism-and-gpt-2-medium/
 ---
 
+This is why I love stories, even the ones that make no sense at first glance.
+They force us to look at the messiness of life, the contradictions, and the
+pain—and somehow find meaning in them.
+
+<!-- more -->
+
 ## 超现实主义
 
 ### 蓬皮杜中心

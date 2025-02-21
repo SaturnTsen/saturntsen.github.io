@@ -4,7 +4,7 @@ tags:
   - utils
   - network
 createTime: 2023/11/04 20:56:04
-permalink: /utils/Linux-Net-Tools/
+permalink: /notes/misc/linux-net-tools/
 ---
 
 ## Linux 网络管理方式总结

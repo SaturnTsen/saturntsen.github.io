@@ -1,10 +1,9 @@
 ---
 title: JavaScript built-in hierarchy
 tags:
-    - JavaScript
     - misc
 createTime: 2024/01/22 18:38:50
-permalink: /misc/JavaScript-inheritance/
+permalink: /notes/misc/javascript-inheritance/
 ---
 
 Disclaimer: 出处不明，如侵权请联系删除。
