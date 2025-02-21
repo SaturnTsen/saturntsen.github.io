@@ -1,10 +1,11 @@
 ---
-title: UM-CV 7 & 8 CNN and its design principles
+title:  7 & 8 CNN and its design principles
 tags: 
   - notes
   - computer-vision
 createTime: 2024/12/21 17:34:25
-permalink: /notes/computer-vision/UMichigan-CV/um-cv-course-7-CNN/
+permalink: /notes/um-cv/um-cv-7/
+outline: [2, 4]
 ---
 
 # Convolutional Neural Networks

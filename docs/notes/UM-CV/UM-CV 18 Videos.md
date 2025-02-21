@@ -1,9 +1,9 @@
 ---
-title: UM-CV 18 Videos
+title:  18 Videos
 tags:
     - computer-vision
 createTime: 2025/01/05 18:30:39
-permalink: /notes/computer-vision/UMichigan-CV/um-cv-course-18-videos/
+permalink: /notes/um-cv/um-cv-18/
 ---
 
 Summary: Video Classification, CNN Architectures for Videos, Two-Stream Networks, Recurrent Structures, Spatial-Temporal Detection, and more.

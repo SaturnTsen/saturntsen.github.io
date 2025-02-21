@@ -1,10 +1,11 @@
 ---
-title: UM-CV 1 Intro
+title:  1 Intro
 tags:
   - notes
   - computer-vision
 createTime: 2024/12/19 14:30:31
-permalink: /notes/computer-vision/UMichigan-CV/um-cv-course-1-intro/
+permalink: /notes/um-cv/um-cv-1/
+outline: [2, 4]
 ---
 
 @Credits: [EECS 498.007](https://web.eecs.umich.edu/~justincj/teaching/eecs498/WI2022/)
@@ -14,8 +15,6 @@ Video Lecture: [UM-CV](https://www.youtube.com/watch?v=dJYGatp4SvA&list=PL5-TkQA
 Personal work for the assignments of the course: [github repo](https://github.com/SaturnTsen/EECS-498-007/).
 
 <!-- more -->
-
-# Deep Learning in Computer Vision 
 
 ## **Notice on Usage and Attribution**
 

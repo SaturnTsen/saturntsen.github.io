@@ -36,9 +36,9 @@ export default defineThemeConfig({
       text: 'Notes',
       items: [
         { text: 'Computer Vision', link: '/notes/computer-vision/README.md' },
-        { text: 'UM-CV', link: '/notes/UM-CV/README.md' },
+        { text: 'UM-CV', link: '/notes/um-cv/README.md' },
         { text: 'LeetCode', link: '/notes/leetcode/README.md' },
-        { text: 'Misc', link: '/notes/misc/README.md' },
+        { text: 'Misc', link: '/notes/misc/' },
         { text: 'Life', link: '/blog/' }
       ]
     },

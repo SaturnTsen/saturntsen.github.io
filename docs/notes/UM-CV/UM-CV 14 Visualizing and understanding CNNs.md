@@ -1,10 +1,11 @@
 ---
-title: UM-CV 14 Visualizing and understanding CNNs
+title:  14 Visualizing and understanding CNNs
 tags: 
   - notes
   - computer-vision
 createTime: 2024/12/27 16:08:15
-permalink: /notes/computer-vision/UMichigan-CV/Course-14-Visualizing-and-understanding-CNNs/
+permalink: /notes/um-cv/um-cv-14/
+outline: [2, 4]
 ---
 
 # UM-CV 14 Visualizing and understanding CNNs

@@ -1,10 +1,11 @@
 ---
-title: UM-CV 3 & 4 Linear Classifiers and Optimization
+title:  3 & 4 Linear Classifiers and Optimization
 tags: 
   - notes
   - computer-vision
 createTime: 2024/12/21 14:30:31
-permalink: /notes/computer-vision/UMichigan-CV/um-cv-course-3-4-linear-classifiers/
+permalink: /notes/um-cv/um-cv-3-4/
+outline: [2, 4]
 ---
 
 Summary: Linear Classifiers, Parametric Approach, Loss, Optimization, Gradient Descent, Batch Gradient Descent, Stochastic Gradient Descent, Variants of SGD, Adam, Second-order optimization.

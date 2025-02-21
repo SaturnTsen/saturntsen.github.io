@@ -1,9 +1,10 @@
 ---
-title: UM-CV 17 3D Vision
+title:  17 3D Vision
 tags:
     - computer-vision
 createTime: 2025/01/04 23:09:39
-permalink: /notes/computer-vision/UMichigan-CV/um-cv-course-17-3D-vision/
+permalink: /notes/um-cv/um-cv-17/
+outline: [2, 4]
 ---
 
 Topics in 3D vision: Computing correspondences, stereo, structure from motion, simultaneous localization and mapping(SLAM), view synthesis, differentiable graphics, etc.
@@ -31,7 +32,7 @@ this document](#notice-on-usage-and-attribution)**
 ### Depth map
 
 Depth map assigns a depth value to each pixel in the image. RGB-D image.
-  - Cannot caputure occluded regions. Data can be recorded directly for some
+  - Cannot capture occluded regions. Data can be recorded directly for some
     types of 3D sensors.
   - Task: Predicting Depth Maps
   - Problem: Scale/Depth Ambiguity
@@ -77,7 +78,7 @@ A set of points in 3D space.
 - ( ) Requires new architectures, losses, etc
 - (-) Doesn't explicitly represent the surface of the shape: extracting a mesh for rendering or other. Need postprocessing to transform into another format.
 - Segmentation: PointNet [PointNet, CVPR 2017](https://arxiv.org/abs/1612.00593)
-- Generating Pointcloud Outputs: [A Point Set Generation Network for 3D Object Reconstruction from a Single Image, CVPR 2017](https://arxiv.org/abs/1612.00603)
+- Generating Point cloud Outputs: [A Point Set Generation Network for 3D Object Reconstruction from a Single Image, CVPR 2017](https://arxiv.org/abs/1612.00603)
 - Chamfer Distance: Measure the distance between two point clouds.
 $d_{CD}(X, Y) = \sum_{x \in X} \min_{y \in Y} \|x - y\|^2 + \sum_{y \in Y} \min_{x \in X} \|x - y\|^2$
 
@@ -104,7 +105,7 @@ Key ideas:
     - Use a bilinear interpolation to sample a CNN feature
 1. **Loss function**
     - Prediction & Ground-truth is not unique, so we want our prediction to be invariant to the representation.
-    - Loss: Chamfer distance between predicted samples and ground-truch samples.
+    - Loss: Chamfer distance between predicted samples and ground-truth samples.
     - [GEOMetrics: Exploiting Geometric Structure for Graph-Encoded Objects, ICML 2019](https://arxiv.org/abs/1901.11461)
 
 ## Shape Comparison Metrics
@@ -163,7 +164,7 @@ Mask R-CNN
 Mesh head
   - 3d triangle mesh
 
-**Problem of Mesh deformation** The topology is fixed by the inital mesh - All predictions are homomorphic to the initial mesh.
+**Problem of Mesh deformation** The topology is fixed by the initial mesh - All predictions are topologically equivalent to the initial mesh.
 
 **Mesh R-CNN Pipeline**
 

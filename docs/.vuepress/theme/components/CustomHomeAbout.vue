@@ -18,13 +18,24 @@ const props = defineProps<CustomHomeAbout>()
 
 <style>
 .vp-home-custom {
-  margin-top: 0;
+  margin: 0 auto;
   padding-top: 0;
-  background-color: var(--vp-color-bg);
   font-family: Georgia, kaiti, sans-serif;
 }
+
+.vp-doc p {
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+}
+
+.vp-doc h2:first-of-type {
+  margin-top: 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--vp-c-border);
+}
+
 .vp-doc h2 {
-  margin-top: 0.8em !important;
+  margin-top: 0.4em;
 }
 
 </style>

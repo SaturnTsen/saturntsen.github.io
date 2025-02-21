@@ -1,9 +1,9 @@
 ---
-title: UM-CV 20 Generative Adversarial Networks
+title:  20 Generative Adversarial Networks
 tags:
     - computer-vision
 createTime: 2025/01/14 20:59:11
-permalink: /notes/computer-vision/UMichigan-CV/um-cv-course-19-GAN/
+permalink: /notes/um-cv/um-cv-20/
 ---
 
 Generative adversarial networks: architecture, training objective, optimality, and variants of GANs.

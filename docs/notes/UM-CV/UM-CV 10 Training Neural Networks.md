@@ -1,10 +1,11 @@
 ---
-title: UM-CV 10 & 11 Training Neural Networks
+title:  10 & 11 Training Neural Networks
 tags: 
   - notes
   - computer-vision
 createTime: 2024/12/26 17:45:38
-permalink: /notes/computer-vision/UMichigan-CV/um-cv-course-10-training-neural-networks/
+permalink: /notes/um-cv/um-cv-10/
+outline: [2, 4]
 ---
 
 Summary: Training neural networks, activation functions, data preprocessing,

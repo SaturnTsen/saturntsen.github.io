@@ -10,12 +10,13 @@ config:
     avatar: /avatars/personal.png
     email: yiming.chen@polytechnique.edu
     github: https://github.com/saturntsen
+    linkedin: https://www.linkedin.com/in/yiming-maxence-chen-1020422b4/
     googlescholar: https://scholar.google.com/
   -
     type: custom-home-about
 ---
 
-<h2 style="margin-top:0; border-top: 1px solid var(--vp-c-border);"> About </h2>
+<h2> About </h2>
 
 Hi there! I’m Yiming Chen, currently pursuing a dual degree at École Polytechnique, specializing in statistics and random phenomena modeling. My research focuses on computer vision and Diffusion Models with Point Control.
 

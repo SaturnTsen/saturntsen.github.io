@@ -1,10 +1,11 @@
 ---
-title: UM-CV 9 Hardware, Software, PyTorch Modules
+title:  9 Hardware, Software, PyTorch Modules
 tags: 
   - notes
   - computer-vision
 createTime: 2024/12/23 21:11:03
-permalink: /notes/computer-vision/UMichigan-CV/um-cv-course-9-hardware-and-software/
+permalink: /notes/um-cv/um-cv-9/
+outline: [2, 4]
 ---
 
 # UM-CV 9 Hardware and Software

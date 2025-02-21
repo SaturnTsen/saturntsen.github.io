@@ -1,10 +1,11 @@
 ---
-title: UM-CV 12 & 13 Recurrent Neural Networks & Attention Mechanism
+title:  12 & 13 Recurrent Neural Networks & Attention Mechanism
 tags: 
   - notes
   - computer-vision
 createTime: 2024/12/27 11:21:07
-permalink: /notes/computer-vision/UMichigan-CV/Course-12-Recurrent-Neural-Networks-Attention/
+permalink: /notes/um-cv/um-cv-12/
+outline: [2, 4]
 ---
 
 # UM-CV 11 Recurrent Neural Networks & Attention

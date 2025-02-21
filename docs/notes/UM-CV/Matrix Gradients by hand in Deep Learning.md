@@ -1,11 +1,11 @@
 ---
-title: Two-layer MLP backpropagation using differential forms - Matrix Gradients by hand in Deep Learning (1)
+title: Twoa-layer MLP backprop
 tags:
   - mathematics
   - machine-learning
   - deep-learning
 createTime: 2024/12/22 19:26:16
-permalink: /notes/computer-vision/UMichigan-CV/gradient-chain-rule-matrix-gradients-deep-learning/
+permalink: /notes/um-cv/backprop-calc-1/
 ---
 
 > <Badge type="danger" text="TL;DR" /> This article is a deep dive into the calculation of the gradient of a function defined on a matrix space. We will see how to define a differential form and how to calculate the gradient of a function defined on a matrix space. We will also see how to apply the chain rule in deep learning. We will see how to calculate the gradient of a neural network with a two-layer architecture.

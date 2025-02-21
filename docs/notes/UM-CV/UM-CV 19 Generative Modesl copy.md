@@ -1,9 +1,9 @@
 ---
-title: UM-CV 19 Autoregressive Models, Variational Autoencoders
+title:  19 Autoregressive Models, Variational Autoencoders
 tags:
     - computer-vision
 createTime: 2025/01/14 20:59:11
-permalink: /notes/computer-vision/UMichigan-CV/um-cv-course-19-generative-models/
+permalink: /notes/um-cv/um-cv-19/
 ---
 
 Taxonomy of generative models, Autoregressive models, Variational Inference, ELBO Optimization, Variational autoencoders, VQ-VAE

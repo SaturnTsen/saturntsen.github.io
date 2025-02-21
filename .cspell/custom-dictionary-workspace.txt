@@ -7,6 +7,7 @@ aconf
 addrs
 adipiscing
 Aenean
+Alahi
 algoliasearch
 aliquam
 Aliquam
@@ -14,6 +15,7 @@ aliquet
 aliyun
 altname
 amet
+Amodal
 ansi
 antfu
 anymatch
@@ -37,6 +39,8 @@ autoprefixer
 Autoregressive
 avahi
 axios
+Baccouche
+backprop
 Backprop
 backpropagate
 Backpropagate
@@ -68,6 +72,7 @@ bundlerutils
 bunzip
 cacerts
 Caffe
+Carreira
 ccount
 cdist
 cdrecord
@@ -98,12 +103,15 @@ consectetur
 consequat
 conv
 Conv
+convnet
+convnets
 convolutional
 Copype
 cout
 covariate
 covector
 cpio
+cpython
 crossfit
 crowdsourcing
 csstype
@@ -124,6 +132,7 @@ DCCC
 Deconvolution
 denoising
 dequal
+Detectron
 devlop
 dgamma
 dhclient
@@ -187,6 +196,7 @@ FAISS
 fastq
 faucibus
 fdformat
+Feichtenhofer
 felis
 fermentum
 fflate
@@ -206,9 +216,11 @@ GDDR
 GELU
 Genmask
 getrandom
+GFLOP
 giscus
 github
 globby
+Goodfellow
 googlescholar
 gopd
 gracetime
@@ -256,6 +268,7 @@ Jamón
 Jiao
 jiti
 Joffe
+Johansson
 journalctl
 jridgewell
 jsfiddle
@@ -295,6 +308,7 @@ libnss
 libstrongswan
 libxcb
 lightningcss
+linkedin
 linkedlist
 linkify
 linspace
@@ -323,6 +337,8 @@ Marr
 mathbb
 mathbf
 mathjax
+mathrm
+Matryoshka
 mattis
 mauris
 Mauris
@@ -385,6 +401,7 @@ NNDL
 nodeeps
 nodelib
 NOIP
+Nonlocal
 noprefixroute
 noqueue
 nprogress
@@ -395,6 +412,7 @@ nullptr
 numpy
 nums
 nuxt
+Octree
 odio
 Omniglot
 openbsd
@@ -452,6 +470,7 @@ qdisc
 qlen
 qrcode
 quis
+Radford
 RCNN
 readdirp
 redhat
@@ -485,6 +504,7 @@ sapien
 sasv
 satm
 saturntsen
+Savarese
 scanbus
 scandir
 scelerisque
@@ -495,6 +515,7 @@ shiki
 Shiki
 shikijs
 SIGGRAPH
+Simonyan
 sindresorhus
 sjtu
 SJTU
@@ -507,6 +528,7 @@ sollicitudin
 sortablejs
 spain
 sparsify
+Spatio
 speakingurl
 speit
 sprintf
@@ -553,6 +575,7 @@ tolower
 topk
 torchvision
 tortor
+TPAMI
 traceroute
 Traceroute
 tracert
@@ -567,6 +590,7 @@ typedef
 ullamcorper
 ultrices
 ultricies
+umcv
 UNCONN
 underbrace
 undici

@@ -1,9 +1,9 @@
 ---
-title: UM-CV 21 Reinforcement Learning
+title:  21 Reinforcement Learning
 tags:
     - computer-vision
 createTime: 2025/01/23 15:36:02
-permalink: /notes/computer-vision/UMichigan-CV/um-cv-course-21-reinforcement-learning/
+permalink: /notes/um-cv/um-cv-21/
 ---
 
 A general introduction to reinforcement learning and its applications in deep neural networks.

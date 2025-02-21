@@ -1,10 +1,11 @@
 ---
-title: UM-CV 2 Image Classification
+title:  2 Image Classification
 tags: 
   - notes
   - computer-vision
 createTime: 2024/12/20 14:30:31
-permalink: /notes/computer-vision/UMichigan-CV/um-cv-course-2-classification/
+permalink: /notes/um-cv/um-cv-2/
+outline: [2, 4]
 ---
 
 Summary: Image Classification, KNN, Hyperparameters, Curse of Dimensionality,

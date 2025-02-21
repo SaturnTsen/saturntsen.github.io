@@ -1,9 +1,10 @@
 ---
-title: UM-CV 16 Object Semantic Segmentation
+title:  16 Object Semantic Segmentation
 tags:
   - computer-vision
 createTime: 2024/12/29 11:01:56
-permalink: /notes/computer-vision/UMichigan-CV/Course-16-Object-Segmentation/
+permalink: /notes/um-cv/um-cv-16/
+outline: [2, 4]
 ---
 
 ## Summary
@@ -30,9 +31,9 @@ this document](#notice-on-usage-and-attribution)**
 ## Object Segmentation
 
 Label each pixel in an image with a category label. Do not differentiate
-instances, onlu care about pixels.
+instances, only care about pixels.
 
-Intuition: Sliding window classiffier, but for each pixel.
+Intuition: Sliding window classifier, but for each pixel.
 
 ### Fully Convolutional Networks (FCNs)
 
@@ -140,23 +141,23 @@ Fig: Panoptic Segmentation </div>
 
 ### Key Point Estimation
 
-Predict the location of keypoints on an object.
+Predict the location of key points on an object.
 
 <div style="text-align:center;margin-bottom:1em;">
   <img src="/images/um-cv-2/16-11.png" width="70%" alt="Key Point Estimation"  /><br>
 Fig: Key Point Estimation </div>
 
-Mask R-CNN: keypoints
+Mask R-CNN: key points
 
-- Add a keypoint head to predict the location of keypoints
+- Add a keypoint head to predict the location of key points
 
 <div style="text-align:center;margin-bottom:1em;">
-  <img src="/images/um-cv-2/16-12.png" width="70%" alt="Mask R-CNN Keypoints"  /><br>
-Fig: Mask R-CNN Keypoints </div>
+  <img src="/images/um-cv-2/16-12.png" width="70%" alt="Mask R-CNN Key points"  /><br>
+Fig: Mask R-CNN Key points </div>
 
 Joint Instance Segmentation and Keypoint (Pose) Estimation
 
-General Idea: Add Per-region "Heads" to Fasrer/ Mask R-CNN!
+General Idea: Add Per-region "Heads" to Faster/ Mask R-CNN!
 
 ### Dense Captioning
 

@@ -70,6 +70,19 @@ understanding; they only asked to be felt.
 一片满天星空，那种静谧和深邃，与超现实主义展览的诡谲形成了奇妙的对照。或许，艺术
 与生活的本质都一样——不必总试图解释，只需敞开心灵去经历与感受。
 
+
+
+::: card-masonry
+
+![2](/images/life/visits/pompidou/2.png)
+
+![4](/images/life/visits/pompidou/4.png)
+
+![5](/images/life/visits/pompidou/5.jpg)
+
+:::
+
+
 ## GPT-2的超现实主义
 
 When testing the GPT-2-medium model's text generation, I unexpectedly found that
@@ -149,6 +162,16 @@ What I do know is this: stories are never just about the people who live in
 them. They’re about us, the readers, the writers, the ones trying to understand.
 
 And maybe that’s enough to keep telling them.
+
+::: card-masonry
+
+![1](/images/life/visits/pompidou/1.jpg)
+
+![3](/images/life/visits/pompidou/3.jpg)
+
+![6](/images/life/visits/pompidou/6.jpg)
+
+:::
 
 ---
 

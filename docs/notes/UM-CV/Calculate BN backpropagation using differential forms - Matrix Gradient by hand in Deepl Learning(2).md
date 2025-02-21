@@ -1,11 +1,11 @@
 ---
-title: Batch Normalization backpropagation using differential forms - Matrix Gradient by hand in Deep Learning (2)
+title: Batch Normalization backprop
 tags:
  - mathematics
  - machine-learning
  - deep-learning
 createTime: 2024/12/26 11:29:50
-permalink: /notes/computer-vision/UMichigan-CV/Calculate-BN-backpropagation-using-differential-forms-Matrix-Gradient-by-hand-in-Deep-Learning/
+permalink: /notes/um-cv/backprop-calc-2/
 ---
 
 For the rules of matrix differentiation, please refer to the previous article: [Calculate the gradient of a matrix by hand in deep learning](/mathematics/gradient-chain-rule-matrix-gradients-deep-learning/)
