@@ -39,9 +39,9 @@ export default defineThemeConfig({
         { text: 'UM-CV', link: '/notes/um-cv/README.md' },
         { text: 'LeetCode', link: '/notes/leetcode/README.md' },
         { text: 'Misc', link: '/notes/misc/' },
-        { text: 'Life', link: '/blog/' }
       ]
     },
+    { text: 'Life', link: '/blog/' }
 
   ],
   notes,

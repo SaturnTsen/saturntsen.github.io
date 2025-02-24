@@ -3,7 +3,9 @@ title: Array
 createTime: 2025/02/21 15:17:52
 permalink: /notes/leetcode/array/
 ---
-## #135.candy.cpp
+
+# 135 Candy: 
+
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
@@ -70,39 +72,7 @@ int main()
 }
 ```
 
-## 125.cpp
-```cpp
-#include <iostream>
-#include <string>
-
-using namespace std;
-bool isPalindrome(string s)
-{
-    int i = 0, j = s.length() - 1;
-    while (true) {
-        while (i < s.length() && !(isalpha(s[i]) || isdigit(s[i])))
-            i++;
-        while (j >= 0 && !(isalpha(s[j]) || isdigit(s[j])))
-            j--;
-        if (i >= j || i == s.length() || j < 0)
-            return true;
-        if (tolower(s[i]) != tolower(s[j]))
-            return false;
-        i++;
-        j--;
-    }
-}
-int main()
-{
-    string s = "ab2a";
-    bool ret = isdigit(s[2]);
-    // bool ret = isPalindrome(s);
-    cout << ret;
-    return 0;
-}
-```
-
-## 13.RomanToInteger.cpp
+## 13 RomanToInteger
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
@@ -132,21 +102,29 @@ public:
 };
 ```
 
-## 189.Rotate_Array.cpp
+## 189 Rotate Array
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
 class Solution {
 public:
+    void reverse(vector<int>& nums, int start, int end)
+    {
+        while (start < end) {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
+    }
     void rotate(vector<int>& nums, int k)
     {
-        int len = nums.size();
-        vector<int> ans(len);
-        for (int i = 0; i < len; i++) {
-            ans[(i + k) % len] = nums[i];
-        }
-        for (int i = 0; i < len; i++)
-            nums[i] = ans[i];
+        k %= nums.size();
+        reverse(nums.begin(), nums.end());
+        reverse(nums.begin(), nums.begin() + k);
+        reverse(nums.begin() + k, nums.end());
+        return nums;
     }
 };
 ```

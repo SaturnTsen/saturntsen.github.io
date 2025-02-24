@@ -3,6 +3,43 @@ title: TwoPointers
 createTime: 2025/02/21 15:20:47
 permalink: /notes/notes/leetcode/cg89ewo7/
 ---
+
+
+## 125 Valid Palindrome
+
+```cpp
+// leetcode link: https://leetcode.com/problems/valid-palindrome
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+bool isPalindrome(string s)
+{
+    int i = 0, j = s.length() - 1;
+    while (true) {
+        while (i < s.length() && !(isalpha(s[i]) || isdigit(s[i])))
+            i++;
+        while (j >= 0 && !(isalpha(s[j]) || isdigit(s[j])))
+            j--;
+        if (i >= j || i == s.length() || j < 0)
+            return true;
+        if (tolower(s[i]) != tolower(s[j]))
+            return false;
+        i++;
+        j--;
+    }
+}
+int main()
+{
+    string s = "ab2a";
+    bool ret = isdigit(s[2]);
+    // bool ret = isPalindrome(s);
+    cout << ret;
+    return 0;
+}
+```
+
 ## 11.Container_With_Most_Water.cpp
 ```cpp
 #include <bits/stdc++.h>

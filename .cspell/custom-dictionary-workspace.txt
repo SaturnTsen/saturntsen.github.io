@@ -78,6 +78,7 @@ cdist
 cdrecord
 cdrom
 certreq
+CFLAGS
 chage
 Chainer
 charon
@@ -97,6 +98,7 @@ codepen
 Colab
 commonmark
 condabin
+condarc
 condimentum
 congue
 consectetur
@@ -107,10 +109,12 @@ convnet
 convnets
 convolutional
 Copype
+Corasick
 cout
 covariate
 covector
 cpio
+CPPFLAGS
 cpython
 crossfit
 crowdsourcing
@@ -118,6 +122,8 @@ csstype
 cubilia
 cuda
 CUDA
+cudnn
+CUDNN
 cumsum
 cupsd
 Curabitur
@@ -125,6 +131,8 @@ curae
 cvfj
 cvfz
 CVPR
+CXXFILT
+CXXFLAGS
 dapibus
 darwin
 dbeta
@@ -171,6 +179,8 @@ einsum
 ELBO
 eleifend
 elementum
+elfedit
+ELFEDIT
 elif
 elit
 endi
@@ -188,6 +198,7 @@ ethernet
 euismod
 eventemitter
 eventlog
+excludedportrange
 execa
 extauth
 extglob
@@ -202,6 +213,8 @@ fermentum
 fflate
 filedos
 fileunix
+filt
+findstr
 firefox
 flushdns
 freebsd
@@ -223,6 +236,8 @@ globby
 Goodfellow
 googlescholar
 gopd
+gprof
+GPROF
 gracetime
 gradcheck
 gradgradcheck
@@ -279,6 +294,7 @@ jxvf
 Kaggle
 Kaiming
 kaiti
+Karp
 katex
 keepdim
 Keras
@@ -291,6 +307,8 @@ lacus
 LAION
 layerwise
 lazyload
+ldconfig
+LDFLAGS
 lectus
 leetcode
 lenarr
@@ -301,6 +319,7 @@ libasound
 libatk
 libcharon
 libcups
+libcusparse
 libfuse
 libgbm
 libgl
@@ -308,6 +327,7 @@ libnss
 libstrongswan
 libxcb
 lightningcss
+Linh
 linkedin
 linkedlist
 linkify
@@ -316,6 +336,7 @@ linux
 lladdr
 LLMNR
 lobortis
+localaddress
 localappdata
 localdomain
 localectl
@@ -332,6 +353,7 @@ luctus
 LXXX
 maddr
 malesuada
+Manacher's
 markmap
 Marr
 mathbb
@@ -356,12 +378,18 @@ microhei
 micromark
 ming
 minibatch
+Miniconda
 minimatch
 minimist
 minisearch
 mips
 mkisofs
 mlly
+mmcv
+mmdet
+mmengine
+mmpretrain
+mmsegmentation
 Mnet
 MNIST
 mobike
@@ -371,6 +399,7 @@ Mountpoints
 msdos
 MSRA
 Multiclass
+mychan
 myhost
 myprofile
 myrobbyrussell
@@ -412,10 +441,18 @@ nullptr
 numpy
 nums
 nuxt
+nvcc
+NVCC
+nvidia
+objcopy
+OBJCOPY
+objdump
+OBJDUMP
 Octree
 odio
 Omniglot
 openbsd
+openmmlab
 openssh
 optim
 Optim
@@ -464,6 +501,7 @@ purus
 pwck
 pwsh
 Pwsh
+pypi
 pytorch
 Pytorch
 qdisc
@@ -471,8 +509,13 @@ qlen
 qrcode
 quis
 Radford
+ranlib
+RANLIB
+rasdial
 RCNN
 readdirp
+readelf
+READELF
 redhat
 Redhat
 regularizers
@@ -509,11 +552,13 @@ scanbus
 scandir
 scelerisque
 senectus
+setproxy
 SGID
 Shapley
 shiki
 Shiki
 shikijs
+SHLVL
 SIGGRAPH
 Simonyan
 sindresorhus
@@ -554,6 +599,8 @@ suscipit
 sutuo
 swanctl
 swapon
+SYSCONFIGDATA
+SYSROOT
 Szegedy
 tcpdump
 tcpview
@@ -573,12 +620,14 @@ tinyexec
 tlunp
 tolower
 topk
+torchaudio
 torchvision
 tortor
 TPAMI
 traceroute
 Traceroute
 tracert
+Treap
 tristique
 Tsen
 tulnp
@@ -603,6 +652,7 @@ unoo
 unpooling
 Unpooling
 unrar
+unsetproxy
 unsqueeze
 upath
 updatedb

@@ -9,6 +9,7 @@ export default defineNoteConfig({
       text: 'Linux',
       prefix: '/notes/misc',
       items: [
+        'linux-setup/',
         'git/',
         'vim/',
         'ssh-and-tmux/',
@@ -29,6 +30,16 @@ export default defineNoteConfig({
       ]
     },
     {
+      text: 'Python',
+      prefix: '/notes/misc',
+      items: [
+          'conda-env-config/',
+          'pip/',
+          'local-compile/',
+          'global-interpreter-lock-in-cpython/',
+      ]
+    },
+    {
       text: 'Virtualization',
       prefix: '/notes/misc',
       items: [
@@ -41,7 +52,6 @@ export default defineNoteConfig({
         text: 'Others',
         prefix: '/notes/misc',
         items: [
-            'global-interpreter-lock-in-cpython/',
             'javascript-inheritance/',
         ]
     }

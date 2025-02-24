@@ -4,17 +4,13 @@ createTime: 2023/10/03 12:13:03
 permalink: /notes/misc/git/
 ---
 
-## 目录
 - [Git](#git)
-  - [Git 的命令行接口](#git-git-的命令行接口)
-  - [基础](#git-基础)
-  - [分支和合并](#git-分支和合并)
-  - [远端操作](#git-远端操作)
-  - [撤销](#git-撤销)
-  - [Git 高级操作](#git-git-高级操作)
-- [ltrace, dtrace](#ltrace-dtrace)
-- [Clangd, clang-format](#clangd-clang-format)
-  - [详见clang-format配置文件](#clangd-详见clang-format配置文件)
+  - [Git 的命令行接口](#git-的命令行接口)
+  - [基础](#基础)
+  - [分支和合并](#分支和合并)
+  - [远端操作](#远端操作)
+  - [撤销](#撤销)
+  - [Git 高级操作](#git-高级操作)
 
 ## Git
 

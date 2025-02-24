@@ -8,13 +8,12 @@ permalink: /notes/misc/vim/
 
 ## 目录
 - [Vim](#vim)
-  - [移动](#vim-移动)
-  - [编辑](#vim-编辑)
-  - [撤销重做](#vim-撤销重做)
-  - [Visual mode](#vim-visual-mode)
-  - [搜索替换](#vim-搜索替换)
-  - [页面分割](#vim-页面分割)
-  - [详见 vim Cheatsheet](#vim-详见-vim-cheatsheet)
+  - [移动](#移动)
+  - [编辑](#编辑)
+  - [撤销重做](#撤销重做)
+  - [Visual mode](#visual-mode)
+  - [搜索替换](#搜索替换)
+  - [页面分割](#页面分割)
 
 ## Vim
 

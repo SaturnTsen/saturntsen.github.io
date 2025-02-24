@@ -5,9 +5,9 @@ permalink: /notes/misc/ssh-and-tmux/
 outline: [2, 4]
 ---
 
-## 1. tmux
+## tmux
 
-### 1.1 Tmux 简介
+### Tmux 简介
 - Tmux 是一个终端复用器（terminal multiplexer），允许在单一窗口中同时运行多个会
   话，并支持分离会话、共享会话等功能。
 - 它的主要功能：
@@ -15,7 +15,7 @@ outline: [2, 4]
   2. 支持在不同终端之间共享会话。
   3. 支持窗口的垂直和水平拆分。
 
-### 1.2 安装 Tmux
+### 安装 Tmux
 - 在 Ubuntu 或 Debian 上安装：  
   `sudo apt-get install tmux`
 - 在 CentOS 或 Fedora 上安装：  
@@ -23,17 +23,17 @@ outline: [2, 4]
 - 在 Mac 上安装：  
   `brew install tmux`
 
-### 1.3 基本操作
+### 基本操作
 - 启动 Tmux：  
   `tmux`
 - 退出 Tmux：  
   `exit` 或按 `Ctrl+d`
 
-### 1.4 前缀键
+### 前缀键
 - 默认前缀键是 `Ctrl+b`，所有快捷键需先按 `Ctrl+b`，然后再按其他按键。
   - 示例：`Ctrl+b ?` 查看帮助。
 
-### 1.5 会话管理
+### 会话管理
 1. **新建会话**：  
    `tmux new -s <session-name>`
 2. **分离会话**：  
@@ -49,7 +49,7 @@ outline: [2, 4]
 7. **重命名会话**：  
    `tmux rename-session -t <session-name> <new-name>`
 
-### 1.6 最简操作流程
+### 最简操作流程
 1. 新建会话：  
    `tmux new -s my_session`
 2. 在 Tmux 窗口运行程序。
@@ -58,7 +58,7 @@ outline: [2, 4]
 4. 下次连接会话：  
    `tmux attach -t my_session`
 
-### 1.7 窗格操作
+### 窗格操作
 1. **划分窗格**：
    - 垂直划分：  
      `Ctrl+b %`
@@ -81,7 +81,7 @@ outline: [2, 4]
 4. **关闭窗格**：  
    `Ctrl+b x`
 
-### 1.8 窗口管理
+### 窗口管理
 1. **新建窗口**：  
    `Ctrl+b c`
 2. **切换窗口**：
@@ -94,15 +94,15 @@ outline: [2, 4]
 3. **重命名窗口**：  
    `Ctrl+b ,`
 
-## 2. SSH
+## SSH
 
-### 2.1 安装 SSH Server
+### 安装 SSH Server
 - 安装 SSH Server：  
   `apt install ssh-server`
 - 查看服务端状态：  
   `service sshd status`
 
-### 2.2 客户端配置
+### 客户端配置
 - 安装 SSH 客户端：  
   `apt install ssh-client`
 - 生成 SSH 密钥：  
@@ -112,7 +112,7 @@ outline: [2, 4]
 - 设置密钥权限：  
   `chmod 0400 id_rsa`
 
-### 2.3 连接
+### 连接
 - 使用 SSH 连接远程服务器：
   `ssh -i ~/.ssh/id_rsa -p 999 root@140.143.18.32`
 - 默认端口连接：
@@ -122,13 +122,13 @@ outline: [2, 4]
 - 登出：  
   `logout`
 
-### 2.4 导出日志
+### 导出日志
 - 导出远程服务器日志：  
   `ssh root@47.116.28.185 journalctl > journal.txt`
 
-## 3. VS Code SSH 配置
+## VS Code SSH 配置
 
-### 3.1 配置步骤
+### 配置步骤
 1. 编辑 SSH 配置文件：  
    `~/.ssh/config`
 2. 配置内容示例：

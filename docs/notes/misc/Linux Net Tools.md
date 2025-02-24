@@ -7,6 +7,35 @@ createTime: 2023/11/04 20:56:04
 permalink: /notes/misc/linux-net-tools/
 ---
 
+## Linux 网络代理配置
+
+```bash
+function setproxy() {
+    export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+    export http_proxy="http://172.16.6.115:12607"
+    export https_proxy=$http_proxy
+    echo -e "Testing proxy access to Instagram..."
+    title=$(curl -s https://www.instagram.com | grep -oP '(?<=<title>).*?(?=</title>)')
+    if [[ -n "$title" ]]; then
+        echo -e "Proxy set successfully. [Test Page Title: $title"]
+    else
+        echo -e "Proxy might not be working. Could not retrieve page title."
+    fi
+    proxy_ip=$(curl -s https://api64.ipify.org?format=json | grep -oP '(?<="ip":")[^"]+')
+    if [[ -n "$proxy_ip" ]]; then
+        echo -e "Current public IP (via proxy): $proxy_ip"
+    else
+        echo -e "Failed to retrieve public IP. Proxy might not be working."
+    fi
+}
+
+function unsetproxy(){
+    unset http_proxy
+    unset https_proxy
+    echo -e "proxy off"
+}
+```
+
 ## Linux 网络管理方式总结
 
 Linux 中有三种主要的网络管理方式：
@@ -610,8 +639,6 @@ inet6 fe80::20c:29ff:fe4c:ebe8/64 scope link
      - `link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00`：回环接口的链路层信息。
      - `link/ether 00:0c:29:4c:eb:e8 brd ff:ff:ff:ff:ff:ff`：以太网接口的 MAC 地址是 `00:0c:29:4c:eb:e8`，广播地址是 `ff:ff:ff:ff:ff:ff`。
 
----
-
 ### 2. **查看 ARP 表： `ip neigh` / `arp`**
 
    - 使用 `ip neigh` 查看 ARP 表信息：
@@ -645,8 +672,6 @@ inet6 fe80::20c:29ff:fe4c:ebe8/64 scope link
    - `Flags`：标志位（如 `C` 表示已缓存）。
    - `Iface`：使用的网络接口（如 `ens33`）。
    - `STALE`：表示 ARP 表项为过时状态。
-
----
 
 ### 3. **查看以太网接口参数： `ethtool`**
 

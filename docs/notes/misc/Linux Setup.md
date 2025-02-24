@@ -3,7 +3,7 @@ title: Linux Setup
 tags:
    - utils
 createTime: 2024/02/04 13:47:40
-permalink: /utils/Linux-Setup/
+permalink: /notes/misc/linux-setup/
 ---
 
 ### 系统初始化
@@ -26,8 +26,6 @@ apt install -y wget curl vim gcc g++ clangd git make cmake aconf
 apt install -y zsh sudo  # 可选
 unminimize && apt install -y man  # 可选
 ```
-
----
 
 ### 中文环境配置
 
@@ -70,8 +68,6 @@ unminimize && apt install -y man  # 可选
    cat /etc/profile          # 检查环境变量是否有中文
    ```
 
----
-
 ### 容器内字体配置
 容器内无需安装字体，但如果需要：
 1. 安装文泉驿字体：
@@ -80,8 +76,6 @@ unminimize && apt install -y man  # 可选
    apt install ttf-wqy-zenhei     # 文泉驿-正黑
    apt install xfonts-wqy         # 文泉驿-点阵宋体
    ```
-
----
 
 ### 其他配置
 
