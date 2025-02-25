@@ -59,6 +59,7 @@ Binford
 birpc
 bitmanipulation
 blandit
+blas
 BLAS
 blkid
 bluetooth
@@ -73,6 +74,7 @@ bunzip
 cacerts
 Caffe
 Carreira
+ccimport
 ccount
 cdist
 cdrecord
@@ -122,8 +124,10 @@ csstype
 cubilia
 cuda
 CUDA
+cudatoolkit
 cudnn
 CUDNN
+cumm
 cumsum
 cupsd
 Curabitur
@@ -141,6 +145,7 @@ Deconvolution
 denoising
 dequal
 Detectron
+devel
 devlop
 dgamma
 dhclient
@@ -265,6 +270,7 @@ ifup
 ILSVRC
 IMAGENET
 imperdiet
+importlib
 inet
 infty
 interdum
@@ -319,11 +325,13 @@ libasound
 libatk
 libcharon
 libcups
+libcusolver
 libcusparse
 libfuse
 libgbm
 libgl
 libnss
+libstdcxx
 libstrongswan
 libxcb
 lightningcss
@@ -382,6 +390,8 @@ Miniconda
 minimatch
 minimist
 minisearch
+minkovski
+Minkovski
 mips
 mkisofs
 mlly
@@ -451,6 +461,7 @@ OBJDUMP
 Octree
 odio
 Omniglot
+openblas
 openbsd
 openmmlab
 openssh
@@ -464,6 +475,7 @@ overfitting
 Papert
 parallelizable
 pathe
+pccm
 peap
 Pellentesque
 pengzhanbo
@@ -501,6 +513,7 @@ purus
 pwck
 pwsh
 Pwsh
+pybind
 pypi
 pytorch
 Pytorch
@@ -574,6 +587,7 @@ sortablejs
 spain
 sparsify
 Spatio
+spconv
 speakingurl
 speit
 sprintf

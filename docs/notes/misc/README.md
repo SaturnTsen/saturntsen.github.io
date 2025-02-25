@@ -25,7 +25,9 @@ useful notes and guides on various topics:
 - [Powershell and oh-my-posh](./Powershell%20and%20oh-my-posh.md)
 
 ### Python
-- [Conda environment configuration](./conda%20environment%20configuration.md)
+- [Anaconda](./conda%20environment%20configuration.md)
+- [pip guidelines](./pip.md)
+- [Environment cookbook](./本地编译.md)
 - [GIL in CPython](./Global%20Interpreter%20Lock%28GIL%29%20in%20CPython.md)
 
 ### Virtual Machines

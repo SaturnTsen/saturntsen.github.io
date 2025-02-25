@@ -1,5 +1,5 @@
 ---
-title: pip
+title: pip 使用指南
 createTime: 2025/02/24 17:37:43
 permalink: /notes/misc/pip/
 ---

@@ -1,5 +1,5 @@
 ---
-title: conda
+title: conda 使用指南
 createTime: 2024/01/11 16:36:01
 permalink: /notes/misc/conda-env-config/
 outline: [2,4]
@@ -33,7 +33,8 @@ rm Miniconda3-latest-Linux-x86_64.sh
 激活环境。激活后，重启终端。
 
 ```bash
-$(find ~ -name "conda" 2>/dev/null) init
+find ~ -name "conda"
+conda init bash
 ```
 
 ### 常用命令
