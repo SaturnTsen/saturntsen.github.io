@@ -4,7 +4,48 @@ createTime: 2025/02/21 15:17:52
 permalink: /notes/leetcode/array/
 ---
 
-# 135 Candy: 
+## 169 Majority Element
+
+Given an array nums of size `n`, return the majority element.
+
+The majority element is the element that appears more than `⌊n / 2⌋` times. You may assume that the majority element always exists in the array.
+
+**Boyer-Moore Voting Algorithm**
+
+Time complexity: $O(n)$
+
+Space complexity: $O(1)$
+
+```cpp
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int m = 0;
+        int ans;
+        for (int& num: nums) {
+            if (m == 0) {
+                ans = num;
+                m++;
+            } else if (ans == num) {
+                m++;
+            } else {
+                m--;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+**Correctness**
+
+Loop Invariant: after processing $n$ input elements, the input sequence can be
+partitioned into $(n-c)/2$ pairs of unequal elements and $c$ copies of $m$ left
+over.
+
+Try to prove the loop invariant by induction. Think about why $n-c$ is even.
+
+# 135 Candy 
 
 ```cpp
 #include <bits/stdc++.h>

@@ -6,6 +6,7 @@ accumsan
 aconf
 addrs
 adipiscing
+advfirewall
 Aenean
 Alahi
 algoliasearch
@@ -13,6 +14,8 @@ aliquam
 Aliquam
 aliquet
 aliyun
+allowedconnections
+allprofiles
 altname
 amet
 Amodal
@@ -170,6 +173,7 @@ downsamples
 downsampling
 dpkg
 drauu
+droppedconnections
 dsigma
 dtrace
 dtype
@@ -349,6 +353,7 @@ localappdata
 localdomain
 localectl
 localinstall
+localsend
 localuser
 loong
 loperand
@@ -374,6 +379,7 @@ mauris
 Mauris
 maxcount
 Maxence
+maxfilesize
 maximus
 Maxout
 mdast
@@ -615,6 +621,7 @@ swanctl
 swapon
 SYSCONFIGDATA
 SYSROOT
+systemroot
 Szegedy
 tcpdump
 tcpview
@@ -707,6 +714,7 @@ whatsmyip
 whatwg
 whereis
 whois
+winget
 winhttp
 winpe
 wireshark

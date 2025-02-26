@@ -7,35 +7,6 @@ createTime: 2023/11/04 20:56:04
 permalink: /notes/misc/linux-net-tools/
 ---
 
-## Linux 网络代理配置
-
-```bash
-function setproxy() {
-    export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
-    export http_proxy="http://172.16.6.115:12607"
-    export https_proxy=$http_proxy
-    echo -e "Testing proxy access to Instagram..."
-    title=$(curl -s https://www.instagram.com | grep -oP '(?<=<title>).*?(?=</title>)')
-    if [[ -n "$title" ]]; then
-        echo -e "Proxy set successfully. [Test Page Title: $title"]
-    else
-        echo -e "Proxy might not be working. Could not retrieve page title."
-    fi
-    proxy_ip=$(curl -s https://api64.ipify.org?format=json | grep -oP '(?<="ip":")[^"]+')
-    if [[ -n "$proxy_ip" ]]; then
-        echo -e "Current public IP (via proxy): $proxy_ip"
-    else
-        echo -e "Failed to retrieve public IP. Proxy might not be working."
-    fi
-}
-
-function unsetproxy(){
-    unset http_proxy
-    unset https_proxy
-    echo -e "proxy off"
-}
-```
-
 ## Linux 网络管理方式总结
 
 Linux 中有三种主要的网络管理方式：
@@ -97,6 +68,35 @@ ps -p 1 -o comm=  # 通过查看进程ID为1的命令来判断是否使用system
 此信息来自 [Ask Ubuntu](https://askubuntu.com/questions/1031439/am-i-running-networkmanager-or-networkd)。
 
 ## 应用层
+
+### http 代理配置
+
+```bash
+function setproxy() {
+    export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+    export http_proxy="http://172.16.6.115:12607"
+    export https_proxy=$http_proxy
+    echo -e "Testing proxy access to Instagram..."
+    title=$(curl -s https://www.instagram.com | grep -oP '(?<=<title>).*?(?=</title>)')
+    if [[ -n "$title" ]]; then
+        echo -e "Proxy set successfully. [Test Page Title: $title"]
+    else
+        echo -e "Proxy might not be working. Could not retrieve page title."
+    fi
+    proxy_ip=$(curl -s https://api64.ipify.org?format=json | grep -oP '(?<="ip":")[^"]+')
+    if [[ -n "$proxy_ip" ]]; then
+        echo -e "Current public IP (via proxy): $proxy_ip"
+    else
+        echo -e "Failed to retrieve public IP. Proxy might not be working."
+    fi
+}
+
+function unsetproxy(){
+    unset http_proxy
+    unset https_proxy
+    echo -e "proxy off"
+}
+```
 
 ### 下载工具
 - **Wget 和 Curl**

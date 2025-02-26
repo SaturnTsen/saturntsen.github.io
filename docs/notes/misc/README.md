@@ -19,10 +19,11 @@ useful notes and guides on various topics:
 - [Linux Net Tools](./Linux%20Net%20Tools.md)
 
 ### Windows
-- [Network](./network-proxy.md)
+- [Network](./Win%20Network.md)
 - [DISM-WinPE](./DISM-WinPE.md)
 - [Win2WinSSH](./Win2WinSSH.md)
 - [Powershell and oh-my-posh](./Powershell%20and%20oh-my-posh.md)
+- [winget, scoop and chocolatey](./winget-scoop-chocolatey.md)
 
 ### Python
 - [Anaconda](./conda%20environment%20configuration.md)

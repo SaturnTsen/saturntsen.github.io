@@ -23,10 +23,11 @@ export default defineNoteConfig({
       text: 'Windows',
       prefix: '/notes/misc',
       items: [
+        'win-network/',
         'powershell-and-oh-my-posh/',
         'win2win-ssh/',
-        'network-proxy/',
         'dism-winpe/',
+        'winget-scoop-chocolatey/',
       ]
     },
     {
