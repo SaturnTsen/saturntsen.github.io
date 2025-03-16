@@ -3,7 +3,11 @@ title: LinkedList
 createTime: 2025/02/21 15:20:47
 permalink: /notes/leetcode/linkedlist/
 ---
-## 141.LinkedListCycle.cpp
+
+## 141 LinkedListCycle
+
+该题是一个链表中是否有环的问题，可以使用哈希表或者快慢指针来解决。
+
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
@@ -47,7 +51,10 @@ public:
 
 ```
 
-## 2.Add.cpp
+## 2 Add
+
+该题是一个链表的加法，需要注意进位的处理。
+
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
@@ -94,7 +101,10 @@ public:
 };
 ```
 
-## 876.Middle.cpp
+## 876 Middle
+
+该题引入一个核心想法，即快慢指针。
+
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
@@ -135,3 +145,65 @@ public:
 };
 ```
 
+## 82 RemoveDuplicates
+
+该题难度中偏易，需要处理头部节点和尾部节点为空的特殊情况。
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    void printall(ListNode* head) {
+        while (head) {
+            cout << head->val << " ";
+            head = head->next;
+        }
+        cout << endl;
+    }
+    ListNode* deleteDuplicates(ListNode* head) {
+        ListNode* prior = new ListNode();  // the node prior to begin
+        ListNode* real_head = prior; // real list head
+        ListNode* begin = head; // position from which the deletion starts
+        ListNode* end; // position at which the deletion stops, not inclduing this node
+        prior -> next = head; // a placehoder node at the beginning
+        while (begin) {
+            end = begin->next;
+            // if duplicates are detected
+            if(end && end->val == begin->val) {
+                // search for the ending
+                while (end && end -> val == begin-> val) {
+                    end = end -> next;
+                }
+                // deletion
+                // cout << "begin: " << begin->val  << " end: " << (end ? end->val : -1) <<endl;
+                ListNode* start = begin;
+                while (start != end) {
+                    ListNode* ptr = start;
+                    start = start -> next;
+                    delete ptr;
+                }
+                // concat
+                prior -> next = end;
+            // if no duplicates
+            } else {
+                prior = prior -> next;
+            }
+            // always set begin to prior -> next to detect duplicates
+            begin = prior -> next;
+            // printall(real_head);
+        }
+        ListNode* ret = real_head->next;
+        delete real_head;
+        return ret;
+    }
+};
+```
