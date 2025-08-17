@@ -39,43 +39,7 @@ computer vision, GenAI, or statistics, I’d love to connect and exchange ideas.
   - Mathematics & Physics Courses: Real Analysis, Advanced Algebra, Abstract Algebra, Topology, Electromagnetism, Optics
   - Computer Science Courses: C++ and Algorithm Design, Data Structure
 
-<h2> Projects </h2>
-
-- **Domain-specific Code Generation with LLMs**, Project Lead, École Polytechnique, Sep. 2024 - Present
-  - Architected the [Envision](https://www.lokad.com/fr/) domain-specific code generation system from scratch.
-  - Achieved 53/75 passing-rate on code generation tasks.
-  - Engineered hybrid RAG pipeline : FAISS search + Multi-agent interaction.
-  - Leading ongoing industrial data tuning (75 tasks).
-
-- **Research on AI Interpretability**, Research Assistant, John-Hopcroft Center, SJTU, Jul. – Aug. 2024
-  - Extracted Shapley values for knowledge distillation and evaluated its
-    generalization ability, assessing knowledge transferability.
-  - Trained classic models such as BERT, VGG, and ResNet, and conducted analysis
-    on robustness.
-
 Feel free to explore more of my work on [GitHub](https://github.com/saturntsen).
-
-<h2> Awards </h2>
-
-- **2024** - Fulgence Bienvenüe Excellence Award, École Polytechnique
-- **2023** - National Scholarship for Undergraduate Students
-- **2022** - Dean’s Award, Shanghai Jiao Tong University
-- **2022** - Meritorious Winner (Top 7%) of the Mathematical Contest in
-  Modeling, USA
-- **2020** - Provincial Second Prize, CSP-S (NOIP Advanced Group, Olympiad in Informatics)
-
-<h2> Skills </h2>
-
-- **Major:** Deep Learning and Computer Vision (3D Asset Generation)
-- **Tech Stack:** Python (NumPy, Pytorch, Pandas), C++, Linux, Docker
-- **Other Frameworks:** LangGraph, Streamlit, Node.js, Vue.js, etc.
-
-<h2> Extracurricular Activities </h2>
-
-- Member, Equestrian Team, École Polytechnique, 2024.06 – Present
-- Member, Model United Nations Association, École Polytechnique, 2024.10 – 2025.02
-- President, Student Union of SJTU-Paris Institute of Technology, 2022.09 – 2023.09
-- Head, Student Innovation Studio, SJTU, 2022.09 – 2023.09
 
 <h2> My mentor, friends and collaborators </h2>
 

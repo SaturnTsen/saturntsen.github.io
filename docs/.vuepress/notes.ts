@@ -8,6 +8,6 @@ import cryptoNote from './notes/crypto'
 export const notes = defineNotesConfig({
   link: '/notes',
   dir: 'notes',
-  notes: [/* computerVisionNote, */ leetcodeNote, misc, umcvNote, cryptoNote]
+  notes: [/* computerVisionNote, */ leetcodeNote, misc, umcvNote, /* cryptoNote */]
 })
 

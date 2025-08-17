@@ -46,7 +46,7 @@ export default defineUserConfig({
        */
       shiki: {
         //  预设代码块高亮语言，减少不必要的时间开销
-        languages: ['shell', 'bash', 'typescript', 'javascript', 'css', 'html',
+        langs: ['shell', 'bash', 'typescript', 'javascript', 'css', 'html',
           'python', 'markdown', 'powershell', 'cmd', 'ini', 'cpp', 'dockerfile'],
       },
 
@@ -70,14 +70,14 @@ export default defineUserConfig({
        * markdown enhance
        * @see https://theme-plume.vuejs.press/config/plugins/markdown-enhance/
        */
-      markdownEnhance: {
-        demo: true,
-        mermaid: true,
-        //   include: true,
-        //   chart: true,
-        //   echarts: true,
-        //   flowchart: true,
-      },
+      // markdownEnhance: {
+      //   demo: true,
+      //   mermaid: true,
+      //   include: true,
+      //   chart: true,
+      //   echarts: true,
+      //   flowchart: true,
+      // },
 
       /**
        *  markdown power

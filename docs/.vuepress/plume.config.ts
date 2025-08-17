@@ -37,12 +37,12 @@ export default defineThemeConfig({
       items: [
         // { text: 'Computer Vision', link: '/notes/computer-vision/README.md' },
         { text: 'CV-NNDL', link: '/notes/um-cv/README.md' },
-        { text: 'Crypto', link: '/notes/crypto/README.md' },
+        // { text: 'Crypto', link: '/notes/crypto/README.md' },
         { text: 'LeetCode', link: '/notes/leetcode/README.md' },
         { text: 'Misc', link: '/notes/misc/' },
       ]
     },
-    { text: 'Life', link: '/blog/' }
+    // { text: 'Life', link: '/blog/' }
 
   ],
   notes,
