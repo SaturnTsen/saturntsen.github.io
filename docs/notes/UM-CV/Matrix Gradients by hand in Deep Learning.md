@@ -176,6 +176,7 @@ $$
 d\sigma(X) = \sigma'(X) \odot dX
 $$
 
+
 ## Gradient calculation in practice
 
 The following examples of this section are taken from the [Zhihu article](https://zhuanlan.zhihu.com/p/24709748), which I strongly recommend for more exercises!
@@ -302,7 +303,7 @@ $$
 
 We leave the reader to verify that the $L$ is a Frobenius product of the target matrix $Y$ and the log-softmax output $P$.
 
-### $\partial L / \partial Z_2$
+### $\partial L / \partial Z_2$ {#partial-L-partial-Z-2}
 
 This is the famous cross-entropy loss on the softmax output. Let's use the differential form of the loss function.
 
@@ -370,7 +371,7 @@ $$
 \frac{\partial L}{\partial Z_2} = \frac{1}{N}(P-Y)
 $$
 
-### $\partial L / \partial W_2$ and $\partial L / \partial b_2$
+### $\partial L / \partial W_2$ and $\partial L / \partial b_2$ {#partial-L-partial-W-2-and-b-2}
 
 $$
 dZ_2 = d(H_1 W_2 + b_2) = dH_1 W_2 + H_1 dW_2 + db_2 
@@ -410,7 +411,7 @@ $$
 \frac{\partial L}{\partial b_2} = \mathbf{1}_{N}^\top \frac{\partial L}{\partial Z_2}=\frac{1}{N}\sum_{i=1}^N (P[i,:]-Y[i,:])
 $$
 
-### $\partial L / \partial H_1$
+### $\partial L / \partial H_1$ {#partial-L-partial-H-1}
 
 Repeat the same calculation for $dL_1$ and $dH_1$. 
 
@@ -428,7 +429,7 @@ $$
 \frac{\partial L}{\partial H_1} = \frac{\partial L}{\partial Z_2}W_2^\top
 $$
 
-### $\partial L / \partial Z_1$
+### $\partial L / \partial Z_1$ {#partial-L-partial-Z-1}
 
 Repeat 
 $$
@@ -446,7 +447,7 @@ $$
 \frac{\partial L}{\partial Z_1} = \frac{\partial L}{\partial H_1}\odot\sigma'(Z_1)
 $$
 
-### $\partial L / \partial W_1$ and $\partial L / \partial b_1$
+### $\partial L / \partial W_1$ and $\partial L / \partial b_1$ {#partial-L-partial-W-1-and-b-1}
 
 Repeat...
 $$
@@ -505,6 +506,7 @@ $$
 $$
 
 We can observe that the gradient of the layer deepens on the gradient of the next layer. This is the principle of backpropagation in deep learning.
+
 
 ### Implementation
 

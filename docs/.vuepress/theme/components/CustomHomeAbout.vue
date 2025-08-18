@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { Content } from 'vuepress/client'
-import type { PlumeHomeConfigBase } from 'vuepress-theme-plume'
+import type { ThemeHomeConfigBase } from 'vuepress-theme-plume'
 import { VPHomeBox, VPImage } from 'vuepress-theme-plume/client'
 
-interface CustomHomeAbout extends PlumeHomeConfigBase {
+interface CustomHomeAbout extends ThemeHomeConfigBase {
   type: 'custom'
 }
 

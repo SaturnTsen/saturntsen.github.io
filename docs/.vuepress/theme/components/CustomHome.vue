@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { PlumeHomeConfigBase } from 'vuepress-theme-plume'
+import type { ThemeHomeConfigBase } from 'vuepress-theme-plume'
 import { VPHomeBox, VPImage } from 'vuepress-theme-plume/client'
 import { computed } from 'vue'
 
-const props = defineProps<PlumeHomeConfigBase & {
+const props = defineProps<ThemeHomeConfigBase & {
   name?: string
   description?: string
   avatar?: string
