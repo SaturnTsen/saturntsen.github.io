@@ -1,0 +1,10 @@
+{
+  "name": "llada::love()",
+  "symbol": "LLOVE",
+  "description": "An NFT dedicated to my girlfriend, the llada programmer ❤️",
+  "image": "https://<your-site>.github.io/nft-image.png",
+  "attributes": [
+    { "trait_type": "Language", "value": "llada" },
+    { "trait_type": "Commitment", "value": "Forever" }
+  ]
+}

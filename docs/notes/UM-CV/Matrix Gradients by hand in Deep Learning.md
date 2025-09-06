@@ -1,5 +1,5 @@
 ---
-title: Twoa-layer MLP backprop
+title: Two-layer MLP backprop
 tags:
   - mathematics
   - machine-learning
