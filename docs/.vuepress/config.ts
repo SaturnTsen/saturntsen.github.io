@@ -7,8 +7,6 @@ import path from 'path'
 let host: string;
 let port: number;
 
-console.log('> process.env:', process.env.NODE_ENV, '\n');
-
 if (process.env.NODE_ENV === 'development') {
   const envFile = '.env'
   dotenv.config({ path: path.resolve(__dirname, `../../${envFile}`) });
@@ -66,40 +64,6 @@ export default defineUserConfig({
         inputPosition: 'top',
       },
 
-      /**
-       * markdown enhance
-       * @see https://theme-plume.vuejs.press/config/plugins/markdown-enhance/
-       */
-      // markdownEnhance: {
-      //   demo: true,
-      //   mermaid: true,
-      //   include: true,
-      //   chart: true,
-      //   echarts: true,
-      //   flowchart: true,
-      // },
-
-      /**
-       *  markdown power
-       * @see https://theme-plume.vuejs.press/config/plugin/markdown-power/
-       */
-      // markdownPower: {
-      //   pdf: true,
-      //   caniuse: true,
-      //   plot: true,
-      //   bilibili: true,
-      //   youtube: true,
-      //   icons: true,
-      //   codepen: true,
-      //   replit: true,
-      //   codeSandbox: true,
-      //   jsfiddle: true,
-      //   repl: {
-      //     go: true,
-      //     rust: true,
-      //     kotlin: true,
-      //   },
-      // },
     },
   }),
 })

@@ -1,8 +1,10 @@
-import { defineNoteConfig } from 'vuepress-theme-plume'
+import { defineCollection } from 'vuepress-theme-plume'
 
-export default defineNoteConfig({
-  link: '/notes/um-cv',
-  dir: 'um-cv',
+export default defineCollection({
+  type: 'doc',
+  title: 'Computer Vision',
+  dir: 'notes/um-cv',
+  linkPrefix: '/notes/um-cv/',
   sidebar: [
     {
       text: 'UM-CV',

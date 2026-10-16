@@ -1,5 +1,5 @@
 import { defineThemeConfig } from 'vuepress-theme-plume'
-import { notes } from './notes'
+import { collections } from './collections'
 
 /**
  * @see https://theme-plume.vuejs.press/config/basic/
@@ -12,8 +12,6 @@ export default defineThemeConfig({
     name: 'SaturnTsen',
     description: 'CV | ML | NNDL',
     avatar: '/avatars/avatar2.png',
-    // location: '您的位置',
-    // organization: '您的组织',
     circle: true, // 是否为圆形头像
     layout: 'left', // 个人信息在左侧还是右侧，'left' | 'right'
   },
@@ -35,18 +33,15 @@ export default defineThemeConfig({
     {
       text: 'Notes',
       items: [
-        // { text: 'Computer Vision', link: '/notes/computer-vision/README.md' },
-        { text: 'CV-NNDL', link: '/notes/um-cv/README.md' },
-        // { text: 'Crypto', link: '/notes/crypto/README.md' },
-        { text: 'LeetCode', link: '/notes/leetcode/README.md' },
+        { text: 'CV-NNDL', link: '/notes/um-cv/' },
+        { text: 'LeetCode', link: '/notes/leetcode/' },
         { text: 'Misc', link: '/notes/misc/' },
         { text: 'AI Agent', link: '/notes/agents/' },
       ]
     },
-    // { text: 'Life', link: '/blog/' }
 
   ],
-  notes,
+  collections,
   footer: {
     copyright: '© 2024 SaturnTsen | Powered by <a href="https://vuepress.vuejs.org/" target="_blank">VuePress</a> & <a href="https://theme-plume.vuejs.press/" target="_blank">Plume</a>',
   }

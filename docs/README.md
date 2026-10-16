@@ -5,7 +5,6 @@ externalLinkIcon: false
 
 config:
   - type: doc-hero
-    effect: prism
     hero:
       name: SaturnTsen
       text: Notes & Ideas
