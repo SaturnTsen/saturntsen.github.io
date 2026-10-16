@@ -35,8 +35,9 @@ export default defineThemeConfig({
       items: [
         { text: 'CV-NNDL', link: '/notes/um-cv/' },
         { text: 'LeetCode', link: '/notes/leetcode/' },
-        { text: 'Misc', link: '/notes/misc/' },
         { text: 'AI Agent', link: '/notes/agents/' },
+        { text: 'Crypto', link: '/notes/crypto/' },
+        { text: 'Misc', link: '/notes/misc/' },
       ]
     },
 
